@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{html_lang}}" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta_title}} | Lotusia</title>
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="{{author}}">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{canonical_url}}">
+    <meta property="og:image" content="{{site_url}}{{og_image}}">
+    <meta property="og:site_name" content="Lotusia">
+    <meta property="og:locale" content="{{og_locale}}">
+    <meta property="article:published_time" content="{{date_iso}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{meta_title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="{{site_url}}{{og_image}}">
+    <link rel="canonical" href="{{canonical_url}}">
+    {{hreflang_tags}}
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {{json_ld}}
+    {{head_extra}}
+</head>
+<body class="bg-background text-foreground min-h-screen">
+    {{header}}
+    <main class="min-h-[calc(100vh-var(--header-height))]">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl py-12">
+            <nav aria-label="Breadcrumb" class="text-sm text-gray-500 mb-8"><span class="inline-flex flex-wrap items-center"><a href="{{url_home}}" class="hover:text-primary">{{breadcrumb_home}}</a><span class="mx-1 text-gray-400">/&nbsp;</span><a href="{{url_blog}}" class="hover:text-primary">{{breadcrumb_blog}}</a><span class="mx-1 text-gray-400">/&nbsp;</span><span class="text-gray-900 dark:text-white font-semibold">{{title}}</span></span></nav>
+            <article itemscope itemtype="https://schema.org/BlogPosting">
+                <header class="mb-12">
+                    <h1 itemprop="headline" class="text-4xl font-bold tracking-tight mb-4">{{title}}</h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-2" itemprop="description">{{description}}</p>
+                    <p class="text-sm text-gray-500"><time itemprop="datePublished" datetime="{{date_iso}}">{{date}}</time> · <span itemprop="author">{{author}}</span></p>
+                </header>
+                <div class="prose" itemprop="articleBody">
+                    {{body}}
+                </div>
+            </article>
+        </div>
+    </main>
+    {{footer}}
+    <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();</script>
+</body>
+</html>

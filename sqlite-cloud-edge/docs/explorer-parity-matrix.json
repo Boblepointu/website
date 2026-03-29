@@ -1,0 +1,106 @@
+{
+  "source": "https://explorer.lotusia.org",
+  "generatedAt": "2026-03-26T00:00:00Z",
+  "pages": [
+    { "path": "/explorer", "demoPath": "/explorer", "apiDependencies": ["/api/explorer/overview", "/api/explorer/chain-info", "/api/explorer/mempool"] },
+    { "path": "/explorer/blocks", "demoPath": "/explorer/blocks", "apiDependencies": ["/api/explorer/blocks"] },
+    { "path": "/explorer/block/:hashOrHeight", "demoPath": "/explorer/block/:hashOrHeight", "apiDependencies": ["/api/explorer/block/:hashOrHeight"] },
+    { "path": "/explorer/tx/:txid", "demoPath": "/explorer/tx/:txid", "apiDependencies": ["/api/explorer/tx/:txid"] },
+    { "path": "/explorer/address/:address", "demoPath": "/explorer/address/:address", "apiDependencies": ["/api/explorer/address/:address", "/api/explorer/address/:address/balance"] },
+    { "path": "/stats", "demoPath": "/explorer/stats", "apiDependencies": ["/api/explorer/stats/cards", "/api/explorer/stats/charts?period=day|week|month|quarter|year"] },
+    { "path": "/richlist", "demoPath": "/explorer/richlist", "apiDependencies": ["/api/explorer/richlist/balance", "/api/explorer/richlist/received", "/api/explorer/richlist/wealth"] },
+    { "path": "/network", "demoPath": "/explorer/network", "apiDependencies": ["/api/explorer/network/peers", "/api/explorer/network/nodes"] }
+  ],
+  "apis": [
+    {
+      "path": "/api/explorer/overview",
+      "method": "GET",
+      "query": {},
+      "shape": {
+        "mininginfo": "object",
+        "peerinfo": "array",
+        "latestBlock": "object"
+      }
+    },
+    {
+      "path": "/api/explorer/blocks",
+      "method": "GET",
+      "query": { "page": "int>=1", "pageSize": "int>=1<=100" },
+      "shape": { "blocks": "array", "page": "number", "pageSize": "number", "tipHeight": "number" }
+    },
+    {
+      "path": "/api/explorer/block/:hashOrHeight",
+      "method": "GET",
+      "query": {},
+      "shape": { "blockInfo": "object", "txs": "array", "minedBy": "string" }
+    },
+    {
+      "path": "/api/explorer/tx/:txid",
+      "method": "GET",
+      "query": {},
+      "shape": { "txid": "string", "inputs": "array", "outputs": "array", "block": "object", "isCoinbase": "boolean" }
+    },
+    {
+      "path": "/api/explorer/address/:address",
+      "method": "GET",
+      "query": { "page": "int>=1", "pageSize": "int>=1<=100" },
+      "shape": { "history": "object", "lastSeen": "number" }
+    },
+    {
+      "path": "/api/explorer/address/:address/balance",
+      "method": "GET",
+      "query": {},
+      "shape": "number"
+    },
+    {
+      "path": "/api/explorer/stats/cards",
+      "method": "GET",
+      "query": {},
+      "shape": {
+        "tipHeight": "number",
+        "hashrate": "number",
+        "difficulty": "number",
+        "mempoolCount": "number",
+        "totalSupplySats": "number",
+        "burnedSupplySats": "number",
+        "inflationPct": "number"
+      }
+    },
+    {
+      "path": "/api/explorer/stats/charts",
+      "method": "GET",
+      "query": { "period": "day|week|month|quarter|year" },
+      "shape": { "period": "string", "series": "array<object{ts,hashrate,difficulty,mempoolCount,totalSupplySats,burnedSupplySats}>" }
+    },
+    {
+      "path": "/api/explorer/richlist/balance",
+      "method": "GET",
+      "query": { "page": "int>=1", "pageSize": "int>=1<=100" },
+      "shape": { "rows": "array<object{rank,address,balanceSats,balanceXpi,pct}>" }
+    },
+    {
+      "path": "/api/explorer/richlist/received",
+      "method": "GET",
+      "query": { "page": "int>=1", "pageSize": "int>=1<=100" },
+      "shape": { "rows": "array<object{rank,address,receivedSats,receivedXpi}>" }
+    },
+    {
+      "path": "/api/explorer/richlist/wealth",
+      "method": "GET",
+      "query": {},
+      "shape": { "buckets": "array<object{label,count,totalSats,pct}>" }
+    },
+    {
+      "path": "/api/explorer/network/peers",
+      "method": "GET",
+      "query": {},
+      "shape": { "peers": "array<object{address,subver,syncedBlocks,countryCode,countryName,lastSeen}>" }
+    },
+    {
+      "path": "/api/explorer/network/nodes",
+      "method": "GET",
+      "query": {},
+      "shape": { "addnode": "array<string>", "onetry": "array<string>" }
+    }
+  ]
+}

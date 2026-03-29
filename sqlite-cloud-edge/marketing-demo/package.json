@@ -1,0 +1,16 @@
+{
+  "name": "lotusia-demo-generator",
+  "private": true,
+  "scripts": {
+    "build": "SITE_URL=${SITE_URL:-https://demo.lotusia.org} node scripts/build.js && npx tailwindcss -i assets/css/input.css -o dist/assets/css/main.css --minify",
+    "deploy": "npm run build && npx wrangler pages deploy dist/ --project-name=${CF_PAGES_PROJECT:-lotusia-demo} --branch=${CF_PAGES_BRANCH:-main}"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "js-yaml": "^4.1.0",
+    "marked": "^15.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

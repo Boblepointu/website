@@ -1,0 +1,286 @@
+{
+  "generatedAt": 1774614024,
+  "baseUrl": "https://legacy.lotusia.org",
+  "routes": [
+    {
+      "path": "/social/activity",
+      "url": "https://legacy.lotusia.org/social/activity",
+      "title": "Latest Activity | Lotusia Explorer",
+      "domSnapshot": "content/social/discovery-dom/social_activity.html"
+    },
+    {
+      "path": "/social/trending",
+      "url": "https://legacy.lotusia.org/social/trending",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_trending.html"
+    },
+    {
+      "path": "/social/profiles",
+      "url": "https://legacy.lotusia.org/social/profiles",
+      "title": "Profiles | Lotusia Explorer",
+      "domSnapshot": "content/social/discovery-dom/social_profiles.html"
+    },
+    {
+      "path": "/social/activity?page=2",
+      "url": "https://legacy.lotusia.org/social/activity?page=2",
+      "title": "Latest Activity | Lotusia Explorer",
+      "domSnapshot": "content/social/discovery-dom/social_activity__page_2.html"
+    },
+    {
+      "path": "/social/profiles?page=2",
+      "url": "https://legacy.lotusia.org/social/profiles?page=2",
+      "title": "Profiles | Lotusia Explorer",
+      "domSnapshot": "content/social/discovery-dom/social_profiles__page_2.html"
+    },
+    {
+      "path": "/social/activity?page=3",
+      "url": "https://legacy.lotusia.org/social/activity?page=3",
+      "title": "Latest Activity | Lotusia Explorer",
+      "domSnapshot": "content/social/discovery-dom/social_activity__page_3.html"
+    },
+    {
+      "path": "/social/profiles?page=3",
+      "url": "https://legacy.lotusia.org/social/profiles?page=3",
+      "title": "Profiles | Lotusia Explorer",
+      "domSnapshot": "content/social/discovery-dom/social_profiles__page_3.html"
+    },
+    {
+      "path": "/social/twitter/0xsero",
+      "url": "https://legacy.lotusia.org/social/twitter/0xsero",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_0xsero.html"
+    },
+    {
+      "path": "/social/twitter/bro4crypto",
+      "url": "https://legacy.lotusia.org/social/twitter/bro4crypto",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_bro4crypto.html"
+    },
+    {
+      "path": "/social/twitter/buridansridge",
+      "url": "https://legacy.lotusia.org/social/twitter/buridansridge",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_buridansridge.html"
+    },
+    {
+      "path": "/social/twitter/crazhfty",
+      "url": "https://legacy.lotusia.org/social/twitter/crazhfty",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_crazhfty.html"
+    },
+    {
+      "path": "/social/twitter/cryptodemedici",
+      "url": "https://legacy.lotusia.org/social/twitter/cryptodemedici",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_cryptodemedici.html"
+    },
+    {
+      "path": "/social/twitter/fruitofgalaxy",
+      "url": "https://legacy.lotusia.org/social/twitter/fruitofgalaxy",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_fruitofgalaxy.html"
+    },
+    {
+      "path": "/social/twitter/galaxyxpi",
+      "url": "https://legacy.lotusia.org/social/twitter/galaxyxpi",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_galaxyxpi.html"
+    },
+    {
+      "path": "/social/twitter/globeeyenews",
+      "url": "https://legacy.lotusia.org/social/twitter/globeeyenews",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_globeeyenews.html"
+    },
+    {
+      "path": "/social/twitter/lotusianturtle",
+      "url": "https://legacy.lotusia.org/social/twitter/lotusianturtle",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_lotusianturtle.html"
+    },
+    {
+      "path": "/social/twitter/rachelclif",
+      "url": "https://legacy.lotusia.org/social/twitter/rachelclif",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_rachelclif.html"
+    },
+    {
+      "path": "/social/twitter/thuancapital",
+      "url": "https://legacy.lotusia.org/social/twitter/thuancapital",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_thuancapital.html"
+    },
+    {
+      "path": "/social/twitter/travisakers",
+      "url": "https://legacy.lotusia.org/social/twitter/travisakers",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_travisakers.html"
+    },
+    {
+      "path": "/social/twitter/trollfootball",
+      "url": "https://legacy.lotusia.org/social/twitter/trollfootball",
+      "title": "Page not found",
+      "domSnapshot": "content/social/discovery-dom/social_twitter_trollfootball.html"
+    }
+  ],
+  "profiles": [
+    {
+      "platform": "twitter",
+      "profileId": "0xsero",
+      "sourceText": "0xsero",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/0xsero"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "bro4crypto",
+      "sourceText": "bro4crypto",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/bro4crypto"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "buridansridge",
+      "sourceText": "buridansridge",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/buridansridge"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "crazhfty",
+      "sourceText": "crazhfty",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/crazhfty"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "cryptodemedici",
+      "sourceText": "cryptodemedici",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/cryptodemedici"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "fruitofgalaxy",
+      "sourceText": "fruitofgalaxy",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/fruitofgalaxy"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "galaxyxpi",
+      "sourceText": "galaxyxpi",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/galaxyxpi"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "globeeyenews",
+      "sourceText": "globeeyenews",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/globeeyenews"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "lotusianturtle",
+      "sourceText": "lotusianturtle",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/lotusianturtle"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "rachelclif",
+      "sourceText": "rachelclif",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/rachelclif"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "thuancapital",
+      "sourceText": "thuancapital",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/thuancapital"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "travisakers",
+      "sourceText": "travisakers",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/travisakers"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "trollfootball",
+      "sourceText": "trollfootball",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/trollfootball"
+    }
+  ],
+  "sampledProfiles": [
+    {
+      "platform": "twitter",
+      "profileId": "0xsero",
+      "sourceText": "0xsero",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/0xsero"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "bro4crypto",
+      "sourceText": "bro4crypto",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/bro4crypto"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "buridansridge",
+      "sourceText": "buridansridge",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/buridansridge"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "crazhfty",
+      "sourceText": "crazhfty",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/crazhfty"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "cryptodemedici",
+      "sourceText": "cryptodemedici",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/cryptodemedici"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "fruitofgalaxy",
+      "sourceText": "fruitofgalaxy",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/fruitofgalaxy"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "galaxyxpi",
+      "sourceText": "galaxyxpi",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/galaxyxpi"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "globeeyenews",
+      "sourceText": "globeeyenews",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/globeeyenews"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "lotusianturtle",
+      "sourceText": "lotusianturtle",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/lotusianturtle"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "rachelclif",
+      "sourceText": "rachelclif",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/rachelclif"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "thuancapital",
+      "sourceText": "thuancapital",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/thuancapital"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "travisakers",
+      "sourceText": "travisakers",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/travisakers"
+    },
+    {
+      "platform": "twitter",
+      "profileId": "trollfootball",
+      "sourceText": "trollfootball",
+      "sourceUrl": "https://legacy.lotusia.org/social/twitter/trollfootball"
+    }
+  ]
+}

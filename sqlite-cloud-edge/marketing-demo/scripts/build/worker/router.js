@@ -1,6 +1,10 @@
 const HTML_CACHE_RULES = {
   '/explorer': 120,
   '/explorer/blocks': 120,
+  '/explorer/mempool': 90,
+  '/explorer/stats': 120,
+  '/explorer/richlist': 120,
+  '/explorer/network': 120,
   '/explorer/block': 240,
   '/explorer/tx': 360,
   '/explorer/address': 240,
@@ -28,6 +32,10 @@ function htmlCacheTtlForPath(strippedPath) {
   const p = String(strippedPath || '/');
   if (p === '/explorer' || p === '/explorer/') return HTML_CACHE_RULES['/explorer'];
   if (p === '/explorer/blocks') return HTML_CACHE_RULES['/explorer/blocks'];
+  if (p === '/explorer/mempool') return HTML_CACHE_RULES['/explorer/mempool'];
+  if (p === '/explorer/stats') return HTML_CACHE_RULES['/explorer/stats'];
+  if (p === '/explorer/richlist') return HTML_CACHE_RULES['/explorer/richlist'];
+  if (p === '/explorer/network') return HTML_CACHE_RULES['/explorer/network'];
   if (p.startsWith('/explorer/block/')) return HTML_CACHE_RULES['/explorer/block'];
   if (p.startsWith('/explorer/tx/')) return HTML_CACHE_RULES['/explorer/tx'];
   if (p.startsWith('/explorer/address/')) return HTML_CACHE_RULES['/explorer/address'];
@@ -52,6 +60,10 @@ function htmlCacheKeyUrl(request, strippedPath) {
 
   if (p === '/social/activity' || p === '/social/profiles' || p === '/explorer/blocks' || p.startsWith('/explorer/address/')) {
     keepParams.push('page', 'pageSize');
+  } else if (p === '/explorer/mempool') {
+    keepParams.push('page', 'pageSize', 'period');
+  } else if (p === '/explorer/stats') {
+    keepParams.push('period');
   } else if (/^\/social\/[^/]+\/[^/]+\/?$/.test(p)) {
     keepParams.push('page', 'pageSize', 'postsPage', 'postsPageSize', 'votesPage', 'votesPageSize');
   }
@@ -199,6 +211,10 @@ async function cachedMarketingAsset(request, env, ctx) {
 
 export default {
   async fetch(request, env, ctx) {
+    setSqliteEdgeConfig(
+      env && env.SQLITE_EDGE_FUNCTIONS_BASE,
+      env && env.SQLITE_EDGE_FUNCTIONS_API_KEY
+    );
     const runtimeApiBase = setSocialApiBase(
       (env && (env.SQLITE_EDGE_API_BASE || env.LEGACY_API_BASE)) || 'https://legacy.lotusia.org'
     );
@@ -225,13 +241,33 @@ export default {
       return cachedAvatarResponse(url, avatarPath.platform, avatarPath.profileId);
     }
     if (strippedPath === '/social' || strippedPath === '/social/') {
-      return Response.redirect('https://lotusia.org' + withWorkerLangPrefix(lang, '/social/activity') + (url.search || ''), 301);
+      return Response.redirect(url.origin + withWorkerLangPrefix(lang, '/social/activity') + (url.search || ''), 301);
     }
 
     try {
       if (strippedPath === '/explorer/blocks') {
         return cachedHtml(request, strippedPath, ctx, async function() {
           return renderExplorerBlocksPage(url, lang);
+        });
+      }
+      if (strippedPath === '/explorer/mempool') {
+        return cachedHtml(request, strippedPath, ctx, async function() {
+          return renderExplorerMempoolPage(url, lang);
+        });
+      }
+      if (strippedPath === '/explorer/stats') {
+        return cachedHtml(request, strippedPath, ctx, async function() {
+          return renderExplorerStatsPage(url, lang);
+        });
+      }
+      if (strippedPath === '/explorer/richlist') {
+        return cachedHtml(request, strippedPath, ctx, async function() {
+          return renderExplorerRichlistPage(url, lang);
+        });
+      }
+      if (strippedPath === '/explorer/network') {
+        return cachedHtml(request, strippedPath, ctx, async function() {
+          return renderExplorerNetworkPage(lang);
         });
       }
       const blockPath = parseExplorerBlockPath(path);

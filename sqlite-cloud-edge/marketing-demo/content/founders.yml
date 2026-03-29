@@ -1,0 +1,72 @@
+title: Founders
+description: Meet the founders behind Lotusia — the people building an ethical proof-of-work blockchain for humanity
+ogTitle: Founders - Lotusia
+navigation.icon: i-heroicons-user-group-solid
+to: /founders
+hero:
+  title: The People Behind Lotusia
+  description: Lotusia is built by engineers and visionaries who believe cryptocurrency should serve humanity, not exploit it. Meet the founders who are making that vision a reality.
+sections:
+  - title: Alexandre Guillioud
+    headline: Hash Turtle — Blockchain Architect & Co-founder
+    description: "Software architect with 12+ years of experience spanning embedded systems, distributed architectures, and solar energy. Alexandre co-founded Lotusia to build an ethical alternative to speculative cryptocurrencies. He leads the technical infrastructure: core blockchain development, custom WebGPU GPU miner, mining pool, and cross-chain bridging. Previously Senior Software Architect at myNFT (3 years, cross-chain EVM bridging, Solidity smart contracts, TheGraph subgraphs), Lead Developer at Veepee, and Architect at fulll. He also runs Golden Solar (29 photovoltaic installations, 4 MWp) and conducts independent research in cognitive security."
+    align: right
+    features:
+      - name: Core Blockchain Development
+        description: Maintains and evolves the Lotusia blockchain codebase based on Bitcoin ABC
+        icon: i-heroicons-code-bracket-solid
+      - name: Mining Infrastructure
+        description: Built a custom WebGPU GPU miner and operates mining pool infrastructure
+        icon: i-heroicons-cpu-chip-solid
+      - name: Cross-chain Engineering
+        description: Designed and built the Solana bridge and EVM bridging systems
+        icon: i-heroicons-arrows-right-left-solid
+      - name: Solar Energy & Sustainability
+        description: Runs Golden Solar — 29 photovoltaic installations powering real-world decarbonation
+        icon: i-heroicons-sun-solid
+    links:
+      - label: Portfolio
+        to: https://guillioud.com
+        target: _blank
+        color: primary
+        icon: i-heroicons-user-solid
+        size: lg
+      - label: GitHub
+        to: https://github.com/boblepointu
+        target: _blank
+        color: primary
+        icon: i-simple-icons-github
+        size: md
+      - label: LinkedIn
+        to: https://www.linkedin.com/in/alex--g/
+        target: _blank
+        color: primary
+        icon: i-simple-icons-linkedin
+        size: md
+  - title: Matthew Urgero
+    headline: Faithful Turtle — Sr. IT Systems Engineer · Architect & Operations
+    description: "Senior IT Systems Engineer based in Arizona, USA. Matthew co-founded Lotusia with a deep conviction that cryptocurrency should serve human relationships, not exploit them. As Architect & Operations lead since 2024, he drives ecosystem operations, infrastructure reliability, community coordination, and strategic planning. His background in enterprise IT systems engineering brings operational rigor to every aspect of the Lotusia platform — from network architecture to deployment pipelines. Matthew's focus on long-term sustainability over short-term speculation defines the project's ethos."
+    align: left
+    features:
+      - name: IT Systems Engineering
+        description: Enterprise-grade infrastructure, networking, and systems architecture
+        icon: i-heroicons-server-stack-solid
+      - name: Ecosystem Operations
+        description: Oversees day-to-day operations, deployment pipelines, and infrastructure reliability
+        icon: i-heroicons-cog-solid
+      - name: Strategic Vision
+        description: Drives the long-term roadmap aligned with Lotusia's core values of truth and integrity
+        icon: i-heroicons-light-bulb-solid
+      - name: Community Building
+        description: Fosters authentic human relationships within the Lotusia ecosystem worldwide
+        icon: i-heroicons-heart-solid
+    links:
+      - label: LinkedIn
+        to: https://www.linkedin.com/in/matthewurgero/
+        target: _blank
+        color: primary
+        icon: i-simple-icons-linkedin
+        size: md
+cta:
+  title: Built by People, for People
+  description: Lotusia exists because its founders believe that technology should serve humanity. Every line of code, every infrastructure decision, every community interaction is guided by this principle. Join us in building something that matters.

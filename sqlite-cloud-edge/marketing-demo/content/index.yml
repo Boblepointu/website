@@ -1,0 +1,99 @@
+title: Welcome to Lotusia
+description: Lotusia was founded to foster human relationships, build reciprocal culture, and bolster societal value production online and offline
+navigation: false
+hero:
+  title: Restoring Humanity to Society
+  image: '/img/turtles_hero.jpeg'
+  links:
+    - label: Get Started
+      icon: i-heroicons-chevron-right-16-solid
+      to: '/tools'
+      size: xl
+      color: purple
+      trailing: true
+    - label: Learn More
+      to: /faq
+      size: xl
+      icon: i-heroicons-information-circle
+      trailing: true
+sections:
+  - title: What Is Lotus?
+    description: The Lotusia economy is denominated in the Lotus currency. Lotus combines the best qualities of the modern monetary system and the new generation of digital cryptocurrencies. The result is an ethical currency that is economically viable.
+    align: right
+    features:
+      - name: Debt-free
+        description: Lotus is issued through Proof-of-Work mining (electricity)
+        icon: i-heroicons-cog
+      - name: Inflationary
+        description: No arbitrary issuance cap (unlike Bitcoin), therefore no reason to hoard it
+        icon: i-heroicons-arrow-trending-up-solid
+      - name: Abundant
+        description: Issuance of new Lotus is adjusted to demand of the Lotusia economy
+        icon: i-heroicons-sun-solid
+      - name: Stabilizing
+        description: Lotus is removed from circulation through voluntary destructive use to stabilize volatility
+        icon: i-heroicons-scale
+  - title: The Power of Giving
+    description: Reciprocity is the core of all human relationships, whether personal or professional. In many cultures, the lotus flower is a powerful symbol of creation, strength, and resiliency. When you reciprocate to others by giving Lotus, you are giving them a priceless and powerful symbol that represents the value of your relationship with them.
+    align: left
+    features:
+      - name: '"I tell you, use worldly wealth to gain friends for yourselves, so that when it is gone, you will be welcomed into eternal dwellings."'
+        description: 'Luke 16:9'
+        icon: i-heroicons-book-open-solid
+      - name: '"Do not store up for yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also."'
+        description: 'Matthew 6:19-21'
+        icon: i-heroicons-book-open-solid
+  - title: Ecosystem Alignment
+    description: Societies of the world are suffering from high levels of corruption and poverty due to the misaligned incentives of their governing bodies and banking systems. With the Lotus blockchain, the Stewardship is directly funded voluntarily through the currency issuance mechanism, and they are thus incentivized to increase the prosperity of the Ecosystem.
+    align: right
+    features:
+      - name: Value proposition
+        description: The Stewardship must propose its plan to produce value for Lotusia prior to receiving funding
+        icon: i-heroicons-document-check-solid
+      - name: Funding transparency
+        description: Currency issued to and spent by the Stewardship is untamperable public record
+        icon: i-heroicons-magnifying-glass
+      - name: Voluntary association
+        description: The Citizenry can dismiss the existing Stewardship and immediately elect a new Stewardship if desired
+        icon: i-heroicons-rectangle-group-solid
+  - title: Public Goods for the Ecosystem
+    description: The Lotusia Stewardship develops and maintains open-source tools, libraries, and infrastructure that power the ecosystem. From blockchain indexers to mobile wallets, these public goods are freely available for anyone to use, modify, and build upon.
+    align: left
+    features:
+      - name: Open Source
+        description: All Stewardship software is open source, auditable, and community-maintained
+        icon: i-heroicons-code-bracket-solid
+      - name: Permissionless
+        description: Anyone can use these tools without restriction
+        icon: i-heroicons-lock-open-solid
+      - name: Extensible
+        description: Build your own applications on top of the Stewardship's infrastructure
+        icon: i-heroicons-puzzle-piece-solid
+  - title: Worldwide Impact
+    description: The Lotus blockchain, due to its interconnected digital nature, is lightning fast and unhindered by borders or other physicalities, allowing Lotusia to spread across the planet. The blockchain also provides the Ecosystem with unbounded capabilities.
+    align: right
+    features:
+      - name: Permissionless
+        description: Everyone is free to join and leave the network at will and give Lotus to anybody, anywhere, at any time
+        icon: i-heroicons-share
+      - name: Versatile
+        description: The programmable nature of the blockchain provides extensive capabilities to meet future demands for trade and other social interactions
+        icon: i-heroicons-cube-transparent
+      - name: Adaptable
+        description: A 6-month regular upgrade schedule of the blockchain software ensures the performance and functionality remains in lockstep with the growth and demand of the Ecosystem
+        icon: i-heroicons-cog
+      - name: Scalable
+        description: The Lotus blockchain is based on Bitcoin ABC software, making it highly scalable
+        icon: i-heroicons-globe-alt
+    links:
+      - label: What is Bitcoin ABC?
+        to: https://bitcoinabc.org
+        target: _blank
+        color: gray
+        icon: i-heroicons-arrow-top-right-on-square
+        trailing: true
+        size: sm
+        class: ml-8
+cta:
+  title: Society Needs Humanity
+  description: It takes all of us making small, positive changes in our daily interactions with others to truly make a lasting impact on society. It is our vision to bring people together and use the Lotus currency to account for the value we see in each other.

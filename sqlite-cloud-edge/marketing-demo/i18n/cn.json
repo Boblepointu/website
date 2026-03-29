@@ -1,0 +1,961 @@
+{
+  "lang": "cn",
+  "lang_name": "中文",
+  "html_lang": "zh-CN",
+  "locale": "zh_CN",
+  "hreflang": "zh-CN",
+  "prefix": "/cn",
+  "nav": {
+    "ecosystem": "生态系统",
+    "tools": "工具",
+    "roadmap": "路线图",
+    "faq": "常见问题",
+    "docs": "文档",
+    "founders": "创始人",
+    "blog": "博客",
+    "more": "更多",
+    "explorer": "浏览器",
+    "beta_services": "测试版服务"
+  },
+  "common": {
+    "home": "首页",
+    "language": "语言",
+    "copyright": "版权",
+    "all_rights_reserved": "保留所有权利。",
+    "toggle_theme": "切换主题"
+  },
+  "buttons": {
+    "get_started": "开始使用",
+    "learn_more": "了解更多",
+    "technical_docs": "技术文档"
+  },
+  "seo": {
+    "home_keywords": "lotusia, lotusia 区块链, xpi, stewardship, 社区, 治理",
+    "ecosystem_keywords": "lotusia 生态系统, stewardship, 国库, 公民参与, 治理, 公共产品",
+    "tools_keywords": "lotusia 工具, 公共产品, 钱包, sdk, 矿工, 开源",
+    "founders_keywords": "lotusia 创始人, 区块链领导团队, stewardship 团队, 伦理化工作量证明",
+    "roadmap_keywords": "lotusia 路线图, 协议里程碑, 生态目标, 区块链升级",
+    "faq_keywords": "lotusia 常见问题, lotus 货币, 治理, 钱包, 区块链帮助",
+    "blog_keywords": "lotusia 博客, 生态更新, 协议发布, 区块链新闻",
+    "beta_services_keywords": "lotusia 测试版服务, 测试工具, 生态测试产品",
+    "docs_keywords": "lotusia 文档, 技术文档, 区块链规范, 开发者指南",
+    "explorer_overview_keywords": "lotusia 浏览器, 网络概览, 算力, 难度, 节点, 内存池",
+    "explorer_blocks_keywords": "lotusia 区块, 区块高度, 区块时间戳, 交易数量, 区块大小",
+    "social_activity_keywords": "lotusia 社交活动, 投票, 情绪, 声誉事件",
+    "social_trending_keywords": "lotusia 热门趋势, 顶级资料, 顶级帖子, 最低排名",
+    "social_profiles_keywords": "lotusia 社交资料, 声誉排名, 投票比例, 排行榜"
+  },
+  "pages": {
+    "index": {
+      "title": "欢迎来到 Lotusia",
+      "og_title": "欢迎来到 Lotusia | Lotusia",
+      "description": "Lotusia 的创立旨在促进人际关系、建设互惠文化，并推动线上与线下的社会价值创造",
+      "hero_title": "让人性回归社会",
+      "sections": [
+        {
+          "title": "什么是 Lotus？",
+          "description": "Lotusia 经济体以 Lotus 货币计价。Lotus 结合了现代货币体系和新一代数字加密货币的最佳特质，打造出一种既合乎伦理又具经济可行性的货币。",
+          "features": [
+            {
+              "name": "无债务发行",
+              "description": "Lotus 通过 Proof-of-Work 挖矿（电力）发行"
+            },
+            {
+              "name": "通胀型货币",
+              "description": "没有任意发行上限（不同于 Bitcoin），因此没有囤积的理由"
+            },
+            {
+              "name": "充足供应",
+              "description": "新 Lotus 的发行量根据 Lotusia 经济体的需求进行调整"
+            },
+            {
+              "name": "稳定机制",
+              "description": "Lotus 通过自愿销毁使用从流通中移除，以稳定波动性"
+            }
+          ]
+        },
+        {
+          "title": "给予的力量",
+          "description": "互惠是所有人际关系的核心，无论是个人关系还是职业关系。在许多文化中，莲花是创造、力量和韧性的强大象征。当你通过赠送 Lotus 来回馈他人时，你赠予的是一个珍贵而有力的象征，代表着你与他们之间关系的价值。",
+          "features": [
+            {
+              "name": "\"我又告诉你们，要借着那不义的钱财结交朋友，到了钱财无用的时候，他们可以接你们到永存的帐幕里去。\"",
+              "description": "路加福音 16:9"
+            },
+            {
+              "name": "\"不要为自己积攒财宝在地上，地上有虫子咬，能锈坏，也有贼挖窟窿来偷；只要积攒财宝在天上，天上没有虫子咬，不能锈坏，也没有贼挖窟窿来偷。因为你的财宝在哪里，你的心也在那里。\"",
+              "description": "马太福音 6:19-21"
+            }
+          ]
+        },
+        {
+          "title": "生态系统协调",
+          "description": "世界各国的社会正因其治理机构和银行系统的激励机制错位而遭受严重的腐败和贫困。通过 Lotus 区块链，Stewardship 直接通过货币发行机制获得自愿资助，因此他们有动力增进生态系统的繁荣。",
+          "features": [
+            {
+              "name": "价值主张",
+              "description": "Stewardship 必须在获得资助之前提出为 Lotusia 创造价值的计划"
+            },
+            {
+              "name": "资金透明",
+              "description": "发行给 Stewardship 并由其支出的货币是不可篡改的公开记录"
+            },
+            {
+              "name": "自愿结社",
+              "description": "Citizenry 可以解散现有的 Stewardship 并在需要时立即选举新的 Stewardship"
+            }
+          ]
+        },
+        {
+          "title": "生态系统公共产品",
+          "description": "Lotusia Stewardship 开发和维护为生态系统提供动力的开源工具、库和基础设施。从区块链索引器到移动钱包，这些公共产品可供任何人自由使用、修改和构建。",
+          "features": [
+            {
+              "name": "开源",
+              "description": "所有 Stewardship 软件均为开源，可审计，由社区维护"
+            },
+            {
+              "name": "无需许可",
+              "description": "任何人都可以无限制地使用这些工具"
+            },
+            {
+              "name": "可扩展",
+              "description": "在 Stewardship 的基础设施之上构建您自己的应用程序"
+            }
+          ]
+        },
+        {
+          "title": "全球影响",
+          "description": "Lotus 区块链凭借其互联互通的数字特性，速度极快且不受国界或其他物理限制，使 Lotusia 能够传播到世界各地。区块链还为生态系统提供了无限的能力。",
+          "features": [
+            {
+              "name": "无需许可",
+              "description": "每个人都可以自由加入和离开网络，随时随地向任何人赠送 Lotus"
+            },
+            {
+              "name": "多功能",
+              "description": "区块链的可编程特性为未来的贸易和其他社会互动需求提供了广泛的能力"
+            },
+            {
+              "name": "适应性强",
+              "description": "区块链软件每六个月定期升级一次，确保性能和功能与生态系统的增长和需求保持同步"
+            },
+            {
+              "name": "可伸缩",
+              "description": "Lotus 区块链基于 Bitcoin ABC 软件，具有高度可伸缩性"
+            }
+          ]
+        }
+      ],
+      "cta": {
+        "title": "社会需要人性",
+        "description": "需要我们每个人在日常与他人的互动中做出微小而积极的改变，才能真正对社会产生持久的影响。我们的愿景是将人们聚集在一起，使用 Lotus 货币来衡量我们在彼此身上看到的价值。"
+      }
+    },
+    "ecosystem": {
+      "title": "生态系统",
+      "og_title": "生态系统 - Lotusia",
+      "description": "三大支柱协同运作——Stewardship 引导方向，Treasury 保障安全，Citizenry 创造价值",
+      "hero_title": "三大支柱，一个愿景",
+      "hero_description": "Stewardship 引导我们的道路，Treasury 保障我们的未来，Citizenry 创造我们的价值",
+      "sections": [
+        {
+          "title": "Stewardship",
+          "headline": "Lotusia 的 Turtles",
+          "description": "我们的核心领导团队——Turtles——以对价值观的坚定承诺引导 Lotusia。虽然任何人都可以作为公民加入，但 Turtles 是致力于为社区发展奠定基础的长期领导者。",
+          "quotes": [
+            {
+              "author": "Alexandre Guillioud",
+              "title": "Hash Turtle - 区块链架构师",
+              "text": "我喜欢为 Lotus 燃烧电力，因为我喜欢燃烧 Lotus。"
+            },
+            {
+              "author": "Matthew Urgero",
+              "title": "Faithful Turtle - 架构与运营",
+              "text": "不要囤积代币；要囤积和培养人际关系。Lotus 是一个跨世代的项目。"
+            }
+          ],
+          "features": [
+            {
+              "name": "真理",
+              "description": "质疑一切——包括我们自己——将真理置于核心"
+            },
+            {
+              "name": "正直",
+              "description": "对我们的言行及其结果负责"
+            },
+            {
+              "name": "领导力",
+              "description": "以耐心和理解力引领共同利益"
+            },
+            {
+              "name": "务实",
+              "description": "修复已坏之处，而非接受现状"
+            }
+          ]
+        },
+        {
+          "title": "Citizenry",
+          "description": "每一个赠送或接收 Lotus 的人都是我们 Citizenry 的一员——生态系统的核心。通过真诚的联系和慷慨的给予，公民们创造了使 Lotusia 蓬勃发展的真正价值。",
+          "features": [
+            {
+              "name": "面向所有人",
+              "description": "任何人都可以成为公民——没有障碍，没有守门人"
+            },
+            {
+              "name": "给予文化",
+              "description": "慷慨和真诚的联系是 Lotusia 得以存在的基础"
+            },
+            {
+              "name": "在理解中成长",
+              "description": "我们通过互相学习和建立理解来共同成长"
+            }
+          ]
+        },
+        {
+          "title": "Treasury 与矿工",
+          "description": "我们遍布全球的矿工网络保障 Lotus 网络的安全并创造新货币。他们分布在世界各地，确保没有单点控制，同时保持透明度和安全性。",
+          "features": [
+            {
+              "name": "网络安全",
+              "description": "矿工运行计算机来维护 Lotus 网络并保障所有交易的安全"
+            },
+            {
+              "name": "货币创造",
+              "description": "电力通过安全的加密过程转化为新的 Lotus"
+            },
+            {
+              "name": "社区共识",
+              "description": "矿工表示他们对 Stewardship 决策的支持，在整个生态系统中创造一致性"
+            },
+            {
+              "name": "资助增长",
+              "description": "所有新发行 Lotus 的一半直接拨给 Stewardship 用于社区发展"
+            }
+          ]
+        }
+      ]
+    },
+    "tools": {
+      "title": "公共产品",
+      "og_title": "公共产品 - Lotusia",
+      "description": "由 Lotusia Stewardship 开发的开源软件和基础设施",
+      "hero_title": "公共产品",
+      "hero_description": "由 Lotusia Stewardship 为生态系统利益开发的开源软件和基础设施",
+      "sections": [
+        {
+          "title": "核心区块链软件 - lotusd",
+          "headline": "2025年冬至 - Lotus 网络第十纪元",
+          "description": "Stewardship 维护 lotusd 和 Lotus-QT，即 Lotus 区块链协议的参考实现。该软件验证交易、维护分布式账本，并使任何人都能通过挖矿参与网络共识。",
+          "features": [
+            {
+              "name": "全节点与挖矿",
+              "description": "支持 SHA-256d 挖矿和 GPU 加速的完整验证节点"
+            },
+            {
+              "name": "RPC 与 REST API",
+              "description": "用于区块链查询和交易广播的 JSON-RPC 和 REST 接口"
+            },
+            {
+              "name": "高级脚本",
+              "description": "Taproot、MuSig2、SwapSig 以及带签名验证的自定义脚本类型"
+            },
+            {
+              "name": "P2P 基础设施",
+              "description": "内存池管理、区块传播和共识规则执行"
+            }
+          ]
+        },
+        {
+          "title": "开发者 SDK - xpi-ts",
+          "description": "Stewardship 开发的 TypeScript 库，用于构建与 Lotus 区块链集成的应用程序。包括对交易、钱包、MuSig2 多重签名、Taproot 地址和其他加密原语的支持。",
+          "features": [
+            {
+              "name": "交易构建",
+              "description": "使用兼容 Bitcore 的 API、HD 钱包和助记词支持来创建和签署交易"
+            },
+            {
+              "name": "高级密码学",
+              "description": "开箱即用的 MuSig2 多重签名、Taproot 地址和安全密钥派生"
+            },
+            {
+              "name": "RANK 协议",
+              "description": "使用原生链上 RANK 支持构建声誉和内容排名系统"
+            },
+            {
+              "name": "TypeScript 原生",
+              "description": "完全类型化的模块，配有全面的文档和实际示例"
+            }
+          ]
+        },
+        {
+          "title": "浏览器扩展",
+          "description": "RANK 协议的参考实现，由 Stewardship 开发为 Chrome 扩展。展示了如何在 Lotus 区块链之上构建去中心化声誉系统。",
+          "features": [
+            {
+              "name": "用 Lotus 为内容评级",
+              "description": "使用 RANK 协议燃烧 Lotus 来为社交媒体帖子点赞或点踩"
+            },
+            {
+              "name": "查看社区评分",
+              "description": "在参与之前查看社区对内容的评分"
+            },
+            {
+              "name": "直接打赏创作者",
+              "description": "从浏览器中向内容创作者和朋友赠送 Lotus"
+            },
+            {
+              "name": "建立你的影响力",
+              "description": "优质贡献将在社区中建立你的声誉"
+            }
+          ]
+        },
+        {
+          "title": "移动钱包参考实现",
+          "description": "BigVase 是非托管 Lotus 钱包的参考实现，由 Stewardship 开发，旨在展示 Lotus 区块链上移动钱包开发的最佳实践。",
+          "features": [
+            {
+              "name": "你的密钥，你的 Lotus",
+              "description": "非托管钱包，您可以使用备份助记词控制您的资金"
+            },
+            {
+              "name": "轻松赠送与接收",
+              "description": "通过简单的二维码和联系人列表向朋友赠送 Lotus 或接收 Lotus"
+            },
+            {
+              "name": "追踪你的余额",
+              "description": "一目了然地查看您的 Lotus 余额和交易记录"
+            },
+            {
+              "name": "随处可用",
+              "description": "在 Android 和 iPhone 上均可使用"
+            }
+          ]
+        }
+      ]
+    },
+    "founders": {
+      "title": "创始人",
+      "og_title": "创始人 - Lotusia",
+      "description": "认识 Lotusia 背后的创始人——为人类构建道德 Proof-of-Work 区块链的人们",
+      "hero_title": "Lotusia 背后的人",
+      "hero_description": "Lotusia 由相信加密货币应服务于人类而非剥削人类的工程师和远见者打造。认识正在将这一愿景变为现实的创始人们。",
+      "sections": [
+        {
+          "title": "Alexandre Guillioud",
+          "headline": "Hash Turtle — 区块链架构师与联合创始人",
+          "description": "拥有12年以上经验的软件架构师，涵盖嵌入式系统、分布式架构和太阳能领域。Alexandre 联合创立了 Lotusia，旨在构建投机性加密货币的道德替代品。他领导技术基础设施：核心区块链开发、自定义 WebGPU GPU 矿机、矿池和跨链桥接。此前曾担任 myNFT 高级软件架构师（3年，跨链 EVM 桥接、Solidity 智能合约、TheGraph 子图）、Veepee 首席开发者和 fulll 架构师。他还运营 Golden Solar（29个光伏装置，4 MWp），并从事认知安全领域的独立研究。",
+          "features": [
+            {
+              "name": "核心区块链开发",
+              "description": "维护和发展基于 Bitcoin ABC 的 Lotusia 区块链代码库"
+            },
+            {
+              "name": "挖矿基础设施",
+              "description": "构建了自定义 WebGPU GPU 矿机并运营矿池基础设施"
+            },
+            {
+              "name": "跨链工程",
+              "description": "设计和构建了 Solana 桥接器和 EVM 桥接系统"
+            },
+            {
+              "name": "太阳能与可持续发展",
+              "description": "运营 Golden Solar——29个光伏装置为现实世界脱碳提供动力"
+            }
+          ]
+        },
+        {
+          "title": "Matthew Urgero",
+          "headline": "Faithful Turtle — 高级 IT 系统工程师 · 架构与运营",
+          "description": "驻美国亚利桑那州的高级 IT 系统工程师。Matthew 怀着深切的信念联合创立了 Lotusia，他相信加密货币应该服务于人际关系，而非剥削人际关系。自2024年担任架构与运营主管以来，他推动生态系统运营、基础设施可靠性、社区协调和战略规划。他在企业 IT 系统工程方面的背景为 Lotusia 平台的各个方面带来了运营严谨性——从网络架构到部署流水线。Matthew 对长期可持续性而非短期投机的关注定义了该项目的精神。",
+          "features": [
+            {
+              "name": "IT 系统工程",
+              "description": "企业级基础设施、网络和系统架构"
+            },
+            {
+              "name": "生态系统运营",
+              "description": "监督日常运营、部署流水线和基础设施可靠性"
+            },
+            {
+              "name": "战略愿景",
+              "description": "推动与 Lotusia 真理和正直核心价值观一致的长期路线图"
+            },
+            {
+              "name": "社区建设",
+              "description": "在全球 Lotusia 生态系统中培养真实的人际关系"
+            }
+          ]
+        }
+      ],
+      "cta": {
+        "title": "由人创造，为人服务",
+        "description": "Lotusia 的存在是因为其创始人相信技术应该服务于人类。每一行代码、每一个基础设施决策、每一次社区互动都以这一原则为指导。加入我们，共同构建有意义的事物。"
+      }
+    },
+    "roadmap": {
+      "title": "路线图",
+      "og_title": "路线图 | Lotusia",
+      "description": "以下是 Stewardship 为未来纪元制定的目标和里程碑。",
+      "hero_title": "路线图",
+      "hero_description": "以下列出了 Stewardship 为当前和即将到来的纪元制定的目标。过往纪元显示在页面下方。",
+      "sections": [
+        {
+          "title": "撒母耳记上纪元（当前）",
+          "headline": "2025年夏季 - 2025年冬季",
+          "cards": [
+            {
+              "title": "Lotusia Chrome 扩展",
+              "description": "Chrome 扩展程序，用于实现基于 Lotus 的去中心化、社区审核的社交媒体声誉系统",
+              "status": "进行中",
+              "checklist": [
+                "添加对更多平台的支持",
+                "添加通知支持",
+                "添加 Cashweb 支持"
+              ]
+            },
+            {
+              "title": "Lotusia 仪表板",
+              "description": "汇集 Lotusia 生态系统数据并追踪生态系统增长的仪表板",
+              "status": "进行中",
+              "checklist": [
+                "显示所有平台上的热门个人资料和帖子",
+                "显示参与奖励和趋势"
+              ]
+            },
+            {
+              "title": "更多即将推出……",
+              "description": "截至2025年5月28日，我们正在开发许多令人兴奋的项目，并将在撒母耳记上纪元临近时更新路线图。敬请期待更多更新！"
+            }
+          ]
+        },
+        {
+          "title": "路得纪元",
+          "headline": "2024年冬季 - 2025年夏季",
+          "cards": [
+            {
+              "title": "Lotus 矿池",
+              "description": "Lotus 区块链的矿池",
+              "status": "已完成",
+              "checklist": [
+                "构建带有份额支付系统的后端矿池",
+                "构建前端网站",
+                "在 Rust 矿机中添加矿池支持"
+              ]
+            },
+            {
+              "title": "RANK 协议后端（beta）",
+              "description": "为 Lotusia 扩展构建后端，实现 RANK 协议",
+              "status": "已完成",
+              "checklist": [
+                "从区块链索引和存储 RANK 交易的软件",
+                "供 Lotusia Chrome 扩展访问 RANK 数据的公共 API"
+              ]
+            },
+            {
+              "title": "Lotusia Chrome 扩展（beta）",
+              "description": "基于 Lotus 的去中心化、社区审核的社交媒体声誉系统",
+              "status": "已完成",
+              "checklist": [
+                "开发允许用户与 Lotusia 生态系统交互的 Chrome 扩展",
+                "添加对 Twitter/X 的支持",
+                "将 Chrome 扩展发布到 Chrome 网上应用店"
+              ]
+            },
+            {
+              "title": "Lotus/Solana 桥接器",
+              "description": "Lotus 和 Solana 区块链之间的流动性桥接器",
+              "status": "已完成",
+              "checklist": [
+                "构建后端桥接器",
+                "发布 Lotus $XPI 桥接地址",
+                "确保桥接器安全且功能正常"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "士师纪元",
+          "headline": "2024年夏季 - 2024年冬季",
+          "cards": [
+            {
+              "title": "核心基础设施",
+              "description": "加固 Stewardship 的核心基础设施",
+              "status": "进行中",
+              "checklist": [
+                "自动化所有核心软件的构建和部署",
+                "确保核心服务的高可用性",
+                "使用 Lotus 索引器重建区块浏览器并改版 UI"
+              ]
+            },
+            {
+              "title": "组织建设",
+              "description": "正式化 Stewardship 运营",
+              "status": "进行中",
+              "checklist": [
+                "起草申请表并制定新 Turtles 入职流程",
+                "起草资助申请表并制定审批流程",
+                "在网站上发布所有文档"
+              ]
+            },
+            {
+              "title": "Lotus Vase",
+              "description": "振兴和增强旗舰移动钱包，以发展 Lotus Citizenry",
+              "status": "进行中",
+              "checklist": [
+                "将 Lotus Vase 发布到 Google Play 商店",
+                "设置 Vase Server 实例",
+                "开发 Vase 钱包与 Vase Server 通信的 API",
+                "开始用 Lotus 奖励活跃参与的公民"
+              ]
+            },
+            {
+              "title": "Lotusia 网站",
+              "description": "Lotusia 的着陆页和 Stewardship 的沟通枢纽",
+              "status": "已规划",
+              "checklist": [
+                "迁移 docs.givelotus.org",
+                "构建统计仪表板以追踪生态系统增长"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "约书亚纪元",
+          "headline": "2023年冬季 - 2024年夏季",
+          "cards": [
+            {
+              "title": "Lotusia 网站",
+              "description": "Lotusia 的着陆页和 Stewardship 的沟通枢纽",
+              "status": "已完成",
+              "checklist": [
+                "将代码推送到 GitHub",
+                "部署上线网站",
+                "自动化网站更新的部署"
+              ]
+            },
+            {
+              "title": "士师纪元网络升级",
+              "description": "2024年夏至",
+              "status": "已完成",
+              "checklist": [
+                "将代码推送到 GitHub",
+                "为 Windows、macOS 和 Linux 构建新软件包",
+                "协调软件部署与生态系统以建立共识"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "常见问题",
+      "og_title": "常见问题 - Lotusia",
+      "description": "Lotusia 详解",
+      "hero_title": "常见问题",
+      "questions": [
+        {
+          "text": "我是 Lotusia 新手，如何成为公民？",
+          "answer": "拥有 Lotus 的人都是公民。"
+        },
+        {
+          "text": "如何获得 Lotus？",
+          "answer": "获得 Lotus 最好的方式是别人赠送给你。如果你加入我们的 Telegram 社区并与他人互动，你将会收到 Lotus。你也可以通过成为 Treasury 的矿工来获得 Lotus。"
+        },
+        {
+          "text": "我可以在交易所购买 Lotus 吗？",
+          "answer": "目前，只有 Exbitron 交易所上架了 Lotus ($XPI) / $USDT 交易对。Stewardship 没有计划直接申请更多交易所上架。然而，随着 Lotus 货币的采用和需求增长，交易所不可避免地会开始上架 Lotus。",
+          "note": "Stewardship 不建议用您的金钱购买 Lotus。获得 Lotus 更好的方式是接受赠送，或在您的计算机上挖矿。"
+        },
+        {
+          "text": "Lotus 区块链何时启动？",
+          "answer": "Lotus 区块链的第一个区块于2021年6月21日 UTC 时间 03:31 被挖出。"
+        },
+        {
+          "text": "有 Lotus 白皮书吗？",
+          "answer": "有的，目前正在积极开发中。近期将在首页提供链接。"
+        },
+        {
+          "text": "什么是六个月升级计划？",
+          "answer": "Lotus 区块链每年进行两次定期升级，分别在每年的夏至和冬至开始。这些升级由 Stewardship 通过对开源软件的更改来协调。一旦 Treasury 和 Citizenry 就提议的更改达成共识，这些更改将被采纳并成为生态系统的新共识。"
+        },
+        {
+          "text": "Lotusia 生态系统中如何确定共识？",
+          "answer": "与现有的代议制政府模式不同，Stewardship 无法强制执行其为生态系统提出的任何规则。对 Stewardship 提出规则的遵从完全是自愿和自主的。Treasury 通过升级软件并继续发行新 Lotus 来表示同意，Citizenry 通过继续参与生态系统来表示同意。"
+        },
+        {
+          "text": "Mrs. Turtle 是谁？",
+          "answer": "Mrs. Turtle 是我们亲切的 Telegram 机器人。她帮助我们的 Telegram 社区成员互相赠送 Lotus。加入我们的 Telegram 群组，我们会让她给你一些 Lotus！"
+        },
+        {
+          "text": "Stewardship 的资金如何保持透明？",
+          "answer": "Lotus 区块链是一个分布式公共账本。该账本记录了 Treasury 所做的每一笔变更，包括作为资助发行给 Stewardship 的每一笔 Lotus。通过运行 lotusd 软件，任何人都可以验证 Stewardship 收到和支出的每一笔资金的所有细节。",
+          "note": "区块浏览器提供了一种便捷的方式来查看 Stewardship 的财务活动。"
+        },
+        {
+          "text": "其他人能知道我有多少 Lotus 或我给了别人多少吗？",
+          "answer": "有可能。分布式公共账本不包含现实世界身份的列表。只有当别人知道账本中哪些 Lotus 地址属于你时，才能审计你的经济活动。"
+        },
+        {
+          "text": "什么是 Lotus 地址？",
+          "answer": "Lotus 地址类似于银行账号。其他人可以使用这个号码给你赠送 Lotus。Treasury 在公共账本中记录所有经济活动，以便生态系统可以核算流通中的每一笔 Lotus 并验证没有发生伪造。"
+        },
+        {
+          "text": "我可以拥有多少个 Lotus 地址？",
+          "answer": "想要多少就可以有多少！Lotus 地址使用加密软件生成，确保你生成的每个新 Lotus 地址都是唯一的。"
+        },
+        {
+          "text": "Citizenry 如何选举新的 Stewardship？",
+          "answer": "Lotus 区块链软件是公共产品，因此任何一方都可以自由复制源代码来创建自己的 Lotus 区块链「分叉」，并制定自己的生态系统共识规则。这种区块链分叉类似于前方道路的岔口。Citizenry 可以自由选择他们认为会带来更多繁荣的区块链分叉或道路。因此，新的 Stewardship 是通过和平的共识分离而非选举来建立的。"
+        },
+        {
+          "text": "我从事一个有助于建设社会的项目，我认为 Lotus 可以帮助我。我可以申请资助吗？",
+          "answer": "当然可以！Stewardship 始终愿意将 Lotus 货币分配给帮助人们并将他们聚集在一起的项目。但是，提交资助申请的正式流程尚未确定。请查看路线图页面了解更多信息。"
+        },
+        {
+          "text": "如何申请成为 Stewardship 的 Turtle？",
+          "answer": "目前没有正式的新 Turtles 入职流程。请查看路线图页面了解更多信息。"
+        },
+        {
+          "text": "什么是货币发行机制？",
+          "answer": "Lotus 由 Treasury 发行。Treasury 由执行 Proof-of-Work (PoW) 的矿工组成，他们使用消耗电力的强大计算机组件来发行 Lotus。当矿工消耗了足够的电力，他就「挖出一个区块」，这个区块会被广播到网络中。该区块包含一笔称为「coinbase 交易」的交易，将新的 Lotus 发行到经济体中。50%的新 Lotus 作为矿工工作的奖励，另外50%作为生态系统的资金拨给 Stewardship。"
+        },
+        {
+          "text": "是什么使 Lotus 货币在经济上可行？",
+          "answer": "像 Bitcoin 这样更知名的加密货币已被证明在经济上不可行，因为它们任意的发行上限和减半计划导致了严重的价格波动。Lotus 的解决方案是根据挖出该区块所使用的电力量来计算每个区块的补贴。然后，Lotus 货币可以被自愿销毁以产生通缩压力。随着时间的推移，货币供应的这些涨落将通过尽可能紧密地匹配供应与经济需求来稳定价格波动。"
+        },
+        {
+          "text": "Lotus 与美元等法定货币相比如何？",
+          "answer": "Lotus 与美元有一些相似之处，但也有几个关键区别，如下所述。",
+          "table": {
+            "columns": [
+              { "key": "trait", "label": "" },
+              { "key": "xpi", "label": "Lotus" },
+              { "key": "usd", "label": "美元" }
+            ],
+            "rows": [
+              {
+                "id": 1,
+                "trait": "发行方式",
+                "xpi": "Proof-of-Work / 电力",
+                "usd": "债务"
+              },
+              {
+                "id": 2,
+                "trait": "通胀",
+                "xpi": "基于生态系统需求",
+                "usd": "由国会决定"
+              },
+              {
+                "id": 3,
+                "trait": "分配",
+                "xpi": "公共工程、志愿服务、慈善",
+                "usd": "公共工程、福利项目、战争、监控"
+              },
+              {
+                "id": 4,
+                "trait": "回收",
+                "xpi": "自愿销毁使用",
+                "usd": "强制征税"
+              },
+              {
+                "id": 5,
+                "trait": "执行",
+                "xpi": "区块链共识",
+                "usd": "警察/军事力量"
+              }
+            ]
+          }
+        },
+        {
+          "text": "什么是「自愿销毁使用」，它是如何运作的？",
+          "answer": "该术语描述了一种无需任何强制税收政策即可永久将 Lotus 从流通中移除的机制。一些由 Stewardship 提供的、支持公共社交互动的公共产品需要销毁 Lotus 货币才能进行互动。例如，一个公共广告板要求任何 Lotusia 公民销毁一定数量的 Lotus 货币以发布广告，该广告将在整个生态系统中广播。"
+        }
+      ],
+      "technical": {
+        "title": "技术规格",
+        "description": "面向开发者和机构集成商的详细网络参数",
+        "questions": [
+          {
+            "text": "Lotus 区块链的技术规格是什么？",
+            "answer": "Lotus 区块链是 Bitcoin ABC 的分叉，具有多项独特特性。它使用2分钟出块时间和 ASERT 难度调整，支持32 MB 区块，并实施基于难度的补贴系统，每个区块发行260 XPI，矿工和 Stewardship 各分50%。详细的网络参数请参见下方技术表格。",
+            "note": "技术规格按类别组织在下方表格中。"
+          },
+          {
+            "text": "Lotus 区块链的创世区块是什么？",
+            "answer": "请参见创世区块表格了解完整技术细节。"
+          },
+          {
+            "text": "Lotus 支持哪些地址格式？",
+            "answer": "Lotus 支持多种地址格式以确保兼容性。原生格式使用 \"lotus_16PSJ...\" base32 编码。它还支持传统的 Bitcoin 风格地址和 CashAddr 格式。所有格式在同一区块链上互通。具体前缀值请参见地址格式表格。"
+          },
+          {
+            "text": "Lotus 支持 Taproot 吗？",
+            "answer": "是的，Lotus 实现了针对 Lotus 协议做出修改的 Taproot。与 Bitcoin 的32字节 x-only 公钥不同，Lotus 使用33字节压缩密钥。它还引入了 SIGHASH_LOTUS (0x60) 作为签名哈希算法和 OP_SCRIPTTYPE (0x62) 用于脚本类型识别。实现细节请参见脚本与密码学表格。"
+          },
+          {
+            "text": "六个月升级计划在技术上是如何运作的？",
+            "answer": "协议升级安排在夏至和冬至前后，以圣经书卷命名。每次升级都有一个硬编码在共识规则中的 Unix 时间戳激活时间。最近的升级包括约书亚（2024年6月）、士师（2024年6月）、路得（2024年12月）、撒母耳记上（2025年6月）、撒母耳记下（2025年12月）和列王纪上（2026年6月）。"
+          }
+        ],
+        "sections": [
+          {
+            "title": "网络配置",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "规格" },
+                { "key": "value", "label": "配置" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "P2P 端口（主网）", "value": "10605" },
+                { "id": 2, "parameter": "RPC 端口（主网）", "value": "10604" },
+                { "id": 3, "parameter": "Tor 端口（主网）", "value": "10606" },
+                { "id": 4, "parameter": "协议版本", "value": "70016" },
+                { "id": 5, "parameter": "最低对等协议", "value": "31800" },
+                { "id": 6, "parameter": "网络魔术字节", "value": "0xec 0xe7 0xef 0xf3" },
+                { "id": 7, "parameter": "DNS 种子节点", "value": "seed.lotusia.org" }
+              ]
+            }
+          },
+          {
+            "title": "区块链参数",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "规格" },
+                { "key": "value", "label": "配置" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "目标出块时间", "value": "2分钟（120秒）" },
+                { "id": 2, "parameter": "难度算法", "value": "ASERT (aserti32d)" },
+                { "id": 3, "parameter": "DAA 半衰期", "value": "2天（172,800秒）" },
+                { "id": 4, "parameter": "区块大小限制", "value": "32 MB" },
+                { "id": 5, "parameter": "交易大小", "value": "最小100字节，最大1 MB" },
+                { "id": 6, "parameter": "Coinbase 成熟度", "value": "100个区块" },
+                { "id": 7, "parameter": "矿工确认窗口", "value": "2,016个区块" }
+              ]
+            }
+          },
+          {
+            "title": "货币政策",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "规格" },
+                { "key": "value", "label": "配置" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "基本单位", "value": "1 XPI = 1,000,000 satoshis" },
+                { "id": 2, "parameter": "区块补贴", "value": "260 XPI（基于难度）" },
+                { "id": 3, "parameter": "补贴分配", "value": "50%矿工，50% Stewardship" },
+                { "id": 4, "parameter": "供应模型", "value": "动态（无硬性上限）" },
+                { "id": 5, "parameter": "合理性检查限制", "value": "21亿 XPI" }
+              ]
+            }
+          },
+          {
+            "title": "地址格式",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "规格" },
+                { "key": "value", "label": "配置" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "原生格式", "value": "lotus_16PSJ...（base32）" },
+                { "id": 2, "parameter": "P2PKH 前缀", "value": "0x00" },
+                { "id": 3, "parameter": "P2SH 前缀", "value": "0x05" },
+                { "id": 4, "parameter": "WIF 私钥", "value": "0x80" },
+                { "id": 5, "parameter": "CashAddr 前缀", "value": "bitcoincash / ecash" }
+              ]
+            }
+          },
+          {
+            "title": "脚本与密码学",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "规格" },
+                { "key": "value", "label": "配置" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "Taproot 支持", "value": "是（Lotus 修改版）" },
+                { "id": 2, "parameter": "签名算法", "value": "ECDSA + Schnorr" },
+                { "id": 3, "parameter": "SIGHASH_LOTUS", "value": "0x60" },
+                { "id": 4, "parameter": "SIGHASH_FORKID", "value": "0x40 (BIP143)" },
+                { "id": 5, "parameter": "OP_SCRIPTTYPE", "value": "0x62" },
+                { "id": 6, "parameter": "最大脚本大小", "value": "10,000字节" },
+                { "id": 7, "parameter": "每笔交易最大签名检查", "value": "3,000" },
+                { "id": 8, "parameter": "Taproot 密钥格式", "value": "33字节压缩" }
+              ]
+            }
+          },
+          {
+            "title": "创世区块",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "规格" },
+                { "key": "value", "label": "配置" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "区块哈希", "value": "000000000abc0cde58ee7e919d3d4de183e6844add1fd5d14b4eac89d958f470" },
+                { "id": 2, "parameter": "时间戳", "value": "2021年6月21日 03:31:00 UTC" },
+                { "id": 3, "parameter": "Unix 时间", "value": "1624246260" },
+                { "id": 4, "parameter": "区块大小", "value": "379字节" },
+                { "id": 5, "parameter": "创世信息", "value": "约翰福音 1:1 太初有道" },
+                { "id": 6, "parameter": "Coinbase 前缀", "value": "0x6c6f676f73 (logos)" }
+              ]
+            }
+          }
+        ]
+      },
+      "cta": {
+        "title": "还有疑问？",
+        "description": "加入我们的 Telegram 群组！我们很乐意回答您的所有问题。"
+      }
+    },
+    "blog": {
+      "title": "博客",
+      "og_title": "博客 - Lotusia",
+      "description": "获取 Lotusia 生态系统的最新动态。"
+    },
+    "beta_services": {
+      "title": "测试版服务",
+      "og_title": "测试版服务 - Lotusia",
+      "description": "访问 Lotusia 生态系统中当前定义为测试版的服务。",
+      "hero_title": "测试版服务",
+      "hero_description": "在一个页面中访问当前的测试版服务。"
+    },
+    "docs": {
+      "title": "文档",
+      "og_title": "文档 - Lotusia",
+      "description": "Lotusia 技术文档。"
+    }
+  },
+  "worker": {
+    "rows_per_page": "每页行数",
+    "page": "第",
+    "of": "/",
+    "network": "网络",
+    "overview": "概览",
+    "blocks": "区块",
+    "social_media": "社交媒体",
+    "latest": "最新",
+    "trending": "趋势",
+    "profiles": "资料页",
+    "explorer": "浏览器",
+    "social": "社交",
+    "activity": "活动",
+    "vote_activity": "投票活动",
+    "vote_activity_subtitle": "跨平台与全部资料页的投票活动。",
+    "vote_activity_table_subtitle": "近期跨平台投票事件",
+    "tx_id": "交易 ID",
+    "first_seen": "首次出现",
+    "profile": "资料页",
+    "vote": "投票",
+    "post_id": "帖子 ID",
+    "title_latest_activity": "最新活动",
+    "desc_latest_activity": "Lotusia 上最新的社交投票活动。",
+    "no_recent_activity": "暂无近期活动。",
+    "title_trending_profiles": "趋势资料页",
+    "desc_trending_profiles": "Lotusia 上排名最高的社交资料页。",
+    "trending_subtitle": "今日最高与最低排名的资料页和帖子。",
+    "top_ranked_profiles": "最高排名资料页",
+    "lowest_ranked_profiles": "最低排名资料页",
+    "top_ranked_posts": "最高排名帖子",
+    "lowest_ranked_posts": "最低排名帖子",
+    "ranking": "排名",
+    "post": "帖子",
+    "no_profile_trend_data": "暂无资料页趋势数据。",
+    "no_post_trend_data": "暂无帖子趋势数据。",
+    "title_social_profiles": "社交资料页",
+    "desc_social_profiles": "Lotusia 上公开的社交资料页排名。",
+    "profiles_subtitle": "浏览 Lotusia Social 资料页。",
+    "vote_ratio": "投票比例",
+    "no_profiles_found": "未找到资料页。",
+    "live_profile_data": "实时资料页数据",
+    "current_profile_ranking": "当前资料页排名",
+    "votes_plus": "正向票 +",
+    "positive_votes": "正向投票",
+    "votes_minus": "负向票 -",
+    "negative_votes": "负向投票",
+    "posts": "帖子",
+    "votes": "投票",
+    "no_posts_yet": "暂无帖子。",
+    "no_votes_yet": "暂无投票。",
+    "transaction": "交易",
+    "timestamp": "时间戳",
+    "sentiment": "倾向",
+    "amount": "金额",
+    "desc_latest_blocks": "Lotusia 区块链的最新区块。",
+    "blocks_subtitle": "区块链最新区块。每 5 秒刷新。",
+    "height": "高度",
+    "hash": "哈希",
+    "burned": "销毁",
+    "transactions": "交易数",
+    "size": "大小",
+    "no_blocks_found": "未找到区块。",
+    "connections": "连接数",
+    "connections_hint": "连接到浏览器的 Lotus 节点数量",
+    "blocks_hint": "区块链中的区块总数",
+    "pending_transactions": "待确认交易",
+    "pending_transactions_hint": "等待确认的交易",
+    "hashrate": "算力",
+    "hashrate_hint": "每秒估算哈希计算量",
+    "difficulty": "难度",
+    "difficulty_hint": "最新区块难度",
+    "avg_block_time": "平均出块时间",
+    "avg_block_time_hint": "基于最新链目标计算",
+    "mainnet": "主网",
+    "desc_network_overview": "Lotusia 浏览器网络概览。",
+    "network_subtitle": "Lotusia 区块链网络的最新信息。",
+    "peer_info": "节点信息",
+    "peer_info_hint": "连接到浏览器的 Lotus 节点列表。",
+    "country": "国家",
+    "address": "地址",
+    "version": "版本",
+    "no_peer_data": "暂无节点数据。",
+    "block_details": "区块详情",
+    "block_details_subtitle": "区块指标与交易明细。",
+    "inputs": "输入",
+    "outputs": "输出",
+    "no_transactions_in_block": "该区块没有交易。",
+    "input": "输入",
+    "output": "输出",
+    "confirmed": "已确认",
+    "coinbase": "Coinbase",
+    "transaction_details": "交易详情",
+    "transaction_details_subtitle": "输入、输出与区块确认信息。",
+    "block_information": "区块信息",
+    "source": "来源",
+    "no_inputs": "无输入。",
+    "destination": "目标",
+    "no_outputs": "无输出。",
+    "address_details": "地址详情",
+    "address_details_subtitle": "Lotusia 主网地址余额与交易历史。",
+    "balance": "余额",
+    "current_wallet_balance": "当前钱包余额",
+    "last_seen": "最后出现",
+    "last_activity_timestamp": "最后活动时间",
+    "transaction_history": "交易历史",
+    "no_transactions_for_address": "该地址暂无交易。",
+    "profiles_feed": "资料页列表",
+    "profiles_feed_subtitle": "排名与投票比例排行榜",
+    "chain_head": "链头",
+    "chain_head_subtitle": "最新已确认区块快照",
+    "block_transactions": "区块交易",
+    "block_transactions_subtitle": "该区块包含的交易",
+    "profile_posts": "资料页帖子",
+    "profile_posts_subtitle": "该资料页最近排名帖子",
+    "profile_votes": "资料页投票",
+    "profile_votes_subtitle": "与该资料页相关的近期投票",
+    "network_peers": "网络节点",
+    "network_peers_subtitle": "已连接节点与同步状态",
+    "transaction_inputs": "交易输入",
+    "transaction_inputs_subtitle": "支出来源与金额",
+    "transaction_outputs": "交易输出",
+    "transaction_outputs_subtitle": "目标地址与金额",
+    "profile_rankings": "资料页排名",
+    "profile_rankings_subtitle": "按资料页的排名快照",
+    "post_rankings": "帖子排名",
+    "post_rankings_subtitle": "按帖子的排名快照",
+    "dataset": "数据集",
+    "dataset_subtitle": "来自 worker API 的结构化记录"
+  }
+}

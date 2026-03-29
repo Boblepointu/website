@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{html_lang}}" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta_title}} | Lotusia</title>
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="{{title}} - Lotusia Docs">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{canonical_url}}">
+    <meta property="og:image" content="{{site_url}}{{og_image}}">
+    <meta property="og:site_name" content="Lotusia">
+    <meta property="og:locale" content="{{og_locale}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{meta_title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="{{site_url}}{{og_image}}">
+    <link rel="canonical" href="{{canonical_url}}">
+    {{hreflang_tags}}
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {{json_ld}}
+    {{head_extra}}
+</head>
+<body class="bg-background text-foreground min-h-screen">
+    {{header}}
+    <main class="min-h-[calc(100vh-var(--header-height))]">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8">
+          <div class="lg:col-span-3 hidden lg:block">
+            <div class="mt-8 pb-24 sticky top-[calc(var(--header-height)+2rem)]">
+              <nav class="text-sm overflow-y-auto max-h-[calc(100vh-var(--header-height)-4rem)]">{{sidebar}}</nav>
+            </div>
+          </div>
+          <div class="lg:col-span-9">
+            <div class="relative border-b border-gray-200 dark:border-gray-800 py-8">
+              <div class="mb-4 text-xs text-gray-500">{{breadcrumb}}</div>
+              <div class="flex flex-col lg:flex-row items-start gap-6">
+                <div class="flex-1">
+                  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">{{title}}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 pb-24 max-w-none">
+              <article class="prose max-w-none" itemscope itemtype="https://schema.org/TechArticle">
+                <div itemprop="articleBody">{{body}}</div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    {{footer}}
+    <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();</script>
+</body>
+</html>

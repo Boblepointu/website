@@ -1,0 +1,23 @@
+{
+  "name": "lotusia-sqlite-cloud-edge",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bootstrap:db": "node src/db/bootstrap.js",
+    "migrate": "node src/db/migrate.js",
+    "explain:plans": "node src/db/explain-plans.js",
+    "seed:tip": "node src/ingest/tip-sync.js",
+    "backfill": "node src/ingest/backfill.js",
+    "backfill:last5000": "DISABLE_EVENT_BUS=true node src/ingest/backfill-last-5000.js",
+    "repair:rank": "DISABLE_EVENT_BUS=true node src/ingest/repair-rank-projections.js",
+    "hydrate:once": "node src/ingest/hydrate-worker.js",
+    "dev:api": "node src/server.js",
+    "deploy:functions": "node scripts/deploy-edge-functions.mjs",
+    "demo:build": "npm --prefix marketing-demo run build",
+    "demo:deploy": "node scripts/deploy-demo-pages.mjs"
+  },
+  "dependencies": {
+    "@sqlitecloud/drivers": "^1.0.779",
+    "dotenv": "^16.4.5"
+  }
+}

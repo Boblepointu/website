@@ -1,0 +1,67 @@
+title: Ecosystem
+description: Three pillars working together—Stewardship guides, Treasury secures, Citizenry creates value
+ogTitle: Ecosystem - Lotusia
+navigation.icon: i-heroicons-user-group-solid
+to: /ecosystem
+hero:
+  title: Three Pillars, One Vision
+  description: Stewardship guides our path, Treasury secures our future, Citizenry creates our value
+  image:
+    dark: /img/ecosystem_0_0.jpg
+    light: /img/ecosystem_0_0.jpg
+sections:
+  - title: Stewardship
+    headline: 'The Turtles of Lotusia'
+    description: Our core leadership team—the Turtles—guides Lotusia with unwavering commitment to our values. While anyone can join as a Citizen, Turtles are dedicated long-term leaders who build the foundation for our community's growth.
+    align: right
+    quotes:
+      - author: Alexandre Guillioud
+        title: Hash Turtle - Blockchain Architect
+        text: I like to burn electricity for Lotus because I like to burn Lotus.
+        avatar: '/img/alexandre_guillioud.jpeg'
+      - author: Matthew Urgero
+        title: Faithful Turtle - Architect and Operations
+        text: Don't hoard tokens; hoard and foster human relationships. Lotus is a multi-generational project.
+        avatar: '/img/matthew_urgero.jpeg'
+    features:
+      - name: Truth
+        description: Question everything—including ourselves—to keep truth at the center
+        icon: i-heroicons-light-bulb-solid
+      - name: Integrity
+        description: Take responsibility for our words, actions, and their outcomes
+        icon: i-heroicons-shield-check-solid
+      - name: Leadership
+        description: Lead with patience and understanding toward the common good
+        icon: i-heroicons-users-solid
+      - name: Pragmatism
+        description: Fix what's broken instead of accepting the status quo
+        icon: i-heroicons-wrench-screwdriver-solid
+  - title: Citizenry
+    description: Every person who gives or receives Lotus is part of our citizenry—the heart of our ecosystem. Through authentic connections and generous giving, citizens create the real value that makes Lotusia thrive.
+    align: left
+    features:
+      - name: Open to All
+        description: Anyone can become a citizen—no barriers, no gatekeepers
+        icon: i-heroicons-heart-solid
+      - name: Culture of Giving
+        description: Generosity and authentic connections are what make Lotusia possible
+        icon: i-heroicons-gift-solid
+      - name: Growth Through Understanding
+        description: We grow together by learning from each other and building understanding
+        icon: i-heroicons-academic-cap-solid
+  - title: Treasury & Miners
+    description: Our global network of miners secures the Lotus network and creates new currency. They're distributed worldwide, ensuring no single point of control while maintaining transparency and security.
+    align: right
+    features:
+      - name: Network Security
+        description: Miners run computers that maintain the Lotus network and keep all transactions secure
+        icon: i-heroicons-shield-check-solid
+      - name: Currency Creation
+        description: Electricity is converted into new Lotus through secure cryptographic processes
+        icon: i-heroicons-bolt-solid
+      - name: Community Consensus
+        description: Miners signal their support for Stewardship decisions, creating alignment across the ecosystem
+        icon: i-heroicons-check-badge-solid
+      - name: Funding Growth
+        description: Half of all new Lotus goes directly to Stewardship for community development
+        icon: i-heroicons-currency-dollar-solid

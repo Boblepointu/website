@@ -1,0 +1,186 @@
+title: Roadmap
+description: The path to prosperity, forged by the Lotusia Stewardship
+ogTitle: Roadmap
+ogImage: /img/roadmap_0.jpg
+to: /roadmap
+navigation.icon: i-heroicons-presentation-chart-line-solid
+hero:
+  title: Roadmap
+  description: Outlined below are the Stewardship's goals for the current and upcoming Epoch. Previous Epochs are shown further down the page.
+  image: /img/roadmap_0.jpg
+sections:
+  - title: 1st Samuel Epoch (Current)
+    headline: Summer 2025 - Winter 2025
+    cards:
+      - title: Lotusia Chrome Extension
+        description: Chrome extension to implement a decentralized, community-moderated reputation system for social media, powered by Lotus
+        status: ongoing
+        checklist:
+          - label: Add support for additional platforms
+            complete: false
+          - label: Add notification support
+            complete: false
+          - label: Add Cashweb support
+            complete: false
+      - title: Lotusia Dashboard
+        description: A dashboard to aggregate data from the Lotusia ecosystem and track ecosystem growth
+        status: ongoing
+        checklist:
+          - label: Display trending profiles and posts across all platforms
+            complete: false
+          - label: Display engagement rewards and trends
+            complete: false
+      - title: More to come...
+        description: "As of May 28 2025, we're working on a lot of exciting things, and will update the Roadmap as we approach the 1st Samuel Epoch. Stay tuned for more updates!"
+  - title: Ruth Epoch
+    headline: Winter 2024 - Summer 2025
+    cards:
+      - title: Lotus Mining Pool
+        description: A mining pool for the Lotus blockchain
+        status: complete
+        checklist:
+          - label: Build backend pool with share payout system
+            complete: true
+          - label: Build frontend website
+            complete: true
+          - label: Add pool support to Rust miner
+            complete: true
+        links:
+          - label: Pool dashboard
+            to: https://burnlotus.org
+            target: _blank
+            active: true
+          - label: Mining instructions
+            to: https://burnlotus.org/#guide
+            target: _blank
+            active: true
+      - title: RANK Protocol Backend (beta)
+        description: Build the backend for the Lotusia extension, implementing the RANK protocol
+        status: complete
+        checklist:
+          - label: Software to index and store RANK transactions from the blockchain
+            complete: true
+          - label: Public API for the Lotusia Chrome Extension to access RANK data
+            complete: true
+        links:
+          - label: See the code
+            to: github/rank-backend-ts
+            target: _blank
+            active: true
+      - title: Lotusia Chrome Extension (beta)
+        description: A decentralized, community-moderated reputation system for social media, powered by Lotus
+        status: complete
+        checklist:
+          - label: Develop a Chrome extension that allows users to interact with the Lotusia ecosystem
+            complete: true
+          - label: Add support for Twitter/X
+            complete: true
+          - label: Publish the Chrome extension to the Chrome Web Store
+            complete: true
+        links:
+          - label: Download Chrome Extension
+            to: https://chromewebstore.google.com/detail/lotusia/bbdehfckfcaablnndggpliihmfmflcbh
+            target: _blank
+            active: true
+          - label: See the code
+            to: github/rank-extension-ts
+            target: _blank
+            active: true
+      - title: Lotus/Solana Bridge
+        description: A liquidity bridge between the Lotus and Solana blockchains
+        status: complete
+        checklist:
+          - label: Build backend bridge
+            complete: true
+          - label: Publish Lotus $XPI bridge address
+            complete: true
+          - label: Ensure bridge is secure and functional
+            complete: true
+        links:
+          - label: Try it out!
+            to: https://wxpi.lotusia.org
+            target: _blank
+            active: true
+  - title: Judges Epoch
+    headline: Summer 2024 - Winter 2024
+    cards:
+      - title: Core Infrastructure
+        description: Fortify the Stewardship's core infrastructure
+        status: ongoing
+        checklist:
+          - label: Automate builds and deployments of all core software
+            complete: false
+          - label: Ensure high-availability of core services
+            complete: false
+          - label: Rebuild Block Explorer on Lotus indexer with revamped UI
+            complete: false
+      - title: Organization
+        description: Formalizing Stewardship operations
+        status: ongoing
+        checklist:
+          - label: Draft application form and enact process for inducting new Turtles
+            complete: false
+          - label: Draft funding application form and enact process for approval
+            complete: false
+          - label: Publish all documents on the website
+            complete: false
+      - title: Lotus Vase
+        description: Revitalization and enhancement of the flagship mobile wallet for growing the Lotus Citizenry
+        status: ongoing
+        checklist:
+          - label: Post Lotus Vase to Google Play Store
+            complete: false
+          - label: Set up Vase Server instance
+            complete: false
+          - label: Develop an API for Vase wallet to communicate with Vase Server
+            complete: false
+          - label: Begin rewarding Citizens with Lotus for active engagement
+      - title: Lotusia Website
+        description: Landing page for Lotusia and communication hub for the Stewardship
+        status: planned
+        checklist:
+          - label: Migrate docs.givelotus.org
+            complete: false
+          - label: Build statistics dashboard to track Ecosystem growth
+            complete: false
+  - title: Joshua Epoch
+    headline: Winter 2023 - Summer 2024
+    cards:
+      - title: Lotusia Website
+        description: Landing page for Lotusia and communication hub for the Stewardship
+        status: complete
+        checklist:
+          - label: Push code to GitHub
+            complete: true
+          - label: Deploy live website
+            complete: true
+          - label: Automate deployment of website updates
+            complete: true
+        links:
+          - label: See the code
+            to: github/website
+            target: _blank
+            active: true
+      - title: Network Upgrade for Judges Epoch
+        description: Summer 2024 solstice
+        status: complete
+        checklist:
+          - label: Push code to GitHub
+            complete: true
+          - label: Build new packages for Windows, macOS, and Linux
+            complete: true
+          - label: Coordinate software deployment with Ecosystem to establish Consensus
+            complete: true
+        links:
+          - label: Download software upgrade
+            to: /goods
+            active: true
+          - label: See what's new
+            to: github/lotusd/releases/tag/v7.3.3
+            target: _blank
+            active: true
+  #- title: Ruth Epoch
+  #  headline: Winter 2024 - Summer 2025
+  #  cards:
+  #    - title: Item 1
+  #      description: Description 1

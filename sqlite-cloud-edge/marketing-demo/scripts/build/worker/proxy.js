@@ -2,6 +2,8 @@
 
 const DEFAULT_SOCIAL_API_BASE = 'https://legacy.lotusia.org';
 let ACTIVE_SOCIAL_API_BASE = DEFAULT_SOCIAL_API_BASE;
+let SQLITE_EDGE_FUNCTIONS_BASE = '';
+let SQLITE_EDGE_FUNCTIONS_API_KEY = '';
 const WORKER_LANGS = ['en', 'fr', 'es', 'it', 'de', 'ru', 'cn'];
 
 function detectWorkerLang(pathname) {
@@ -95,6 +97,11 @@ async function fetchSocialJson(pathname, query) {
 }
 
 async function fetchLegacyJson(pathname, query) {
+  const fromSqliteEdge = await fetchSqliteEdgeJson(pathname, query).catch(function() { return null; });
+  if (fromSqliteEdge !== null) return fromSqliteEdge;
+  if (String(pathname || '').startsWith('/api/explorer/')) {
+    throw new Error('SQLite explorer API unavailable for ' + pathname);
+  }
   const u = new URL(pathname, ACTIVE_SOCIAL_API_BASE);
   if (query) {
     for (const [k, v] of Object.entries(query)) u.searchParams.set(k, String(v));
@@ -102,6 +109,38 @@ async function fetchLegacyJson(pathname, query) {
   const res = await fetch(u.toString(), { redirect: 'manual' });
   if (!res.ok) throw new Error('Legacy API ' + pathname + ' failed with ' + res.status);
   return res.json();
+}
+
+function setSqliteEdgeConfig(baseUrl, apiKey) {
+  SQLITE_EDGE_FUNCTIONS_BASE = String(baseUrl || '').replace(/\/+$/, '');
+  SQLITE_EDGE_FUNCTIONS_API_KEY = String(apiKey || '');
+}
+
+function sqliteEdgeFunctionUrl(slug) {
+  if (!SQLITE_EDGE_FUNCTIONS_BASE || !slug) return '';
+  const base = SQLITE_EDGE_FUNCTIONS_BASE + '/' + encodeURIComponent(String(slug));
+  if (!SQLITE_EDGE_FUNCTIONS_API_KEY) return base;
+  return base + (base.includes('?') ? '&' : '?') + 'apikey=' + encodeURIComponent(SQLITE_EDGE_FUNCTIONS_API_KEY);
+}
+
+async function fetchSqliteEdgeJson(pathname, query) {
+  const endpoint = sqliteEdgeFunctionUrl('api-router');
+  if (!endpoint) return null;
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json'
+    },
+    body: JSON.stringify({
+      pathname: pathname,
+      query: query || {}
+    })
+  });
+  if (!res.ok) return null;
+  const payload = await res.json();
+  if (!payload || payload.ok !== true || payload.data === undefined) return null;
+  return payload.data;
 }
 
 function setSocialApiBase(urlLike) {

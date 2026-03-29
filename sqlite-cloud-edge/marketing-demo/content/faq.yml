@@ -1,0 +1,305 @@
+title: FAQ
+navigation.icon: i-heroicons-question-mark-circle-solid
+description: Lotusia, explained
+ogTitle: FAQ - Lotusia
+ogImage: /img/faq_0.jpg
+links:
+  - label: Technical Docs
+    to: /docs
+    icon: i-heroicons-arrow-top-right-on-square
+    color: gray
+    trailing: true
+questions:
+  - text: I'm new to Lotusia. How can I become a Citizen?
+    answer: Anybody that has Lotus is a Citizen.
+  - text: How can I get Lotus?
+    answer: The best way to get Lotus is to be given Lotus. If you join our Telegram community and engage with others, you will be given Lotus. You can also get Lotus by becoming a Miner for the Treasury.
+    links:
+      - label: Mining Guide
+        to: https://burnlotus.org/#guide
+        target: _blank
+  - text: Can I buy Lotus from an exchange?
+    answer: Currently, only the Exbitron exchange lists the Lotus ($XPI) / $USDT trade pair. The Stewardship has no plans to request additional exchange listings directly. However, as adoption and demand of the Lotus currency grows, it is inevitable that exchanges will begin listing Lotus.
+    note: The Stewardship does not advise buying Lotus with your money. It is far better to be given Lotus, or to mine it on your computer.
+  - text: When did the Lotus blockchain launch?
+    answer: The first block of the Lotus blockchain was mined on June 21, 2021 at 3:31 UTC
+    links:
+      - label: Block Details
+        to: explorer/block/00000000090ac785b348fc296a84ec2e45ee5fed25419a8557d868152c880049
+        target: _blank
+  - text: Is there a Lotus whitepaper?
+    answer: Yes, it is under active development. It will be linked on the home page in the near future.
+  - text: What is the 6-month upgrade schedule?
+    answer: The Lotus blockchain undergoes a scheduled upgrade twice per calendar year, beginning every Summer and Winter solstice. These upgrades are coordinated by the Stewardship through changes to the open-source software. Once the Treasury and Citizenry are in consensus with the proposed changes, the changes are then adopted and become the new consensus for the Ecosystem.
+  - text: What determines consensus in the Lotusia Ecosystem?
+    answer: Contrary to the existing model of representative government, the Stewardship is unable to enforce compliance with any rules that they propose for the Ecosystem. Compliance with the Stewardship's proposed rules is completely voluntary and consentual. The Treasury signals consent by upgrading their software and continuing to issue new Lotus, and the Citizenry signals consent by continuing to engage in the Ecosystem.
+  - text: Who is Mrs. Turtle?
+    answer: Mrs. Turtle is our gracious Telegram bot. She helps our Telegram community give Lotus to each other. Join our Telegram group and we will have her give you some Lotus!
+    links:
+      - label: Source Code
+        to: github/lotus-bot
+        target: _blank
+  - text: How is the Stewardship funding transparent?
+    answer: The Lotus blockchain is a distributed public ledger. The ledger contains a record of every change made by the Treasury, including every Lotus issued to the Stewardship as funding. By running the lotusd software, anybody can verify every detail of funding received and spent by the Stewardship.
+    note: The Block Explorer provides a convenient way to review financial activity of the Stewardship.
+  - text: Can anybody know how much Lotus I have or how much I give to other people?
+    answer: Possibly. The distributed public ledger does not contain a list of real-world identities. Somebody can only audit your economic activity if they know which Lotus address(es) contained within the ledger belong to you.
+  - text: What is a Lotus address?
+    answer: Think of a Lotus address like a bank account number. Other people can use this number to give you Lotus. The Treasury logs all of the economic activity in the public ledger such that the Ecosystem can account for each Lotus in circulation and verify no counterfeiting has occurred.
+  - text: How many Lotus addresses can I have?
+    answer: As many as you want! The Lotus addresses are generated using cryptographic software such that each new Lotus address you generate is unique.
+  - text: How can the Citizenry elect a new Stewardship?
+    answer: The Lotus blockchain software is a public good, therefore any party is free to copy the source code to create their own "fork" of the Lotus blockchain with their own rules for establishing Ecosystem consensus. This blockchain fork is analogous to a fork in the path ahead. The Citizenry is free to follow whichever blockchain fork, or path, they think will lead them to more prosperity. Hence, new Stewardships are instituted by peaceful separation of consensus, as opposed to elections.
+  - text: I work on a project that helps to build society, and I think Lotus can help me. Can I apply for a grant?
+    answer: Yes! The Stewardship is always open to apportion Lotus currency to projects that help people and bring them together. However, the formal process for submitting grant requests has not been defined. Please check the Roadmap page for more information.
+  - text: How can I apply to be a Turtle of the Stewardship?
+    answer: There is currently no formal process for inducting new Turtles. Please check the Roadmap page for more information.
+  - text: What is the currency issuance mechanism?
+    answer: Lotus is issued by the Treasury. The Treasury consists of Miners that perform Proof-of-Work (PoW) using powerful computer components that use electricity to issue Lotus. When a Miner expends enough electricity, he "mines a block", and this block is broadcasted to the network. This block contains a transaction called the "coinbase transaction" that issues new Lotus into the economy. 50% of the new Lotus goes to the Miner as a reward for his Work, and the other 50% goes to the Stewardship as funding for the Ecosystem.
+  - text: What makes the Lotus currency economically viable?
+    answer: More well-known cryptocurrencies like Bitcoin have proven to not be economically viable due to their arbitrary issuance cap and halving schedule that results in severe price volatility. The Lotus solution is to calculate the subsidy of each block based on the amount of electricity used to mine that block. Lotus currency can then be voluntarily destroyed to create deflationary pressure. Over time, these ebbs and flows of the currency supply will stabilize the price volatility by matching the supply to the demand of the economy as closely as possible.
+  - text: How does Lotus compare to a fiat currency like the U.S. Dollar?
+    answer: There are some similarities between Lotus and the U.S. Dollar, however there are several key differences that are outlined below.
+    table:
+      columns:
+        [
+          { key: 'trait', label: '' },
+          { key: 'xpi', label: 'Lotus' },
+          { key: 'usd', label: 'U.S. Dollar' },
+        ]
+      rows:
+        [
+          {
+            id: 1,
+            trait: 'Issuance',
+            xpi: 'Proof-of-Work / Electricity',
+            usd: 'Debt',
+          },
+          {
+            id: 2,
+            trait: 'Inflation',
+            xpi: 'Based on Ecosystem demand',
+            usd: 'Whatever Congress decides',
+          },
+          {
+            id: 3,
+            trait: 'Distribution',
+            xpi: 'Public works, volunteerism, charity',
+            usd: 'Public works, welfare programs, war, surveillance',
+          },
+          {
+            id: 4,
+            trait: 'Redemption',
+            xpi: 'Voluntary destructive use',
+            usd: 'Compulsory taxation',
+          },
+          {
+            id: 5,
+            trait: 'Enforcement',
+            xpi: 'Blockchain consensus',
+            usd: 'Police / Military force',
+          },
+        ]
+  - text: What is "voluntary destructive use" and how does it work?
+    answer: The term describes a mechanism by which Lotus can be removed permanently from circulation without requiring any compulsory tax policy. Some public goods that enable public social interaction are provided by the Stewardship and require Lotus currency to be destroyed in order to interact. For example, a public ad board requires any Citizen of Lotusia to destroy a desired amount of their Lotus currency in order to post an ad that will be broadcasted across the Ecosystem.
+technical:
+  title: Technical Specifications
+  description: Detailed network parameters for developers and institutional integrators
+  questions:
+    - text: What are the technical specifications of the Lotus blockchain?
+      answer: The Lotus blockchain is a Bitcoin ABC fork with several unique characteristics. It uses a 2-minute block time with ASERT difficulty adjustment, supports 32 MB blocks, and implements a difficulty-based subsidy system where each block issues 260 XPI split 50/50 between miners and the Stewardship. For detailed network parameters, see the technical tables below.
+      note: Technical specifications are organized by category in the tables below.
+    - text: What is the genesis block of the Lotus blockchain?
+      answer: See the Genesis Block table for complete technical details.
+    - text: What address formats does Lotus support?
+      answer: Lotus supports multiple address formats for compatibility. The native format uses "lotus_16PSJ..." base58 encoding. It also supports legacy Bitcoin-style addresses and CashAddr format. All formats are interoperable on the same blockchain. See the Address Formats table for specific prefix values.
+    - text: Does Lotus support Taproot?
+      answer: Yes, Lotus implements Taproot with modifications specific to the Lotus protocol. Unlike Bitcoin's 32-byte x-only public keys, Lotus uses 33-byte compressed keys. It also introduces SIGHASH_LOTUS (0x60) as a signature hash algorithm and OP_SCRIPTTYPE (0x62) for script type identification. See the Script & Cryptography table for implementation details.
+    - text: How does the 6-month upgrade schedule work technically?
+      answer: Protocol upgrades are scheduled around the summer and winter solstices and are named after books of the Bible. Each upgrade has a Unix timestamp activation time hardcoded in the consensus rules. Recent upgrades include Joshua (June 2024), Judges (June 2024), Ruth (December 2024), First Samuel (June 2025), Second Samuel (December 2025), and First Kings (June 2026).
+  sections:
+    - title: Network Configuration
+      table:
+        columns:
+          [
+            { key: 'parameter', label: 'Specification' },
+            { key: 'value', label: 'Configuration' },
+          ]
+        rows:
+          [
+            { id: 1, parameter: 'P2P Port (Mainnet)', value: '10605' },
+            { id: 2, parameter: 'RPC Port (Mainnet)', value: '10604' },
+            { id: 3, parameter: 'Tor Port (Mainnet)', value: '10606' },
+            { id: 4, parameter: 'Protocol Version', value: '70016' },
+            { id: 5, parameter: 'Minimum Peer Protocol', value: '31800' },
+            { id: 6, parameter: 'Network Magic', value: '0xec 0xe7 0xef 0xf3' },
+            { id: 7, parameter: 'DNS Seed', value: 'seed.lotusia.org' },
+          ]
+    - title: Blockchain Parameters
+      table:
+        columns:
+          [
+            { key: 'parameter', label: 'Specification' },
+            { key: 'value', label: 'Configuration' },
+          ]
+        rows:
+          [
+            {
+              id: 1,
+              parameter: 'Block Time Target',
+              value: '2 minutes (120 seconds)',
+            },
+            {
+              id: 2,
+              parameter: 'Difficulty Algorithm',
+              value: 'ASERT (aserti32d)',
+            },
+            {
+              id: 3,
+              parameter: 'DAA Half-Life',
+              value: '2 days (172,800 seconds)',
+            },
+            { id: 4, parameter: 'Block Size Limit', value: '32 MB' },
+            {
+              id: 5,
+              parameter: 'Transaction Size',
+              value: '100 bytes min, 1 MB max',
+            },
+            { id: 6, parameter: 'Coinbase Maturity', value: '100 blocks' },
+            {
+              id: 7,
+              parameter: 'Miner Confirmation Window',
+              value: '2,016 blocks',
+            },
+          ]
+    - title: Monetary Policy
+      table:
+        columns:
+          [
+            { key: 'parameter', label: 'Specification' },
+            { key: 'value', label: 'Configuration' },
+          ]
+        rows:
+          [
+            {
+              id: 1,
+              parameter: 'Base Unit',
+              value: '1 XPI = 1,000,000 satoshis',
+            },
+            {
+              id: 2,
+              parameter: 'Block Subsidy',
+              value: '260 XPI (difficulty-based)',
+            },
+            {
+              id: 3,
+              parameter: 'Subsidy Distribution',
+              value: '50% miner, 50% Stewardship',
+            },
+            {
+              id: 4,
+              parameter: 'Supply Model',
+              value: 'Dynamic (no hard cap)',
+            },
+            {
+              id: 5,
+              parameter: 'Sanity Check Limit',
+              value: '2.1 billion XPI',
+            },
+          ]
+    - title: Address Formats
+      table:
+        columns:
+          [
+            { key: 'parameter', label: 'Specification' },
+            { key: 'value', label: 'Configuration' },
+          ]
+        rows:
+          [
+            {
+              id: 1,
+              parameter: 'Native Format',
+              value: 'lotus_16PSJ... (base32)',
+            },
+            { id: 2, parameter: 'P2PKH Prefix', value: '0x00' },
+            { id: 3, parameter: 'P2SH Prefix', value: '0x05' },
+            { id: 4, parameter: 'WIF Private Key', value: '0x80' },
+            {
+              id: 5,
+              parameter: 'CashAddr Prefix',
+              value: 'bitcoincash / ecash',
+            },
+          ]
+    - title: Script & Cryptography
+      table:
+        columns:
+          [
+            { key: 'parameter', label: 'Specification' },
+            { key: 'value', label: 'Configuration' },
+          ]
+        rows:
+          [
+            {
+              id: 1,
+              parameter: 'Taproot Support',
+              value: 'Yes (Lotus-modified)',
+            },
+            {
+              id: 2,
+              parameter: 'Signature Algorithm',
+              value: 'ECDSA + Schnorr',
+            },
+            { id: 3, parameter: 'SIGHASH_LOTUS', value: '0x60' },
+            { id: 4, parameter: 'SIGHASH_FORKID', value: '0x40 (BIP143)' },
+            { id: 5, parameter: 'OP_SCRIPTTYPE', value: '0x62' },
+            { id: 6, parameter: 'Max Script Size', value: '10,000 bytes' },
+            { id: 7, parameter: 'Max Sigchecks per TX', value: '3,000' },
+            {
+              id: 8,
+              parameter: 'Taproot Key Format',
+              value: '33-byte compressed',
+            },
+          ]
+    - title: Genesis Block
+      table:
+        columns:
+          [
+            { key: 'parameter', label: 'Specification' },
+            { key: 'value', label: 'Configuration' },
+          ]
+        rows:
+          [
+            {
+              id: 1,
+              parameter: 'Block Hash',
+              value: '000000000abc0cde58ee7e919d3d4de183e6844add1fd5d14b4eac89d958f470',
+            },
+            {
+              id: 2,
+              parameter: 'Timestamp',
+              value: 'June 21, 2021 03:31:00 UTC',
+            },
+            { id: 3, parameter: 'Unix Time', value: '1624246260' },
+            { id: 4, parameter: 'Block Size', value: '379 bytes' },
+            {
+              id: 5,
+              parameter: 'Genesis Message',
+              value: 'John 1:1 In the beginning was the Logos',
+            },
+            {
+              id: 6,
+              parameter: 'Coinbase Prefix',
+              value: '0x6c6f676f73 (logos)',
+            },
+          ]
+cta:
+  title: Still have questions?
+  description: Join us in our Telegram group! We are happy to answer all of your questions.
+  links:
+    - label: Telegram
+      icon: i-simple-icons-telegram
+      to: telegram
+      target: _blank
+      size: xl
+      color: purple
+      trailing: true

@@ -1,0 +1,1108 @@
+{
+  "lang": "de",
+  "lang_name": "Deutsch",
+  "html_lang": "de",
+  "locale": "de_DE",
+  "hreflang": "de",
+  "prefix": "/de",
+  "nav": {
+    "ecosystem": "Ökosystem",
+    "tools": "Werkzeuge",
+    "roadmap": "Roadmap",
+    "faq": "FAQ",
+    "docs": "Dokumentation",
+    "founders": "Gründer",
+    "blog": "Blog",
+    "more": "Mehr",
+    "explorer": "Explorer",
+    "beta_services": "Beta-Dienste"
+  },
+  "common": {
+    "home": "Startseite",
+    "language": "Sprache",
+    "copyright": "Copyright",
+    "all_rights_reserved": "Alle Rechte vorbehalten.",
+    "toggle_theme": "Theme wechseln"
+  },
+  "buttons": {
+    "get_started": "Loslegen",
+    "learn_more": "Mehr erfahren",
+    "technical_docs": "Technische Dokumentation"
+  },
+  "seo": {
+    "home_keywords": "lotusia, lotusia blockchain, xpi, stewardship, gemeinschaft, governance",
+    "ecosystem_keywords": "lotusia oekosystem, stewardship, treasury, buergerschaft, governance, oeffentliche gueter",
+    "tools_keywords": "lotusia tools, oeffentliche gueter, wallet, sdk, miner, open source",
+    "founders_keywords": "lotusia gruender, blockchain fuehrung, stewardship team, ethischer proof of work",
+    "roadmap_keywords": "lotusia roadmap, protokoll meilensteine, oekosystem ziele, blockchain upgrades",
+    "faq_keywords": "lotusia faq, lotus waehrung, governance, wallet, blockchain hilfe",
+    "blog_keywords": "lotusia blog, oekosystem updates, protokoll releases, blockchain news",
+    "beta_services_keywords": "lotusia beta dienste, test tools, beta produkte im oekosystem",
+    "docs_keywords": "lotusia dokumentation, technische dokumentation, blockchain spezifikationen, entwicklerleitfaeden",
+    "explorer_overview_keywords": "lotusia explorer, netzwerk ueberblick, hashrate, schwierigkeit, peers, mempool",
+    "explorer_blocks_keywords": "lotusia bloecke, blockchain hoehe, block zeitstempel, anzahl transaktionen, blockgroesse",
+    "social_activity_keywords": "lotusia soziale aktivitaet, stimmen, sentiment, reputationsereignisse",
+    "social_trending_keywords": "lotusia trends, top profile, top posts, niedrigste rangliste",
+    "social_profiles_keywords": "lotusia soziale profile, reputationsranking, abstimmungsverhaeltnis, leaderboard"
+  },
+  "pages": {
+    "index": {
+      "title": "Willkommen bei Lotusia",
+      "og_title": "Willkommen bei Lotusia | Lotusia",
+      "description": "Lotusia wurde gegründet, um menschliche Beziehungen zu fördern, eine Kultur der Gegenseitigkeit aufzubauen und gesellschaftliche Wertschöpfung online und offline zu stärken.",
+      "hero_title": "Menschlichkeit in die Gesellschaft zurückbringen",
+      "hero_description": "",
+      "sections": [
+        {
+          "title": "Was ist Lotus?",
+          "description": "Die Lotusia-Wirtschaft wird in der Lotus-Währung denominiert. Lotus vereint die besten Eigenschaften des modernen Geldsystems und der neuen Generation digitaler Kryptowährungen. Das Ergebnis ist eine ethische Währung, die wirtschaftlich tragfähig ist.",
+          "features": [
+            {
+              "name": "Schuldfrei",
+              "description": "Lotus wird durch Proof-of-Work-Mining (Strom) ausgegeben"
+            },
+            {
+              "name": "Inflationär",
+              "description": "Keine willkürliche Ausgabeobergrenze (anders als Bitcoin), daher kein Grund zum Horten"
+            },
+            {
+              "name": "Reichhaltig",
+              "description": "Die Ausgabe neuer Lotus wird an die Nachfrage der Lotusia-Wirtschaft angepasst"
+            },
+            {
+              "name": "Stabilisierend",
+              "description": "Lotus wird durch freiwillige destruktive Nutzung aus dem Umlauf genommen, um die Volatilität zu stabilisieren"
+            }
+          ]
+        },
+        {
+          "title": "Die Kraft des Gebens",
+          "description": "Gegenseitigkeit ist der Kern aller menschlichen Beziehungen, ob persönlich oder beruflich. In vielen Kulturen ist die Lotusblume ein kraftvolles Symbol für Schöpfung, Stärke und Widerstandsfähigkeit. Wenn du anderen Lotus gibst, schenkst du ihnen ein unbezahlbares und kraftvolles Symbol, das den Wert deiner Beziehung zu ihnen repräsentiert.",
+          "features": [
+            {
+              "name": "«Und ich sage euch: Macht euch Freunde mit dem ungerechten Mammon, damit, wenn er zu Ende geht, sie euch aufnehmen in die ewigen Hütten.»",
+              "description": "Lukas 16,9"
+            },
+            {
+              "name": "«Ihr sollt euch nicht Schätze sammeln auf Erden, wo Motten und Rost sie fressen und wo Diebe einbrechen und stehlen. Sammelt euch aber Schätze im Himmel, wo weder Motten noch Rost sie fressen und wo Diebe nicht einbrechen und stehlen. Denn wo dein Schatz ist, da ist auch dein Herz.»",
+              "description": "Matthäus 6,19–21"
+            }
+          ]
+        },
+        {
+          "title": "Ökosystem-Ausrichtung",
+          "description": "Die Gesellschaften der Welt leiden unter einem hohen Maß an Korruption und Armut aufgrund der fehlgeleiteten Anreize ihrer Regierungsorgane und Bankensysteme. Mit der Lotus-Blockchain wird die Stewardship direkt und freiwillig durch den Währungsausgabemechanismus finanziert und ist somit motiviert, den Wohlstand des Ökosystems zu steigern.",
+          "features": [
+            {
+              "name": "Wertversprechen",
+              "description": "Die Stewardship muss ihren Plan zur Wertschöpfung für Lotusia vorlegen, bevor sie Finanzierung erhält"
+            },
+            {
+              "name": "Finanzierungstransparenz",
+              "description": "Ausgegebene und von der Stewardship verwendete Währung ist ein fälschungssicheres öffentliches Register"
+            },
+            {
+              "name": "Freiwillige Zugehörigkeit",
+              "description": "Die Citizenry kann die bestehende Stewardship absetzen und sofort eine neue Stewardship wählen"
+            }
+          ]
+        },
+        {
+          "title": "Öffentliche Güter für das Ökosystem",
+          "description": "Die Lotusia Stewardship entwickelt und pflegt Open-Source-Werkzeuge, Bibliotheken und Infrastruktur, die das Ökosystem antreiben. Von Blockchain-Indexern bis zu mobilen Wallets stehen diese öffentlichen Güter jedem frei zur Verfügung, um sie zu nutzen, zu verändern und darauf aufzubauen.",
+          "features": [
+            {
+              "name": "Open Source",
+              "description": "Alle Software der Stewardship ist Open Source, überprüfbar und von der Gemeinschaft gepflegt"
+            },
+            {
+              "name": "Erlaubnisfrei",
+              "description": "Jeder kann diese Werkzeuge ohne Einschränkung nutzen"
+            },
+            {
+              "name": "Erweiterbar",
+              "description": "Baue deine eigenen Anwendungen auf der Infrastruktur der Stewardship auf"
+            }
+          ]
+        },
+        {
+          "title": "Weltweite Wirkung",
+          "description": "Die Lotus-Blockchain ist dank ihrer vernetzten digitalen Natur blitzschnell und ungehindert von Grenzen oder anderen physischen Beschränkungen, sodass sich Lotusia über den ganzen Planeten verbreiten kann. Die Blockchain bietet dem Ökosystem zudem grenzenlose Möglichkeiten.",
+          "features": [
+            {
+              "name": "Erlaubnisfrei",
+              "description": "Jeder ist frei, dem Netzwerk jederzeit beizutreten oder es zu verlassen und Lotus an jeden, überall und zu jeder Zeit zu geben"
+            },
+            {
+              "name": "Vielseitig",
+              "description": "Die programmierbare Natur der Blockchain bietet umfangreiche Möglichkeiten für zukünftige Anforderungen des Handels und anderer sozialer Interaktionen"
+            },
+            {
+              "name": "Anpassungsfähig",
+              "description": "Ein regelmäßiger 6-monatiger Upgrade-Zeitplan der Blockchain-Software stellt sicher, dass Leistung und Funktionalität mit dem Wachstum und der Nachfrage des Ökosystems Schritt halten"
+            },
+            {
+              "name": "Skalierbar",
+              "description": "Die Lotus-Blockchain basiert auf Bitcoin ABC-Software und ist daher hochgradig skalierbar"
+            }
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Die Gesellschaft braucht Menschlichkeit",
+        "description": "Es braucht uns alle, die kleine, positive Veränderungen in unseren täglichen Interaktionen mit anderen vornehmen, um wirklich eine nachhaltige Wirkung auf die Gesellschaft zu erzielen. Es ist unsere Vision, Menschen zusammenzubringen und die Lotus-Währung zu nutzen, um den Wert, den wir ineinander sehen, sichtbar zu machen."
+      }
+    },
+    "ecosystem": {
+      "title": "Ökosystem",
+      "og_title": "Ökosystem - Lotusia",
+      "description": "Drei Säulen arbeiten zusammen – Stewardship führt, Treasury sichert, Citizenry schafft Wert",
+      "hero_title": "Drei Säulen, eine Vision",
+      "hero_description": "Stewardship weist den Weg, Treasury sichert unsere Zukunft, Citizenry schafft unseren Wert",
+      "sections": [
+        {
+          "title": "Stewardship",
+          "headline": "Die Schildkröten von Lotusia",
+          "description": "Unser Kernführungsteam – die Schildkröten – leitet Lotusia mit unerschütterlichem Engagement für unsere Werte. Während jeder als Bürger beitreten kann, sind die Schildkröten engagierte langfristige Führungspersönlichkeiten, die das Fundament für das Wachstum unserer Gemeinschaft aufbauen.",
+          "quotes": [
+            {
+              "author": "Alexandre Guillioud",
+              "title": "Hash Turtle – Blockchain-Architekt",
+              "text": "Ich verbrenne gerne Strom für Lotus, weil ich gerne Lotus verbrenne."
+            },
+            {
+              "author": "Matthew Urgero",
+              "title": "Faithful Turtle – Architekt und Betrieb",
+              "text": "Hortet keine Token; hortet und pflegt menschliche Beziehungen. Lotus ist ein Mehrgenerationenprojekt."
+            }
+          ],
+          "features": [
+            {
+              "name": "Wahrheit",
+              "description": "Alles hinterfragen – einschließlich uns selbst – um die Wahrheit im Mittelpunkt zu halten"
+            },
+            {
+              "name": "Integrität",
+              "description": "Verantwortung übernehmen für unsere Worte, Taten und deren Folgen"
+            },
+            {
+              "name": "Führung",
+              "description": "Mit Geduld und Verständnis zum Gemeinwohl führen"
+            },
+            {
+              "name": "Pragmatismus",
+              "description": "Reparieren, was kaputt ist, anstatt den Status quo zu akzeptieren"
+            }
+          ]
+        },
+        {
+          "title": "Citizenry",
+          "description": "Jeder Mensch, der Lotus gibt oder empfängt, ist Teil unserer Citizenry – dem Herz unseres Ökosystems. Durch authentische Verbindungen und großzügiges Geben schaffen die Bürger den wahren Wert, der Lotusia zum Blühen bringt.",
+          "features": [
+            {
+              "name": "Offen für alle",
+              "description": "Jeder kann Bürger werden – keine Barrieren, keine Torwächter"
+            },
+            {
+              "name": "Kultur des Gebens",
+              "description": "Großzügigkeit und authentische Verbindungen machen Lotusia möglich"
+            },
+            {
+              "name": "Wachstum durch Verständnis",
+              "description": "Wir wachsen gemeinsam, indem wir voneinander lernen und Verständnis aufbauen"
+            }
+          ]
+        },
+        {
+          "title": "Treasury & Miner",
+          "description": "Unser globales Netzwerk von Minern sichert das Lotus-Netzwerk und erzeugt neue Währung. Sie sind weltweit verteilt und gewährleisten so, dass es keinen einzelnen Kontrollpunkt gibt, während Transparenz und Sicherheit aufrechterhalten werden.",
+          "features": [
+            {
+              "name": "Netzwerksicherheit",
+              "description": "Miner betreiben Computer, die das Lotus-Netzwerk aufrechterhalten und alle Transaktionen sichern"
+            },
+            {
+              "name": "Währungserzeugung",
+              "description": "Strom wird durch sichere kryptografische Prozesse in neue Lotus umgewandelt"
+            },
+            {
+              "name": "Gemeinschaftskonsens",
+              "description": "Miner signalisieren ihre Unterstützung für Stewardship-Entscheidungen und schaffen Ausrichtung im gesamten Ökosystem"
+            },
+            {
+              "name": "Wachstumsförderung",
+              "description": "Die Hälfte aller neuen Lotus geht direkt an die Stewardship für die Gemeinschaftsentwicklung"
+            }
+          ]
+        }
+      ]
+    },
+    "tools": {
+      "title": "Öffentliche Güter",
+      "og_title": "Öffentliche Güter - Lotusia",
+      "description": "Open-Source-Software und Infrastruktur, entwickelt von der Lotusia Stewardship",
+      "hero_title": "Öffentliche Güter",
+      "hero_description": "Open-Source-Software und Infrastruktur, entwickelt von der Lotusia Stewardship zum Nutzen des Ökosystems",
+      "sections": [
+        {
+          "title": "Kern-Blockchain-Software – lotusd",
+          "headline": "Wintersonnenwende 2025 – 10. Epoche des Lotus-Netzwerks",
+          "description": "Die Stewardship pflegt lotusd und Lotus-QT, die Referenzimplementierung des Lotus-Blockchain-Protokolls. Diese Software validiert Transaktionen, pflegt das verteilte Hauptbuch und ermöglicht es jedem, am Netzwerkkonsens durch Mining teilzunehmen.",
+          "features": [
+            {
+              "name": "Full Node & Mining",
+              "description": "Vollständiger Validierungsknoten mit SHA-256d-Mining und GPU-Beschleunigung"
+            },
+            {
+              "name": "RPC & REST APIs",
+              "description": "JSON-RPC- und REST-Schnittstellen für Blockchain-Abfragen und Transaktionsübertragung"
+            },
+            {
+              "name": "Erweiterte Scripts",
+              "description": "Taproot, MuSig2, SwapSig und benutzerdefinierte Script-Typen mit Signaturverifizierung"
+            },
+            {
+              "name": "P2P-Infrastruktur",
+              "description": "Mempool-Verwaltung, Blockverbreitung und Durchsetzung der Konsensregeln"
+            }
+          ]
+        },
+        {
+          "title": "Entwickler-SDK – xpi-ts",
+          "description": "Eine von der Stewardship entwickelte TypeScript-Bibliothek zum Erstellen von Anwendungen, die sich in die Lotus-Blockchain integrieren. Unterstützt Transaktionen, Wallets, MuSig2-Multisignaturen, Taproot-Adressen und andere kryptografische Primitiven.",
+          "features": [
+            {
+              "name": "Transaktionserstellung",
+              "description": "Erstelle und signiere Transaktionen mit Bitcore-kompatiblen APIs, HD-Wallets und Unterstützung für mnemonische Phrasen"
+            },
+            {
+              "name": "Erweiterte Kryptografie",
+              "description": "MuSig2-Multisignaturen, Taproot-Adressen und sichere Schlüsselableitung sofort einsatzbereit"
+            },
+            {
+              "name": "RANK-Protokoll",
+              "description": "Erstelle Reputations- und Inhaltsranking-Systeme mit nativer On-Chain-RANK-Unterstützung"
+            },
+            {
+              "name": "TypeScript-nativ",
+              "description": "Vollständig typisierte Module mit umfassender Dokumentation und praxisnahen Beispielen"
+            }
+          ]
+        },
+        {
+          "title": "Browser-Erweiterung",
+          "description": "Eine Referenzimplementierung des RANK-Protokolls, entwickelt von der Stewardship als Chrome-Erweiterung. Zeigt, wie dezentrale Reputationssysteme auf der Lotus-Blockchain aufgebaut werden können.",
+          "features": [
+            {
+              "name": "Inhalte mit Lotus bewerten",
+              "description": "Verbrenne Lotus, um Social-Media-Beiträge mit dem RANK-Protokoll hoch- oder herunterzustufen"
+            },
+            {
+              "name": "Gemeinschaftsbewertungen ansehen",
+              "description": "Sieh, wie die Gemeinschaft Inhalte bewertet hat, bevor du dich damit beschäftigst"
+            },
+            {
+              "name": "Ersteller direkt unterstützen",
+              "description": "Gib Lotus direkt an Inhaltsersteller und Freunde über deinen Browser"
+            },
+            {
+              "name": "Baue deinen Einfluss auf",
+              "description": "Qualitätsbeiträge bauen deinen Ruf in der Gemeinschaft auf"
+            }
+          ]
+        },
+        {
+          "title": "Mobile Wallet – Referenzimplementierung",
+          "description": "BigVase ist eine Referenzimplementierung eines nicht-verwahrenden Lotus-Wallets, entwickelt von der Stewardship, um Best Practices für die mobile Wallet-Entwicklung auf der Lotus-Blockchain zu demonstrieren.",
+          "features": [
+            {
+              "name": "Deine Schlüssel, dein Lotus",
+              "description": "Nicht-verwahrendes Wallet, bei dem du deine Mittel mit Sicherungswörtern kontrollierst"
+            },
+            {
+              "name": "Einfach geben und empfangen",
+              "description": "Gib Freunden Lotus oder empfange Lotus mit einfachen QR-Codes und Kontaktlisten"
+            },
+            {
+              "name": "Kontostand verfolgen",
+              "description": "Sieh deinen Lotus-Kontostand und Transaktionsverlauf auf einen Blick"
+            },
+            {
+              "name": "Funktioniert überall",
+              "description": "Verfügbar für Android und iPhone"
+            }
+          ]
+        }
+      ]
+    },
+    "founders": {
+      "title": "Gründer",
+      "og_title": "Gründer - Lotusia",
+      "description": "Lerne die Gründer hinter Lotusia kennen – die Menschen, die eine ethische Proof-of-Work-Blockchain für die Menschheit bauen",
+      "hero_title": "Die Menschen hinter Lotusia",
+      "hero_description": "Lotusia wird von Ingenieuren und Visionären gebaut, die davon überzeugt sind, dass Kryptowährung der Menschheit dienen sollte, nicht sie ausnutzen. Lerne die Gründer kennen, die diese Vision Wirklichkeit werden lassen.",
+      "sections": [
+        {
+          "title": "Alexandre Guillioud",
+          "headline": "Hash Turtle – Blockchain-Architekt & Mitgründer",
+          "description": "Software-Architekt mit über 12 Jahren Erfahrung in eingebetteten Systemen, verteilten Architekturen und Solarenergie. Alexandre hat Lotusia mitgegründet, um eine ethische Alternative zu spekulativen Kryptowährungen zu schaffen. Er leitet die technische Infrastruktur: Kern-Blockchain-Entwicklung, benutzerdefinierter WebGPU-GPU-Miner, Mining-Pool und Cross-Chain-Bridging. Zuvor Senior Software Architect bei myNFT (3 Jahre, Cross-Chain-EVM-Bridging, Solidity-Smart-Contracts, TheGraph-Subgraphs), Lead Developer bei Veepee und Architekt bei fulll. Er betreibt außerdem Golden Solar (29 Photovoltaikanlagen, 4 MWp) und forscht unabhängig im Bereich kognitive Sicherheit.",
+          "features": [
+            {
+              "name": "Kern-Blockchain-Entwicklung",
+              "description": "Pflegt und entwickelt die Lotusia-Blockchain-Codebasis basierend auf Bitcoin ABC"
+            },
+            {
+              "name": "Mining-Infrastruktur",
+              "description": "Hat einen benutzerdefinierten WebGPU-GPU-Miner gebaut und betreibt Mining-Pool-Infrastruktur"
+            },
+            {
+              "name": "Cross-Chain-Engineering",
+              "description": "Hat die Solana-Brücke und EVM-Bridging-Systeme entworfen und gebaut"
+            },
+            {
+              "name": "Solarenergie & Nachhaltigkeit",
+              "description": "Betreibt Golden Solar – 29 Photovoltaikanlagen für reale Dekarbonisierung"
+            }
+          ]
+        },
+        {
+          "title": "Matthew Urgero",
+          "headline": "Faithful Turtle – Sr. IT-Systemingenieur · Architekt & Betrieb",
+          "description": "Senior IT-Systemingenieur mit Sitz in Arizona, USA. Matthew hat Lotusia mitgegründet mit der tiefen Überzeugung, dass Kryptowährung menschlichen Beziehungen dienen sollte, nicht sie ausnutzen. Als Leiter für Architektur & Betrieb seit 2024 treibt er Ökosystem-Operationen, Infrastrukturzuverlässigkeit, Gemeinschaftskoordination und strategische Planung voran. Sein Hintergrund in IT-Systemengineering auf Unternehmensebene bringt operationelle Strenge in jeden Aspekt der Lotusia-Plattform – von der Netzwerkarchitektur bis zu Deployment-Pipelines. Matthews Fokus auf langfristige Nachhaltigkeit statt kurzfristiger Spekulation definiert das Ethos des Projekts.",
+          "features": [
+            {
+              "name": "IT-Systemengineering",
+              "description": "Infrastruktur, Netzwerke und Systemarchitektur auf Unternehmensebene"
+            },
+            {
+              "name": "Ökosystem-Betrieb",
+              "description": "Überwacht den täglichen Betrieb, Deployment-Pipelines und Infrastrukturzuverlässigkeit"
+            },
+            {
+              "name": "Strategische Vision",
+              "description": "Treibt die langfristige Roadmap im Einklang mit Lotusias Kernwerten von Wahrheit und Integrität voran"
+            },
+            {
+              "name": "Gemeinschaftsaufbau",
+              "description": "Fördert authentische menschliche Beziehungen innerhalb des Lotusia-Ökosystems weltweit"
+            }
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Von Menschen für Menschen gebaut",
+        "description": "Lotusia existiert, weil seine Gründer daran glauben, dass Technologie der Menschheit dienen sollte. Jede Zeile Code, jede Infrastrukturentscheidung, jede Interaktion mit der Gemeinschaft wird von diesem Prinzip geleitet. Mach mit beim Aufbau von etwas, das zählt."
+      }
+    },
+    "roadmap": {
+      "title": "Roadmap",
+      "og_title": "Roadmap | Lotusia",
+      "description": "Der Weg zum Wohlstand, geschmiedet von der Lotusia Stewardship",
+      "hero_title": "Roadmap",
+      "hero_description": "Nachfolgend sind die Ziele der Stewardship für die aktuelle und kommende Epoche aufgeführt. Frühere Epochen werden weiter unten auf der Seite angezeigt.",
+      "sections": [
+        {
+          "title": "1. Samuel-Epoche (Aktuell)",
+          "headline": "Sommer 2025 – Winter 2025",
+          "cards": [
+            {
+              "title": "Lotusia Chrome-Erweiterung",
+              "description": "Chrome-Erweiterung zur Implementierung eines dezentralen, gemeinschaftsmoderierten Reputationssystems für soziale Medien, angetrieben durch Lotus",
+              "status": "ongoing",
+              "checklist": [
+                {
+                  "label": "Unterstützung für zusätzliche Plattformen hinzufügen",
+                  "complete": false
+                },
+                {
+                  "label": "Benachrichtigungsunterstützung hinzufügen",
+                  "complete": false
+                },
+                {
+                  "label": "Cashweb-Unterstützung hinzufügen",
+                  "complete": false
+                }
+              ]
+            },
+            {
+              "title": "Lotusia Dashboard",
+              "description": "Ein Dashboard zur Aggregation von Daten aus dem Lotusia-Ökosystem und zur Verfolgung des Ökosystem-Wachstums",
+              "status": "ongoing",
+              "checklist": [
+                {
+                  "label": "Trendende Profile und Beiträge plattformübergreifend anzeigen",
+                  "complete": false
+                },
+                {
+                  "label": "Engagement-Belohnungen und Trends anzeigen",
+                  "complete": false
+                }
+              ]
+            },
+            {
+              "title": "Mehr folgt …",
+              "description": "Stand 28. Mai 2025 arbeiten wir an vielen spannenden Dingen und werden die Roadmap aktualisieren, wenn wir uns der 1. Samuel-Epoche nähern. Bleib dran für weitere Updates!"
+            }
+          ]
+        },
+        {
+          "title": "Rut-Epoche",
+          "headline": "Winter 2024 – Sommer 2025",
+          "cards": [
+            {
+              "title": "Lotus Mining Pool",
+              "description": "Ein Mining-Pool für die Lotus-Blockchain",
+              "status": "complete",
+              "checklist": [
+                {
+                  "label": "Backend-Pool mit Anteilsauszahlungssystem bauen",
+                  "complete": true
+                },
+                {
+                  "label": "Frontend-Website bauen",
+                  "complete": true
+                },
+                {
+                  "label": "Pool-Unterstützung zum Rust-Miner hinzufügen",
+                  "complete": true
+                }
+              ],
+              "links": [
+                {
+                  "label": "Pool-Dashboard"
+                },
+                {
+                  "label": "Mining-Anleitung"
+                }
+              ]
+            },
+            {
+              "title": "RANK-Protokoll-Backend (Beta)",
+              "description": "Backend für die Lotusia-Erweiterung erstellen und das RANK-Protokoll implementieren",
+              "status": "complete",
+              "checklist": [
+                {
+                  "label": "Software zur Indizierung und Speicherung von RANK-Transaktionen aus der Blockchain",
+                  "complete": true
+                },
+                {
+                  "label": "Öffentliche API für die Lotusia Chrome-Erweiterung zum Zugriff auf RANK-Daten",
+                  "complete": true
+                }
+              ],
+              "links": [
+                {
+                  "label": "Code ansehen"
+                }
+              ]
+            },
+            {
+              "title": "Lotusia Chrome-Erweiterung (Beta)",
+              "description": "Ein dezentrales, gemeinschaftsmoderiertes Reputationssystem für soziale Medien, angetrieben durch Lotus",
+              "status": "complete",
+              "checklist": [
+                {
+                  "label": "Eine Chrome-Erweiterung entwickeln, die es Nutzern ermöglicht, mit dem Lotusia-Ökosystem zu interagieren",
+                  "complete": true
+                },
+                {
+                  "label": "Unterstützung für Twitter/X hinzufügen",
+                  "complete": true
+                },
+                {
+                  "label": "Die Chrome-Erweiterung im Chrome Web Store veröffentlichen",
+                  "complete": true
+                }
+              ],
+              "links": [
+                {
+                  "label": "Chrome-Erweiterung herunterladen"
+                },
+                {
+                  "label": "Code ansehen"
+                }
+              ]
+            },
+            {
+              "title": "Lotus/Solana-Brücke",
+              "description": "Eine Liquiditätsbrücke zwischen der Lotus- und Solana-Blockchain",
+              "status": "complete",
+              "checklist": [
+                {
+                  "label": "Backend-Brücke bauen",
+                  "complete": true
+                },
+                {
+                  "label": "Lotus-$XPI-Brückenadresse veröffentlichen",
+                  "complete": true
+                },
+                {
+                  "label": "Sicherheit und Funktionalität der Brücke gewährleisten",
+                  "complete": true
+                }
+              ],
+              "links": [
+                {
+                  "label": "Jetzt ausprobieren!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Richter-Epoche",
+          "headline": "Sommer 2024 – Winter 2024",
+          "cards": [
+            {
+              "title": "Kerninfrastruktur",
+              "description": "Stärkung der Kerninfrastruktur der Stewardship",
+              "status": "ongoing",
+              "checklist": [
+                {
+                  "label": "Builds und Deployments aller Kernsoftware automatisieren",
+                  "complete": false
+                },
+                {
+                  "label": "Hochverfügbarkeit der Kerndienste sicherstellen",
+                  "complete": false
+                },
+                {
+                  "label": "Block Explorer auf Lotus-Indexer mit überarbeiteter Benutzeroberfläche neu aufbauen",
+                  "complete": false
+                }
+              ]
+            },
+            {
+              "title": "Organisation",
+              "description": "Formalisierung der Stewardship-Abläufe",
+              "status": "ongoing",
+              "checklist": [
+                {
+                  "label": "Bewerbungsformular entwerfen und Prozess zur Aufnahme neuer Turtles einführen",
+                  "complete": false
+                },
+                {
+                  "label": "Finanzierungsantrag entwerfen und Genehmigungsprozess einführen",
+                  "complete": false
+                },
+                {
+                  "label": "Alle Dokumente auf der Website veröffentlichen",
+                  "complete": false
+                }
+              ]
+            },
+            {
+              "title": "Lotus Vase",
+              "description": "Revitalisierung und Verbesserung des Flaggschiff-Mobile-Wallets zur Förderung der Lotus Citizenry",
+              "status": "ongoing",
+              "checklist": [
+                {
+                  "label": "Lotus Vase im Google Play Store veröffentlichen",
+                  "complete": false
+                },
+                {
+                  "label": "Vase-Server-Instanz einrichten",
+                  "complete": false
+                },
+                {
+                  "label": "Eine API für die Vase-Wallet zur Kommunikation mit dem Vase-Server entwickeln",
+                  "complete": false
+                },
+                {
+                  "label": "Bürger mit Lotus für aktives Engagement belohnen"
+                }
+              ]
+            },
+            {
+              "title": "Lotusia-Website",
+              "description": "Landingpage für Lotusia und Kommunikationszentrum der Stewardship",
+              "status": "planned",
+              "checklist": [
+                {
+                  "label": "docs.givelotus.org migrieren",
+                  "complete": false
+                },
+                {
+                  "label": "Statistik-Dashboard zur Verfolgung des Ökosystem-Wachstums erstellen",
+                  "complete": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Josua-Epoche",
+          "headline": "Winter 2023 – Sommer 2024",
+          "cards": [
+            {
+              "title": "Lotusia-Website",
+              "description": "Landingpage für Lotusia und Kommunikationszentrum der Stewardship",
+              "status": "complete",
+              "checklist": [
+                {
+                  "label": "Code auf GitHub veröffentlichen",
+                  "complete": true
+                },
+                {
+                  "label": "Live-Website deployen",
+                  "complete": true
+                },
+                {
+                  "label": "Deployment von Website-Updates automatisieren",
+                  "complete": true
+                }
+              ],
+              "links": [
+                {
+                  "label": "Code ansehen"
+                }
+              ]
+            },
+            {
+              "title": "Netzwerk-Upgrade für die Richter-Epoche",
+              "description": "Sommersonnenwende 2024",
+              "status": "complete",
+              "checklist": [
+                {
+                  "label": "Code auf GitHub veröffentlichen",
+                  "complete": true
+                },
+                {
+                  "label": "Neue Pakete für Windows, macOS und Linux erstellen",
+                  "complete": true
+                },
+                {
+                  "label": "Software-Deployment mit dem Ökosystem koordinieren, um Konsens herzustellen",
+                  "complete": true
+                }
+              ],
+              "links": [
+                {
+                  "label": "Software-Upgrade herunterladen"
+                },
+                {
+                  "label": "Neuheiten ansehen"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ",
+      "og_title": "FAQ - Lotusia",
+      "description": "Lotusia, erklärt.",
+      "hero_title": "FAQ",
+      "hero_description": "",
+      "questions": [
+        {
+          "text": "Ich bin neu bei Lotusia. Wie kann ich Bürger werden?",
+          "answer": "Jeder, der Lotus besitzt, ist ein Bürger."
+        },
+        {
+          "text": "Wie kann ich Lotus bekommen?",
+          "answer": "Der beste Weg, Lotus zu bekommen, ist, Lotus geschenkt zu bekommen. Wenn du unserer Telegram-Gemeinschaft beitrittst und dich mit anderen austauschst, wirst du Lotus erhalten. Du kannst Lotus auch bekommen, indem du Miner für die Treasury wirst.",
+          "links": [
+            {
+              "label": "Mining-Anleitung"
+            }
+          ]
+        },
+        {
+          "text": "Kann ich Lotus an einer Börse kaufen?",
+          "answer": "Derzeit listet nur die Exbitron-Börse das Handelspaar Lotus ($XPI) / $USDT. Die Stewardship hat nicht vor, direkt weitere Börsenlistungen zu beantragen. Allerdings ist es unvermeidlich, dass Börsen Lotus listen werden, wenn die Akzeptanz und Nachfrage der Lotus-Währung wächst.",
+          "note": "Die Stewardship rät davon ab, Lotus mit deinem Geld zu kaufen. Es ist weitaus besser, Lotus geschenkt zu bekommen oder auf deinem Computer zu schürfen."
+        },
+        {
+          "text": "Wann wurde die Lotus-Blockchain gestartet?",
+          "answer": "Der erste Block der Lotus-Blockchain wurde am 21. Juni 2021 um 3:31 UTC geschürft."
+        },
+        {
+          "text": "Gibt es ein Lotus-Whitepaper?",
+          "answer": "Ja, es ist in aktiver Entwicklung. Es wird in naher Zukunft auf der Startseite verlinkt."
+        },
+        {
+          "text": "Was ist der 6-monatige Upgrade-Zeitplan?",
+          "answer": "Die Lotus-Blockchain wird zweimal im Kalenderjahr planmäßig aktualisiert, jeweils zur Sommer- und Wintersonnenwende. Diese Upgrades werden von der Stewardship durch Änderungen an der Open-Source-Software koordiniert. Sobald Treasury und Citizenry mit den vorgeschlagenen Änderungen im Konsens sind, werden die Änderungen übernommen und zum neuen Konsens für das Ökosystem."
+        },
+        {
+          "text": "Was bestimmt den Konsens im Lotusia-Ökosystem?",
+          "answer": "Im Gegensatz zum bestehenden Modell der repräsentativen Regierung ist die Stewardship nicht in der Lage, die Einhaltung von Regeln durchzusetzen, die sie für das Ökosystem vorschlägt. Die Einhaltung der von der Stewardship vorgeschlagenen Regeln ist vollständig freiwillig und einvernehmlich. Die Treasury signalisiert Zustimmung, indem sie ihre Software aktualisiert und weiterhin neue Lotus ausgibt, und die Citizenry signalisiert Zustimmung, indem sie sich weiterhin im Ökosystem engagiert."
+        },
+        {
+          "text": "Wer ist Mrs. Turtle?",
+          "answer": "Mrs. Turtle ist unser freundlicher Telegram-Bot. Sie hilft unserer Telegram-Gemeinschaft, einander Lotus zu geben. Tritt unserer Telegram-Gruppe bei, und wir lassen sie dir etwas Lotus geben!"
+        },
+        {
+          "text": "Wie ist die Finanzierung der Stewardship transparent?",
+          "answer": "Die Lotus-Blockchain ist ein verteiltes öffentliches Hauptbuch. Das Hauptbuch enthält eine Aufzeichnung jeder Änderung, die von der Treasury vorgenommen wurde, einschließlich jeder an die Stewardship ausgegebenen Lotus als Finanzierung. Durch den Betrieb der lotusd-Software kann jeder jedes Detail der erhaltenen und ausgegebenen Finanzierung der Stewardship überprüfen.",
+          "note": "Der Block Explorer bietet eine bequeme Möglichkeit, die finanziellen Aktivitäten der Stewardship zu überprüfen."
+        },
+        {
+          "text": "Kann jemand wissen, wie viel Lotus ich habe oder wie viel ich anderen gebe?",
+          "answer": "Möglicherweise. Das verteilte öffentliche Hauptbuch enthält keine Liste realer Identitäten. Jemand kann deine wirtschaftliche Aktivität nur überprüfen, wenn er weiß, welche Lotus-Adresse(n) im Hauptbuch dir gehören."
+        },
+        {
+          "text": "Was ist eine Lotus-Adresse?",
+          "answer": "Stell dir eine Lotus-Adresse wie eine Bankkontonummer vor. Andere Menschen können diese Nummer benutzen, um dir Lotus zu geben. Die Treasury protokolliert alle wirtschaftlichen Aktivitäten im öffentlichen Hauptbuch, damit das Ökosystem jede Lotus im Umlauf nachvollziehen und sicherstellen kann, dass keine Fälschung stattgefunden hat."
+        },
+        {
+          "text": "Wie viele Lotus-Adressen kann ich haben?",
+          "answer": "So viele du willst! Die Lotus-Adressen werden mit kryptografischer Software generiert, sodass jede neue Lotus-Adresse, die du erzeugst, einzigartig ist."
+        },
+        {
+          "text": "Wie kann die Citizenry eine neue Stewardship wählen?",
+          "answer": "Die Lotus-Blockchain-Software ist ein öffentliches Gut, daher steht es jeder Partei frei, den Quellcode zu kopieren, um ihren eigenen \u201eFork\u201c der Lotus-Blockchain mit eigenen Regeln zur Herstellung des Ökosystem-Konsenses zu erstellen. Dieser Blockchain-Fork ist vergleichbar mit einer Gabelung im Weg voraus. Die Citizenry ist frei, dem Blockchain-Fork oder Pfad zu folgen, von dem sie glaubt, dass er zu mehr Wohlstand führt. Neue Stewardships werden daher durch friedliche Trennung des Konsenses eingesetzt, im Gegensatz zu Wahlen."
+        },
+        {
+          "text": "Ich arbeite an einem Projekt, das beim Aufbau der Gesellschaft hilft, und ich denke, Lotus kann mir helfen. Kann ich mich für eine Förderung bewerben?",
+          "answer": "Ja! Die Stewardship ist immer offen dafür, Lotus-Währung an Projekte zu vergeben, die Menschen helfen und zusammenbringen. Allerdings ist der formale Prozess für die Einreichung von Förderanträgen noch nicht definiert. Bitte sieh auf der Roadmap-Seite nach weiteren Informationen."
+        },
+        {
+          "text": "Wie kann ich mich als Turtle der Stewardship bewerben?",
+          "answer": "Es gibt derzeit keinen formalen Prozess zur Aufnahme neuer Turtles. Bitte sieh auf der Roadmap-Seite nach weiteren Informationen."
+        },
+        {
+          "text": "Was ist der Mechanismus der Währungsausgabe?",
+          "answer": "Lotus wird von der Treasury ausgegeben. Die Treasury besteht aus Minern, die Proof-of-Work (PoW) mit leistungsstarken Computerkomponenten durchführen, die Strom verbrauchen, um Lotus auszugeben. Wenn ein Miner genug Strom aufwendet, \u201eschürft er einen Block\u201c, und dieser Block wird an das Netzwerk gesendet. Dieser Block enthält eine Transaktion namens \u201eCoinbase-Transaktion\u201c, die neue Lotus in die Wirtschaft ausgibt. 50 % der neuen Lotus gehen an den Miner als Belohnung für seine Arbeit, und die anderen 50 % gehen an die Stewardship als Finanzierung für das Ökosystem."
+        },
+        {
+          "text": "Was macht die Lotus-Währung wirtschaftlich tragfähig?",
+          "answer": "Bekanntere Kryptowährungen wie Bitcoin haben sich aufgrund ihrer willkürlichen Ausgabeobergrenze und des Halbierungsplans, der zu starker Preisvolatilität führt, als wirtschaftlich nicht tragfähig erwiesen. Die Lotus-Lösung besteht darin, die Subvention jedes Blocks auf Grundlage der zum Schürfen dieses Blocks verwendeten Strommenge zu berechnen. Lotus-Währung kann dann freiwillig vernichtet werden, um deflationären Druck zu erzeugen. Im Laufe der Zeit werden diese Ebbe und Flut des Währungsangebots die Preisvolatilität stabilisieren, indem das Angebot so genau wie möglich an die Nachfrage der Wirtschaft angepasst wird."
+        },
+        {
+          "text": "Wie vergleicht sich Lotus mit einer Fiat-Währung wie dem US-Dollar?",
+          "answer": "Es gibt einige Gemeinsamkeiten zwischen Lotus und dem US-Dollar, jedoch gibt es mehrere wesentliche Unterschiede, die unten aufgeführt sind.",
+          "table": {
+            "columns": [
+              { "key": "trait", "label": "" },
+              { "key": "xpi", "label": "Lotus" },
+              { "key": "usd", "label": "US-Dollar" }
+            ],
+            "rows": [
+              {
+                "id": 1,
+                "trait": "Ausgabe",
+                "xpi": "Proof-of-Work / Strom",
+                "usd": "Schulden"
+              },
+              {
+                "id": 2,
+                "trait": "Inflation",
+                "xpi": "Basierend auf Ökosystem-Nachfrage",
+                "usd": "Was der Kongress entscheidet"
+              },
+              {
+                "id": 3,
+                "trait": "Verteilung",
+                "xpi": "Öffentliche Arbeiten, Freiwilligenarbeit, Wohltätigkeit",
+                "usd": "Öffentliche Arbeiten, Sozialprogramme, Krieg, Überwachung"
+              },
+              {
+                "id": 4,
+                "trait": "Einlösung",
+                "xpi": "Freiwillige destruktive Nutzung",
+                "usd": "Zwangsbesteuerung"
+              },
+              {
+                "id": 5,
+                "trait": "Durchsetzung",
+                "xpi": "Blockchain-Konsens",
+                "usd": "Polizei / Militärgewalt"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Was ist \u201efreiwillige destruktive Nutzung\u201c und wie funktioniert sie?",
+          "answer": "Der Begriff beschreibt einen Mechanismus, durch den Lotus dauerhaft aus dem Umlauf genommen werden kann, ohne dass eine obligatorische Steuerpolitik erforderlich ist. Einige öffentliche Güter, die soziale Interaktion ermöglichen, werden von der Stewardship bereitgestellt und erfordern die Vernichtung von Lotus-Währung, um damit zu interagieren. Zum Beispiel erfordert ein öffentliches Werbebrett, dass jeder Bürger von Lotusia einen gewünschten Betrag seiner Lotus-Währung vernichtet, um eine Anzeige zu schalten, die im gesamten Ökosystem verbreitet wird."
+        }
+      ],
+      "technical": {
+        "title": "Technische Spezifikationen",
+        "description": "Detaillierte Netzwerkparameter für Entwickler und institutionelle Integratoren",
+        "questions": [
+          {
+            "text": "Was sind die technischen Spezifikationen der Lotus-Blockchain?",
+            "answer": "Die Lotus-Blockchain ist ein Bitcoin ABC-Fork mit mehreren einzigartigen Eigenschaften. Sie verwendet eine 2-Minuten-Blockzeit mit ASERT-Schwierigkeitsanpassung, unterstützt 32-MB-Blöcke und implementiert ein schwierigkeitsbasiertes Subventionssystem, bei dem jeder Block 260 XPI ausgibt, die 50/50 zwischen Minern und der Stewardship aufgeteilt werden. Detaillierte Netzwerkparameter finden sich in den technischen Tabellen unten.",
+            "note": "Die technischen Spezifikationen sind nach Kategorie in den folgenden Tabellen gegliedert."
+          },
+          {
+            "text": "Was ist der Genesis-Block der Lotus-Blockchain?",
+            "answer": "Siehe die Genesis-Block-Tabelle für vollständige technische Details."
+          },
+          {
+            "text": "Welche Adressformate unterstützt Lotus?",
+            "answer": "Lotus unterstützt mehrere Adressformate für Kompatibilität. Das native Format verwendet \"lotus_16PSJ...\" Base58-Kodierung. Es unterstützt auch ältere Bitcoin-Adressen und das CashAddr-Format. Alle Formate sind auf derselben Blockchain interoperabel. Siehe die Adressformate-Tabelle für spezifische Prefix-Werte."
+          },
+          {
+            "text": "Unterstützt Lotus Taproot?",
+            "answer": "Ja, Lotus implementiert Taproot mit spezifischen Modifikationen für das Lotus-Protokoll. Anders als Bitcoins 32-Byte x-only Public Keys verwendet Lotus 33-Byte komprimierte Schlüssel. Es führt außerdem SIGHASH_LOTUS (0x60) als Signatur-Hash-Algorithmus und OP_SCRIPTTYPE (0x62) zur Script-Typ-Identifikation ein. Siehe die Script- & Kryptografie-Tabelle für Implementierungsdetails."
+          },
+          {
+            "text": "Wie funktioniert der 6-monatige Upgrade-Zeitplan technisch?",
+            "answer": "Protokoll-Upgrades sind um die Sommer- und Wintersonnenwende geplant und nach Büchern der Bibel benannt. Jedes Upgrade hat einen Unix-Zeitstempel als Aktivierungszeit, der in den Konsensregeln fest kodiert ist. Neuere Upgrades umfassen Josua (Juni 2024), Richter (Juni 2024), Rut (Dezember 2024), 1. Samuel (Juni 2025), 2. Samuel (Dezember 2025) und 1. Könige (Juni 2026)."
+          }
+        ],
+        "sections": [
+          {
+            "title": "Netzwerkkonfiguration",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "Spezifikation" },
+                { "key": "value", "label": "Konfiguration" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "P2P-Port (Mainnet)", "value": "10605" },
+                { "id": 2, "parameter": "RPC-Port (Mainnet)", "value": "10604" },
+                { "id": 3, "parameter": "Tor-Port (Mainnet)", "value": "10606" },
+                { "id": 4, "parameter": "Protokollversion", "value": "70016" },
+                { "id": 5, "parameter": "Minimales Peer-Protokoll", "value": "31800" },
+                { "id": 6, "parameter": "Network Magic", "value": "0xec 0xe7 0xef 0xf3" },
+                { "id": 7, "parameter": "DNS Seed", "value": "seed.lotusia.org" }
+              ]
+            }
+          },
+          {
+            "title": "Blockchain-Parameter",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "Spezifikation" },
+                { "key": "value", "label": "Konfiguration" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "Blockzeit-Ziel", "value": "2 Minuten (120 Sekunden)" },
+                { "id": 2, "parameter": "Schwierigkeitsalgorithmus", "value": "ASERT (aserti32d)" },
+                { "id": 3, "parameter": "DAA-Halbwertszeit", "value": "2 Tage (172.800 Sekunden)" },
+                { "id": 4, "parameter": "Blockgrößenlimit", "value": "32 MB" },
+                { "id": 5, "parameter": "Transaktionsgröße", "value": "100 Bytes min., 1 MB max." },
+                { "id": 6, "parameter": "Coinbase-Reife", "value": "100 Blöcke" },
+                { "id": 7, "parameter": "Miner-Bestätigungsfenster", "value": "2.016 Blöcke" }
+              ]
+            }
+          },
+          {
+            "title": "Geldpolitik",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "Spezifikation" },
+                { "key": "value", "label": "Konfiguration" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "Basiseinheit", "value": "1 XPI = 1.000.000 Satoshis" },
+                { "id": 2, "parameter": "Block-Subvention", "value": "260 XPI (schwierigkeitsbasiert)" },
+                { "id": 3, "parameter": "Subventionsverteilung", "value": "50 % Miner, 50 % Stewardship" },
+                { "id": 4, "parameter": "Angebotsmodell", "value": "Dynamisch (keine feste Obergrenze)" },
+                { "id": 5, "parameter": "Plausibilitätslimit", "value": "2,1 Milliarden XPI" }
+              ]
+            }
+          },
+          {
+            "title": "Adressformate",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "Spezifikation" },
+                { "key": "value", "label": "Konfiguration" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "Natives Format", "value": "lotus_16PSJ... (Base32)" },
+                { "id": 2, "parameter": "P2PKH-Prefix", "value": "0x00" },
+                { "id": 3, "parameter": "P2SH-Prefix", "value": "0x05" },
+                { "id": 4, "parameter": "WIF Private Key", "value": "0x80" },
+                { "id": 5, "parameter": "CashAddr-Prefix", "value": "bitcoincash / ecash" }
+              ]
+            }
+          },
+          {
+            "title": "Script & Kryptografie",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "Spezifikation" },
+                { "key": "value", "label": "Konfiguration" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "Taproot-Unterstützung", "value": "Ja (Lotus-modifiziert)" },
+                { "id": 2, "parameter": "Signaturalgorithmus", "value": "ECDSA + Schnorr" },
+                { "id": 3, "parameter": "SIGHASH_LOTUS", "value": "0x60" },
+                { "id": 4, "parameter": "SIGHASH_FORKID", "value": "0x40 (BIP143)" },
+                { "id": 5, "parameter": "OP_SCRIPTTYPE", "value": "0x62" },
+                { "id": 6, "parameter": "Max. Script-Größe", "value": "10.000 Bytes" },
+                { "id": 7, "parameter": "Max. Sigchecks pro TX", "value": "3.000" },
+                { "id": 8, "parameter": "Taproot-Schlüsselformat", "value": "33 Byte komprimiert" }
+              ]
+            }
+          },
+          {
+            "title": "Genesis-Block",
+            "table": {
+              "columns": [
+                { "key": "parameter", "label": "Spezifikation" },
+                { "key": "value", "label": "Konfiguration" }
+              ],
+              "rows": [
+                { "id": 1, "parameter": "Block-Hash", "value": "000000000abc0cde58ee7e919d3d4de183e6844add1fd5d14b4eac89d958f470" },
+                { "id": 2, "parameter": "Zeitstempel", "value": "21. Juni 2021, 03:31:00 UTC" },
+                { "id": 3, "parameter": "Unix-Zeit", "value": "1624246260" },
+                { "id": 4, "parameter": "Blockgröße", "value": "379 Bytes" },
+                { "id": 5, "parameter": "Genesis-Nachricht", "value": "Johannes 1,1 – Im Anfang war das Wort (Logos)" },
+                { "id": 6, "parameter": "Coinbase-Prefix", "value": "0x6c6f676f73 (logos)" }
+              ]
+            }
+          }
+        ]
+      },
+      "cta": {
+        "title": "Noch Fragen?",
+        "description": "Tritt unserer Telegram-Gruppe bei! Wir beantworten gerne all deine Fragen."
+      }
+    },
+    "blog": {
+      "title": "Blog",
+      "og_title": "Blog - Lotusia",
+      "description": "Erhalte die neuesten Updates aus dem Lotusia-Ökosystem."
+    },
+    "beta_services": {
+      "title": "Beta-Dienste",
+      "og_title": "Beta-Dienste - Lotusia",
+      "description": "Zugriff auf derzeit als Beta definierte Dienste im Lotusia-Ökosystem.",
+      "hero_title": "Beta-Dienste",
+      "hero_description": "Greife über eine Seite auf aktuelle Beta-Dienste zu."
+    },
+    "docs": {
+      "title": "Dokumentation",
+      "og_title": "Dokumentation - Lotusia",
+      "description": "Technische Dokumentation von Lotusia."
+    }
+  },
+  "worker": {
+    "rows_per_page": "Zeilen pro Seite",
+    "page": "Seite",
+    "of": "von",
+    "network": "Netzwerk",
+    "overview": "Übersicht",
+    "blocks": "Blöcke",
+    "social_media": "Soziale Medien",
+    "latest": "Neueste",
+    "trending": "Trends",
+    "profiles": "Profile",
+    "explorer": "Explorer",
+    "social": "Social",
+    "activity": "Aktivität",
+    "vote_activity": "Abstimmungsaktivität",
+    "vote_activity_subtitle": "Abstimmungsaktivität für alle Profile auf allen Plattformen.",
+    "vote_activity_table_subtitle": "Aktuelle plattformübergreifende Abstimmungsereignisse",
+    "tx_id": "Transaktions-ID",
+    "first_seen": "Zuerst gesehen",
+    "profile": "Profil",
+    "vote": "Abstimmung",
+    "post_id": "Post-ID",
+    "title_latest_activity": "Neueste Aktivität",
+    "desc_latest_activity": "Aktuelle Social-Vote-Aktivität auf Lotusia.",
+    "no_recent_activity": "Keine aktuelle Aktivität.",
+    "title_trending_profiles": "Trend-Profile",
+    "desc_trending_profiles": "Top-gerankte Social-Profile auf Lotusia.",
+    "trending_subtitle": "Höchste und niedrigste Profile und Posts von heute.",
+    "top_ranked_profiles": "Top-gerankte Profile",
+    "lowest_ranked_profiles": "Niedrigst-gerankte Profile",
+    "top_ranked_posts": "Top-gerankte Posts",
+    "lowest_ranked_posts": "Niedrigst-gerankte Posts",
+    "ranking": "Ranking",
+    "post": "Post",
+    "no_profile_trend_data": "Keine Profil-Trenddaten.",
+    "no_post_trend_data": "Keine Post-Trenddaten.",
+    "title_social_profiles": "Social-Profile",
+    "desc_social_profiles": "Öffentliche Social-Profil-Rankings auf Lotusia.",
+    "profiles_subtitle": "Profile in Lotusia Social durchsuchen.",
+    "vote_ratio": "Abstimmungsverhältnis",
+    "no_profiles_found": "Keine Profile gefunden.",
+    "live_profile_data": "Live-Profildaten",
+    "current_profile_ranking": "Aktuelles Profil-Ranking",
+    "votes_plus": "Stimmen +",
+    "positive_votes": "Positive Stimmen",
+    "votes_minus": "Stimmen -",
+    "negative_votes": "Negative Stimmen",
+    "posts": "Posts",
+    "votes": "Stimmen",
+    "no_posts_yet": "Noch keine Posts.",
+    "no_votes_yet": "Noch keine Stimmen.",
+    "transaction": "Transaktion",
+    "timestamp": "Zeitstempel",
+    "sentiment": "Stimmung",
+    "amount": "Betrag",
+    "desc_latest_blocks": "Neueste Blöcke der Lotusia-Blockchain.",
+    "blocks_subtitle": "Neueste Blöcke der Blockchain. Alle 5 Sekunden aktualisiert.",
+    "height": "Höhe",
+    "hash": "Hash",
+    "burned": "Verbrannt",
+    "transactions": "Transaktionen",
+    "size": "Größe",
+    "no_blocks_found": "Keine Blöcke gefunden.",
+    "connections": "Verbindungen",
+    "connections_hint": "Anzahl der mit dem Explorer verbundenen Lotus-Knoten",
+    "blocks_hint": "Gesamtanzahl der Blöcke in der Blockchain",
+    "pending_transactions": "Ausstehende Transaktionen",
+    "pending_transactions_hint": "Transaktionen, die auf Bestätigung warten",
+    "hashrate": "Hashrate",
+    "hashrate_hint": "Geschätzte Hashes pro Sekunde",
+    "difficulty": "Schwierigkeit",
+    "difficulty_hint": "Schwierigkeit des neuesten Blocks",
+    "avg_block_time": "Durchschn. Blockzeit",
+    "avg_block_time_hint": "Berechnet aus dem letzten Chain-Target",
+    "mainnet": "Mainnet",
+    "desc_network_overview": "Netzwerkübersicht für den Lotusia-Explorer.",
+    "network_subtitle": "Aktuelle Informationen zum Lotusia-Blockchain-Netzwerk.",
+    "peer_info": "Peer-Info",
+    "peer_info_hint": "Liste der mit dem Explorer verbundenen Lotus-Knoten.",
+    "country": "Land",
+    "address": "Adresse",
+    "version": "Version",
+    "no_peer_data": "Keine Peer-Daten verfügbar.",
+    "block_details": "Blockdetails",
+    "block_details_subtitle": "Detaillierte Blockmetriken und Transaktionen.",
+    "inputs": "Eingänge",
+    "outputs": "Ausgänge",
+    "no_transactions_in_block": "Keine Transaktionen in diesem Block.",
+    "input": "Eingang",
+    "output": "Ausgang",
+    "confirmed": "Bestätigt",
+    "coinbase": "Coinbase",
+    "transaction_details": "Transaktionsdetails",
+    "transaction_details_subtitle": "Eingänge, Ausgänge und Block-Bestätigungsdetails.",
+    "block_information": "Blockinformationen",
+    "source": "Quelle",
+    "no_inputs": "Keine Eingänge.",
+    "destination": "Ziel",
+    "no_outputs": "Keine Ausgänge.",
+    "address_details": "Adressdetails",
+    "address_details_subtitle": "Adresssaldo und Transaktionsverlauf im Lotusia-Mainnet.",
+    "balance": "Saldo",
+    "current_wallet_balance": "Aktueller Wallet-Saldo",
+    "last_seen": "Zuletzt gesehen",
+    "last_activity_timestamp": "Zeitstempel der letzten Aktivität",
+    "transaction_history": "Transaktionsverlauf",
+    "no_transactions_for_address": "Keine Transaktionen für diese Adresse.",
+    "profiles_feed": "Profil-Feed",
+    "profiles_feed_subtitle": "Ranking- und Abstimmungsverhältnis-Tabelle",
+    "chain_head": "Chain-Head",
+    "chain_head_subtitle": "Neueste bestätigte Block-Snapshots",
+    "block_transactions": "Blocktransaktionen",
+    "block_transactions_subtitle": "In diesem Block enthaltene Transaktionen",
+    "profile_posts": "Profil-Posts",
+    "profile_posts_subtitle": "Neueste gerankte Posts für dieses Profil",
+    "profile_votes": "Profil-Abstimmungen",
+    "profile_votes_subtitle": "Neueste Abstimmungen zu diesem Profil",
+    "network_peers": "Netzwerk-Peers",
+    "network_peers_subtitle": "Verbundene Knoten und Sync-Status",
+    "transaction_inputs": "Transaktions-Eingänge",
+    "transaction_inputs_subtitle": "Ausgabequellen und Beträge",
+    "transaction_outputs": "Transaktions-Ausgänge",
+    "transaction_outputs_subtitle": "Ziele und Beträge",
+    "profile_rankings": "Profil-Rankings",
+    "profile_rankings_subtitle": "Ranking-Snapshot nach Profil",
+    "post_rankings": "Post-Rankings",
+    "post_rankings_subtitle": "Ranking-Snapshot nach Post",
+    "dataset": "Datensatz",
+    "dataset_subtitle": "Strukturierte Datensätze aus Worker-APIs"
+  }
+}
