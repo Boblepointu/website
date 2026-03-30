@@ -50,6 +50,261 @@ function txInputs(tx) {
   return [];
 }
 
+function ingestMode() {
+  return String(process.env.BACKFILL_MODE || 'full').trim().toLowerCase();
+}
+
+function isCoreIngestMode() {
+  return ingestMode() === 'core';
+}
+
+function envFlag(name, fallback) {
+  const raw = String(process.env[name] ?? '').trim().toLowerCase();
+  if (!raw) return fallback;
+  return raw !== 'false' && raw !== '0' && raw !== 'no' && raw !== 'off';
+}
+
+function shouldProjectAddresses() {
+  return envFlag('BACKFILL_WITH_ADDRESS', !isCoreIngestMode());
+}
+
+function shouldProjectSocial() {
+  return envFlag('BACKFILL_WITH_SOCIAL', !isCoreIngestMode());
+}
+
+function shouldProjectSnapshots() {
+  return envFlag('BACKFILL_WITH_SNAPSHOTS', !isCoreIngestMode());
+}
+
+function rawJsonPolicy() {
+  const mode = String(process.env.BACKFILL_RAW_JSON || '').trim().toLowerCase();
+  if (mode === 'none' || mode === 'minimal' || mode === 'full') return mode;
+  return isCoreIngestMode() ? 'none' : 'full';
+}
+
+function minimalBlockRaw(block) {
+  const info = block?.blockInfo || {};
+  return {
+    blockInfo: {
+      height: toNumber(info.height, 0),
+      hash: String(info.hash || ''),
+      prevHash: String(info.prevHash || ''),
+      timestamp: toNumber(info.timestamp || 0),
+      numTxs: toNumber(info.numTxs || 0),
+      blockSize: toNumber(info.blockSize || 0)
+    }
+  };
+}
+
+function minimalTxRaw(tx) {
+  return {
+    txid: txidOf(tx),
+    size: toNumber(tx?.size || tx?.txSize || 0),
+    version: toNumber(tx?.version || 0),
+    lockTime: toNumber(tx?.lockTime || tx?.locktime || 0),
+    inputCount: txInputs(tx).length,
+    outputCount: txOutputs(tx).length
+  };
+}
+
+function serializeRawPayload(kind, value) {
+  const policy = rawJsonPolicy();
+  if (policy === 'none') return '{}';
+  if (policy === 'minimal') {
+    const compact = kind === 'block' ? minimalBlockRaw(value) : minimalTxRaw(value);
+    return JSON.stringify(compact);
+  }
+  return JSON.stringify(value || {});
+}
+
+function envInt(name, fallback) {
+  const n = Number(process.env[name]);
+  return Number.isFinite(n) ? Math.max(1, Math.floor(n)) : fallback;
+}
+
+function batchSizeFor(kind, txCount = 0) {
+  const isLargeBlock = Number(txCount || 0) >= 1000;
+  const isCore = isCoreIngestMode();
+  if (kind === 'prevout') {
+    const base = envInt('BACKFILL_PREVOUT_CHUNK_SIZE', isCore ? 240 : 120);
+    return Math.min(800, isLargeBlock ? base * 2 : base);
+  }
+  const envName = kind === 'delta' ? 'BACKFILL_DELTA_CHUNK_SIZE' : 'BACKFILL_SQL_CHUNK_SIZE';
+  const base = envInt(envName, isCore ? 420 : 200);
+  return Math.min(1200, isLargeBlock ? base * 2 : base);
+}
+
+function chunkRows(rows, size = 200) {
+  const out = [];
+  for (let i = 0; i < rows.length; i += size) out.push(rows.slice(i, i + size));
+  return out;
+}
+
+function placeholders(cols, rowCount) {
+  return Array.from({ length: rowCount }, () => `(${Array(cols).fill('?').join(', ')})`).join(', ');
+}
+
+async function insertManyTxInputs(rows, txCount = 0) {
+  if (!rows.length) return;
+  for (const chunk of chunkRows(rows, batchSizeFor('sql', txCount))) {
+    const flat = chunk.flat();
+    await sql(
+      `INSERT OR REPLACE INTO tx_inputs(txid, vin, prev_txid, prev_vout, coinbase_hex, sequence, script_sig)
+       VALUES ${placeholders(7, chunk.length)}`,
+      ...flat
+    );
+  }
+}
+
+async function insertManyTxOutputs(rows, txCount = 0) {
+  if (!rows.length) return;
+  for (const chunk of chunkRows(rows, batchSizeFor('sql', txCount))) {
+    const flat = chunk.flat();
+    await sql(
+      `INSERT OR REPLACE INTO tx_outputs(txid, vout, value_sats, script_hex, script_type, address, op_return_hex)
+       VALUES ${placeholders(7, chunk.length)}`,
+      ...flat
+    );
+  }
+}
+
+async function insertManyAddresses(rows, txCount = 0) {
+  if (!rows.length) return;
+  for (const chunk of chunkRows(rows, batchSizeFor('sql', txCount))) {
+    const flat = chunk.flat();
+    await sql(
+      `INSERT OR REPLACE INTO addresses(address, txid, vout, value_sats, block_height, block_time, direction)
+       VALUES ${placeholders(7, chunk.length)}`,
+      ...flat
+    );
+  }
+}
+
+function addAddressDelta(deltaMap, address, balanceDelta = 0, receivedDelta = 0) {
+  if (!address) return;
+  const key = String(address);
+  const prev = deltaMap.get(key) || { balance: 0, received: 0 };
+  prev.balance += Number(balanceDelta || 0);
+  prev.received += Number(receivedDelta || 0);
+  deltaMap.set(key, prev);
+}
+
+const PREVOUT_CACHE_MAX = 250000;
+const prevoutCache = new Map();
+
+function prevoutKey(txid, vout) {
+  return `${String(txid)}:${Number(vout)}`;
+}
+
+function cachePrevout(txid, vout, row) {
+  prevoutCache.set(prevoutKey(txid, vout), row);
+  if (prevoutCache.size > PREVOUT_CACHE_MAX) {
+    const firstKey = prevoutCache.keys().next().value;
+    if (firstKey) prevoutCache.delete(firstKey);
+  }
+}
+
+async function fetchPrevOutputsBatch(refs, txCount = 0) {
+  const want = new Map();
+  for (const r of refs) {
+    const txid = String(r?.txid || '');
+    const vout = Number(r?.vout);
+    if (!txid || !Number.isFinite(vout) || vout < 0) continue;
+    want.set(prevoutKey(txid, vout), { txid, vout: Math.trunc(vout) });
+  }
+  if (want.size === 0) return new Map();
+
+  const out = new Map();
+  const misses = [];
+  for (const [key, ref] of want.entries()) {
+    const hit = prevoutCache.get(key);
+    if (hit) out.set(key, hit);
+    else misses.push(ref);
+  }
+
+  for (const chunk of chunkRows(misses, batchSizeFor('prevout', txCount))) {
+    const where = chunk.map(() => '(txid = ? AND vout = ?)').join(' OR ');
+    const params = chunk.flatMap((r) => [r.txid, r.vout]);
+    const rows = await sql(
+      `SELECT txid, vout, address, value_sats
+       FROM tx_outputs
+       WHERE ${where}`,
+      ...params
+    );
+    for (const row of rows || []) {
+      const key = prevoutKey(row?.txid, row?.vout);
+      const normalized = {
+        txid: String(row?.txid || ''),
+        vout: toNumber(row?.vout, -1),
+        address: String(row?.address || ''),
+        value_sats: toNumber(row?.value_sats, 0)
+      };
+      cachePrevout(normalized.txid, normalized.vout, normalized);
+      out.set(key, normalized);
+    }
+  }
+  return out;
+}
+
+async function applyAddressDeltasBatch(deltaMap, txCount = 0) {
+  const entries = Array.from(deltaMap.entries());
+  if (!entries.length) return;
+  const now = nowMs();
+
+  const balanceRows = entries.map(([address, delta]) => [address, Math.trunc(delta.balance), now]);
+  for (const chunk of chunkRows(balanceRows, batchSizeFor('delta', txCount))) {
+    const flat = chunk.flat();
+    await sql(
+      `INSERT INTO address_balances(address, balance_sats, updated_at)
+       VALUES ${placeholders(3, chunk.length)}
+       ON CONFLICT(address) DO UPDATE SET
+         balance_sats = CASE
+           WHEN balance_sats + excluded.balance_sats < 0 THEN 0
+           ELSE balance_sats + excluded.balance_sats
+         END,
+         updated_at = excluded.updated_at`,
+      ...flat
+    );
+  }
+
+  const receivedRows = entries
+    .map(([address, delta]) => [address, Math.trunc(delta.received), now])
+    .filter((r) => r[1] > 0);
+  for (const chunk of chunkRows(receivedRows, batchSizeFor('delta', txCount))) {
+    const flat = chunk.flat();
+    await sql(
+      `INSERT INTO address_received(address, received_sats, updated_at)
+       VALUES ${placeholders(3, chunk.length)}
+       ON CONFLICT(address) DO UPDATE SET
+         received_sats = received_sats + excluded.received_sats,
+         updated_at = excluded.updated_at`,
+      ...flat
+    );
+  }
+}
+
+async function insertManyDomainEventDims(rows) {
+  if (!rows.length) return;
+  for (const chunk of chunkRows(rows, 300)) {
+    await sql(
+      `INSERT OR REPLACE INTO domain_event_dims(event_id, dim_key, dim_value)
+       VALUES ${placeholders(3, chunk.length)}`,
+      ...chunk.flat()
+    );
+  }
+}
+
+async function insertManyDomainEntityDims(rows) {
+  if (!rows.length) return;
+  for (const chunk of chunkRows(rows, 300)) {
+    await sql(
+      `INSERT OR REPLACE INTO domain_entity_dims(entity_id, dim_key, dim_value)
+       VALUES ${placeholders(3, chunk.length)}`,
+      ...chunk.flat()
+    );
+  }
+}
+
 function rankFromStructuredOutput(output) {
   const r = output?.rankOutput;
   if (!r || typeof r !== 'object') return null;
@@ -189,15 +444,17 @@ async function upsertBlock(block) {
     toNumber(info.blockSize || info.size || 0),
     toNumber(info.numTxs || info.nTx || 0),
     String(info.difficulty || ''),
-    JSON.stringify(block || {}),
+    serializeRawPayload('block', block),
     nowMs()
   );
-  await upsertChainStatsSnapshot(info);
-  await upsertSupplyStats(info);
+  if (shouldProjectSnapshots()) {
+    await upsertChainStatsSnapshot(info);
+    await upsertSupplyStats(info);
+  }
   return { height, hash, blockTime };
 }
 
-async function upsertTransaction(meta, tx) {
+async function upsertTransaction(meta, tx, blockTxCount = 0) {
   const txid = txidOf(tx);
   if (!txid) return null;
   await sql(
@@ -210,17 +467,19 @@ async function upsertTransaction(meta, tx) {
     toNumber(tx?.size || tx?.txSize || 0),
     toNumber(tx?.lockTime || tx?.locktime || 0),
     toNumber(tx?.version || 0),
-    JSON.stringify(tx || {})
+    serializeRawPayload('tx', tx)
   );
 
   const ins = txInputs(tx);
+  const inputRows = [];
+  const inputPrevRefs = [];
+  const addressRows = [];
+  const deltaMap = new Map();
   for (let i = 0; i < ins.length; i += 1) {
     const vin = ins[i] || {};
     const prevTxid = String(vin?.prevOut?.txid || vin?.txid || '');
     const prevVout = toNumber(vin?.prevOut?.outIdx ?? vin?.vout ?? -1, -1);
-    await sql(
-      `INSERT OR REPLACE INTO tx_inputs(txid, vin, prev_txid, prev_vout, coinbase_hex, sequence, script_sig)
-       VALUES(?, ?, ?, ?, ?, ?, ?)`,
+    inputRows.push([
       txid,
       i,
       prevTxid,
@@ -228,32 +487,34 @@ async function upsertTransaction(meta, tx) {
       String(vin?.coinbase || ''),
       toNumber(vin?.sequence || 0),
       String(vin?.inputScript || vin?.scriptSig?.hex || '')
-    );
-    if (prevTxid && prevVout >= 0 && !vin?.coinbase) {
-      const prevRows = await sql(
-        `SELECT address, value_sats FROM tx_outputs WHERE txid = ? AND vout = ? LIMIT 1`,
-        prevTxid,
-        prevVout
-      );
-      const prevAddress = String(prevRows?.[0]?.address || '');
-      const prevValue = toNumber(prevRows?.[0]?.value_sats, 0);
-      if (prevAddress && prevValue > 0) {
-        await sql(
-          `INSERT OR REPLACE INTO addresses(address, txid, vout, value_sats, block_height, block_time, direction)
-           VALUES(?, ?, ?, ?, ?, ?, 'out')`,
-          prevAddress,
-          txid,
-          -1 - i,
-          prevValue,
-          meta.height,
-          meta.blockTime
-        );
-        await applyAddressDelta(prevAddress, -prevValue, 0);
-      }
+    ]);
+    if (shouldProjectAddresses() && prevTxid && prevVout >= 0 && !vin?.coinbase) {
+      inputPrevRefs.push({ txid: prevTxid, vout: prevVout, vin: i });
+    }
+  }
+  await insertManyTxInputs(inputRows, blockTxCount);
+  if (shouldProjectAddresses()) {
+    const prevLookup = await fetchPrevOutputsBatch(inputPrevRefs, blockTxCount);
+    for (const ref of inputPrevRefs) {
+      const row = prevLookup.get(prevoutKey(ref.txid, ref.vout));
+      const prevAddress = String(row?.address || '');
+      const prevValue = toNumber(row?.value_sats, 0);
+      if (!prevAddress || prevValue <= 0) continue;
+      addressRows.push([
+        prevAddress,
+        txid,
+        -1 - ref.vin,
+        prevValue,
+        meta.height,
+        meta.blockTime,
+        'out'
+      ]);
+      addAddressDelta(deltaMap, prevAddress, -prevValue, 0);
     }
   }
 
   const outs = txOutputs(tx);
+  const outputRows = [];
   for (let i = 0; i < outs.length; i += 1) {
     const out = outs[i] || {};
     const sats = toNumber(out?.value || out?.sats || 0, 0);
@@ -266,9 +527,7 @@ async function upsertTransaction(meta, tx) {
           out?.outputScriptAddress ||
           ''
       ) || null;
-    await sql(
-      `INSERT OR REPLACE INTO tx_outputs(txid, vout, value_sats, script_hex, script_type, address, op_return_hex)
-       VALUES(?, ?, ?, ?, ?, ?, ?)`,
+    outputRows.push([
       txid,
       i,
       sats,
@@ -276,20 +535,24 @@ async function upsertTransaction(meta, tx) {
       String(out?.scriptPubKey?.type || out?.type || ''),
       address,
       opReturnHex
-    );
-    if (address) {
-      await sql(
-        `INSERT OR REPLACE INTO addresses(address, txid, vout, value_sats, block_height, block_time, direction)
-         VALUES(?, ?, ?, ?, ?, ?, 'in')`,
+    ]);
+    if (shouldProjectAddresses() && address) {
+      addressRows.push([
         address,
         txid,
         i,
         sats,
         meta.height,
-        meta.blockTime
-      );
-      await applyAddressDelta(address, sats, sats);
+        meta.blockTime,
+        'in'
+      ]);
+      addAddressDelta(deltaMap, address, sats, sats);
     }
+  }
+  await insertManyTxOutputs(outputRows, blockTxCount);
+  if (shouldProjectAddresses()) {
+    await insertManyAddresses(addressRows, blockTxCount);
+    await applyAddressDeltasBatch(deltaMap, blockTxCount);
   }
 
   await publishEvent('chain.tx.extracted', txid, {
@@ -391,23 +654,12 @@ async function upsertDomainProjection(meta, txid, rank, out) {
     JSON.stringify({ platform, profile_id: profileId, post_id: postId || '' }),
     now
   );
-  await sql(
-    `INSERT OR REPLACE INTO domain_event_dims(event_id, dim_key, dim_value) VALUES(?, 'platform', ?)`,
-    txid,
-    platform
-  );
-  await sql(
-    `INSERT OR REPLACE INTO domain_event_dims(event_id, dim_key, dim_value) VALUES(?, 'profile_id', ?)`,
-    txid,
-    profileId
-  );
-  if (postId) {
-    await sql(
-      `INSERT OR REPLACE INTO domain_event_dims(event_id, dim_key, dim_value) VALUES(?, 'post_id', ?)`,
-      txid,
-      postId
-    );
-  }
+  const eventDimRows = [
+    [txid, 'platform', platform],
+    [txid, 'profile_id', profileId]
+  ];
+  if (postId) eventDimRows.push([txid, 'post_id', postId]);
+  await insertManyDomainEventDims(eventDimRows);
 
   await sql(
     `INSERT OR IGNORE INTO domain_entities(
@@ -419,16 +671,10 @@ async function upsertDomainProjection(meta, txid, rank, out) {
     JSON.stringify({ platform, profile_id: profileId }),
     now
   );
-  await sql(
-    `INSERT OR REPLACE INTO domain_entity_dims(entity_id, dim_key, dim_value) VALUES(?, 'platform', ?)`,
-    profileEntityId,
-    platform
-  );
-  await sql(
-    `INSERT OR REPLACE INTO domain_entity_dims(entity_id, dim_key, dim_value) VALUES(?, 'profile_id', ?)`,
-    profileEntityId,
-    profileId
-  );
+  await insertManyDomainEntityDims([
+    [profileEntityId, 'platform', platform],
+    [profileEntityId, 'profile_id', profileId]
+  ]);
   await sql(
     `UPDATE domain_entities
      SET amount_in = CAST(amount_in AS INTEGER) + ?,
@@ -459,21 +705,11 @@ async function upsertDomainProjection(meta, txid, rank, out) {
     JSON.stringify({ platform, profile_id: profileId, post_id: postId }),
     now
   );
-  await sql(
-    `INSERT OR REPLACE INTO domain_entity_dims(entity_id, dim_key, dim_value) VALUES(?, 'platform', ?)`,
-    postEntityId,
-    platform
-  );
-  await sql(
-    `INSERT OR REPLACE INTO domain_entity_dims(entity_id, dim_key, dim_value) VALUES(?, 'profile_id', ?)`,
-    postEntityId,
-    profileId
-  );
-  await sql(
-    `INSERT OR REPLACE INTO domain_entity_dims(entity_id, dim_key, dim_value) VALUES(?, 'post_id', ?)`,
-    postEntityId,
-    postId
-  );
+  await insertManyDomainEntityDims([
+    [postEntityId, 'platform', platform],
+    [postEntityId, 'profile_id', profileId],
+    [postEntityId, 'post_id', postId]
+  ]);
   await sql(
     `UPDATE domain_entities
      SET amount_in = CAST(amount_in AS INTEGER) + ?,
@@ -494,7 +730,7 @@ async function upsertDomainProjection(meta, txid, rank, out) {
   );
 }
 
-export async function indexBlock(block) {
+async function indexBlockInternal(block) {
   const meta = await upsertBlock(block);
   if (!meta) return null;
   await publishEvent('chain.block.fetched', String(meta.height), {
@@ -503,11 +739,44 @@ export async function indexBlock(block) {
   });
 
   const txs = Array.isArray(block?.txs) ? block.txs : [];
+  const blockTxCount = txs.length;
   for (const tx of txs) {
-    const txid = await upsertTransaction(meta, tx);
+    const txid = await upsertTransaction(meta, tx, blockTxCount);
     if (!txid) continue;
-    await upsertProtocolEvents(meta, tx);
+    if (shouldProjectSocial()) {
+      await upsertProtocolEvents(meta, tx);
+    }
   }
   return meta;
+}
+
+export async function indexBlock(block) {
+  await sql('BEGIN IMMEDIATE');
+  try {
+    const meta = await indexBlockInternal(block);
+    await sql('COMMIT');
+    return meta;
+  } catch (err) {
+    await sql('ROLLBACK').catch(() => {});
+    throw err;
+  }
+}
+
+export async function indexBlocksBatch(blocks) {
+  const list = Array.isArray(blocks) ? blocks : [];
+  if (list.length === 0) return [];
+  await sql('BEGIN IMMEDIATE');
+  try {
+    const metas = [];
+    for (const block of list) {
+      const meta = await indexBlockInternal(block);
+      if (meta) metas.push(meta);
+    }
+    await sql('COMMIT');
+    return metas;
+  } catch (err) {
+    await sql('ROLLBACK').catch(() => {});
+    throw err;
+  }
 }
 
