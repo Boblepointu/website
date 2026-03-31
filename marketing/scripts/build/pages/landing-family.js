@@ -28,10 +28,15 @@ function makeLandingBuilders(ctx) {
   const ORG = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
     name: 'Lotusia Stewardship',
+    legalName: 'Lotusia Stewardship',
+    alternateName: 'Lotusia',
     url: SITE_URL,
     logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` },
+    image: `${SITE_URL}/assets/images/turtles_hero.jpeg`,
     foundingDate: '2021',
+    description: 'Decentralized reputation protocol powered by burn-weighted sentiment on the Lotus blockchain',
     sameAs: [
       'https://github.com/LotusiaStewardship',
       'https://t.me/givelotus',
@@ -39,6 +44,36 @@ function makeLandingBuilders(ctx) {
       'https://lotusia.org'
     ]
   };
+
+  const ALEXANDRE_SAME_AS = [
+    'https://github.com/boblepointu',
+    'https://www.linkedin.com/in/alex--g/',
+    'https://guillioud.com',
+    'https://blackcat.events',
+    'https://blackcateventsplayer.fr',
+    'https://blackcat.poker',
+    'https://blindstack.fr',
+    'https://blindstack.poker',
+    'https://burnlotus.fr',
+    'https://burnlotus.org',
+    'https://carbon.actor',
+    'https://carbonade.club',
+    'https://carb-on.earth',
+    'https://carb-on.energy',
+    'https://carb-on.fr',
+    'https://carb-on.ovh',
+    'https://cognitivesecurity.fr',
+    'https://cogsec.fr',
+    'https://eco-carb-on.com',
+    'https://eco-carb-on.earth',
+    'https://eco-carb-on.fr',
+    'https://ecocarb-on.fr',
+    'https://foras.fr',
+    'https://gibis.me',
+    'https://golden-flux.fr',
+    'https://goldensolar.fr',
+    'https://soleil-vert-poype.fr'
+  ];
 
   function overlayI18nSections(yamlSections, i18nSections) {
     if (!i18nSections?.length || !yamlSections?.length) return yamlSections;
@@ -286,24 +321,35 @@ function makeLandingBuilders(ctx) {
       const founderPersons = sections.map((s, idx) => {
         const links = (s.links || []).map(l => l.to).filter(Boolean);
         const portfolioLink = links.find(l => !l.includes('github.com') && !l.includes('linkedin.com') && !l.includes('x.com'));
+        const mergedSameAs = Array.from(new Set([
+          ...links,
+          ...(idx === 0 ? ALEXANDRE_SAME_AS : [])
+        ]));
         return {
           '@context': 'https://schema.org',
           '@type': 'Person',
+          '@id': `${SITE_URL}/founders#${idx === 0 ? 'alexandre-guillioud' : 'matthew-urgero'}`,
           name: s.title,
           jobTitle: s.headline || 'Founder',
           url: portfolioLink || undefined,
           image: `${SITE_URL}/assets/images/${idx === 0 ? 'alexandre_guillioud.jpeg' : 'matthew_urgero.jpeg'}`,
-          sameAs: links.length ? links : undefined
+          sameAs: mergedSameAs.length ? mergedSameAs : undefined,
+          worksFor: { '@id': `${SITE_URL}/#organization` }
         };
       });
       founderPersons.forEach(p => ldItems.push(p));
       ldItems.push({
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        '@id': `${SITE_URL}/#lotusia`,
         name: 'Lotusia',
+        legalName: 'Lotusia',
+        alternateName: 'Lotusia Stewardship',
         url: SITE_URL,
         foundingDate: '2021',
         description: 'Decentralized reputation protocol powered by burn-weighted sentiment on the Lotus blockchain',
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` },
+        image: `${SITE_URL}/assets/images/turtles_hero.jpeg`,
         founder: founderPersons.map(p => ({ '@type': 'Person', name: p.name, url: p.url, sameAs: p.sameAs })),
         sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus']
       });

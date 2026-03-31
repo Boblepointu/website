@@ -364,16 +364,32 @@ function seoBreadcrumbGraph(items) {
 }
 
 function seoPageGraph(pathname, title, description, pageType) {
+  const pageUrl = seoAbsoluteUrl(pathname || '/');
   return {
     '@type': pageType || 'WebPage',
+    '@id': pageUrl + '#webpage',
     name: String(title || ''),
     description: String(description || ''),
-    url: seoAbsoluteUrl(pathname || '/'),
+    url: pageUrl,
     isPartOf: {
+      '@id': 'https://lotusia.org/#website',
       '@type': 'WebSite',
       name: 'Lotusia',
       url: 'https://lotusia.org'
-    }
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': 'https://lotusia.org/#organization',
+      name: 'Lotusia Stewardship',
+      url: 'https://lotusia.org',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://lotusia.org/assets/images/logo.png'
+      },
+      sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus']
+    },
+    mainEntityOfPage: pageUrl,
+    inLanguage: 'en'
   };
 }
 
