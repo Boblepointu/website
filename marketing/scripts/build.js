@@ -262,6 +262,51 @@ fs.cpSync(ASSETS, path.join(DIST, 'assets'), { recursive: true });
 writeRobots(DIST, SITE_URL);
 writeRedirects(DIST, []);
 
+// _headers (Cloudflare Pages cache control)
+fs.writeFileSync(path.join(DIST, '_headers'), [
+  '/assets/*',
+  '  Cache-Control: public, max-age=31536000, immutable',
+  '',
+  '/assets/fonts/*',
+  '  Cache-Control: public, max-age=31536000, immutable',
+  '',
+  '/assets/css/*',
+  '  Cache-Control: public, max-age=31536000, immutable',
+  '',
+  '/assets/images/*',
+  '  Cache-Control: public, max-age=31536000, immutable',
+  '',
+  '/assets/icons/*',
+  '  Cache-Control: public, max-age=31536000, immutable',
+  ''
+].join('\n'));
+
+// 404 page
+fs.writeFileSync(path.join(DIST, '404.html'), `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Lotusia</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white min-h-screen flex flex-col items-center justify-center px-4">
+<div class="text-center max-w-lg">
+<p class="text-6xl font-extrabold text-primary-500 mb-4">404</p>
+<h1 class="text-2xl font-bold mb-3">Page Not Found</h1>
+<p class="text-gray-500 dark:text-gray-400 mb-8">The page you are looking for does not exist or has been moved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="/" class="inline-flex items-center px-4 py-2 rounded-lg bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold transition-colors">Home</a>
+<a href="/blog" class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-semibold transition-colors">Blog</a>
+<a href="/social/activity" class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-semibold transition-colors">Social</a>
+<a href="/explorer" class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-semibold transition-colors">Explorer</a>
+</div>
+</div>
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');}})();</script>
+</body>
+</html>`);
+
 const workerSafelist = `
 <div class="hidden">
   text-left rtl:text-right px-4 py-3.5 text-gray-900 dark:text-white font-semibold text-sm

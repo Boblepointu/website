@@ -13,7 +13,7 @@ const SOCIAL_DIR = path.join(CONTENT, 'social');
 
 const SITE_URL = process.env.SITE_URL || 'https://lotusia.org';
 const LANGS = ['en', 'fr', 'es', 'it', 'de', 'ru', 'cn'];
-const LOCALIZED_ROUTES = new Set(['/', '/ecosystem', '/tools', '/roadmap', '/faq', '/founders', '/beta-services']);
+const LOCALIZED_ROUTES = new Set(['/', '/ecosystem', '/tools', '/roadmap', '/faq', '/founders', '/beta-services', '/blog']);
 
 module.exports = {
   ROOT,

@@ -63,13 +63,29 @@ function makeImageHelpers({ IMAGES_DIR }) {
       .replace(/>/g, '&gt;');
   }
 
+  function webpSrcFor(src) {
+    if (!src || typeof src !== 'string') return null;
+    const ext = path.extname(src);
+    if (!ext || ext === '.svg' || ext === '.webp') return null;
+    const webpSrc = src.slice(0, -ext.length) + '.webp';
+    const webpFile = getAssetImageFilePath(webpSrc);
+    if (webpFile) { try { fs.accessSync(webpFile, fs.constants.R_OK); return webpSrc; } catch {} }
+    return null;
+  }
+
   function imgTag(src, alt, className = '', extraAttrs = '') {
     const filePath = getAssetImageFilePath(src);
     const dims = readImageSize(filePath);
     const sizeAttrs = dims?.width && dims?.height ? ` width="${dims.width}" height="${dims.height}"` : '';
     const cls = className ? ` class="${className}"` : '';
     const attrs = extraAttrs ? ` ${extraAttrs.trim()}` : '';
-    return `<img src="${src}" alt="${escapeAttr(alt || inferAltFromSrc(src))}"${cls}${sizeAttrs}${attrs}>`;
+    const safeAlt = escapeAttr(alt || inferAltFromSrc(src));
+    const imgHtml = `<img src="${src}" alt="${safeAlt}"${cls}${sizeAttrs}${attrs}>`;
+    const webp = webpSrcFor(src);
+    if (webp) {
+      return `<picture><source srcset="${webp}" type="image/webp"${sizeAttrs}>${imgHtml}</picture>`;
+    }
+    return imgHtml;
   }
 
   function optimizeContentImages(html, fallbackAltPrefix) {
@@ -93,6 +109,11 @@ function makeImageHelpers({ IMAGES_DIR }) {
         if (!heightM) out = out.replace('<img', `<img height="${dims.height}"`);
       }
       if (!loadingM) out = out.replace('<img', '<img loading="lazy"');
+      const webp = webpSrcFor(src);
+      if (webp) {
+        const wSizeAttrs = dims?.width && dims?.height ? ` width="${dims.width}" height="${dims.height}"` : '';
+        out = `<picture><source srcset="${webp}" type="image/webp"${wSizeAttrs}>${out}</picture>`;
+      }
       return out;
     });
   }

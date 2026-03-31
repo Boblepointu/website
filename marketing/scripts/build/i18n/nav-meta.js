@@ -150,7 +150,7 @@ function makeNavMetaHelpers({ SITE_URL, I18N, LANGS, LOCALIZED_ROUTES }) {
       url_docs: '/docs',
       url_founders: navRoute(lang, '/founders'),
       url_beta_services: navRoute(lang, '/beta-services'),
-      url_blog: '/blog',
+      url_blog: navRoute(lang, '/blog'),
       url_explorer: '/explorer/blocks',
       url_social: '/social/activity',
       url_legacy_explorer: 'https://explorer.lotusia.org',

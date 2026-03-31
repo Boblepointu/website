@@ -195,6 +195,10 @@ export default {
     );
 
     const url = new URL(request.url);
+    if (url.hostname === 'www.lotusia.org') {
+      return Response.redirect('https://lotusia.org' + url.pathname + url.search, 301);
+    }
+
     const path = url.pathname || '/';
     const lang = detectWorkerLang(path);
     const strippedPath = stripWorkerLangPrefix(path);

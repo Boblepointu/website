@@ -240,7 +240,7 @@ function makeLandingBuilders(ctx) {
         const node = i < parts.length - 1
           ? `<a href="${p.url}" class="hover:text-primary">${p.name}</a>`
           : `<span class="text-gray-900 dark:text-white font-semibold">${p.name}</span>`;
-        const sep = i > 0 ? `<span class="mx-1 text-gray-400">/&nbsp;</span>` : '';
+        const sep = i > 0 ? `<span class="mx-1 text-gray-500">/&nbsp;</span>` : '';
         return `${sep}${node}`;
       }).join('')
       + `</span></nav>`;
@@ -277,14 +277,29 @@ function makeLandingBuilders(ctx) {
     if (isHome) ldItems.unshift(webSiteJsonLd(lang), ORG);
     if (!isHome) ldItems.push(breadcrumbJsonLd(bcParts));
     if (pageType === 'founders' && sections) {
-      sections.forEach((s, idx) => {
-        ldItems.push({
+      const founderPersons = sections.map((s, idx) => {
+        const links = (s.links || []).map(l => l.to).filter(Boolean);
+        const portfolioLink = links.find(l => !l.includes('github.com') && !l.includes('linkedin.com') && !l.includes('x.com'));
+        return {
           '@context': 'https://schema.org',
           '@type': 'Person',
           name: s.title,
           jobTitle: s.headline || 'Founder',
-          image: `${SITE_URL}/assets/images/${idx === 0 ? 'alexandre_guillioud.jpeg' : 'matthew_urgero.jpeg'}`
-        });
+          url: portfolioLink || undefined,
+          image: `${SITE_URL}/assets/images/${idx === 0 ? 'alexandre_guillioud.jpeg' : 'matthew_urgero.jpeg'}`,
+          sameAs: links.length ? links : undefined
+        };
+      });
+      founderPersons.forEach(p => ldItems.push(p));
+      ldItems.push({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Lotusia',
+        url: SITE_URL,
+        foundingDate: '2021',
+        description: 'Decentralized reputation protocol powered by burn-weighted sentiment on the Lotus blockchain',
+        founder: founderPersons.map(p => ({ '@type': 'Person', name: p.name, url: p.url, sameAs: p.sameAs })),
+        sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus']
       });
     }
 

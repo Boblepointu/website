@@ -84,119 +84,165 @@ function makeBlogDocsBuilders(ctx) {
     return items.slice(0, 18).join(', ');
   }
 
+  const DATE_LOCALES = { en: 'en-US', fr: 'fr-FR', es: 'es-ES', it: 'it-IT', de: 'de-DE', ru: 'ru-RU', cn: 'zh-CN' };
+
+  function langBlogPath(lang, basePath) {
+    return lang === 'en' ? basePath : `/${lang}${basePath}`;
+  }
+
   function buildBlog(sitemap) {
     const blogDir = path.join(CONTENT, 'blog');
-    const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md')).sort().reverse();
-    const en = I18N.en;
-    const enSeo = en.seo || {};
-    const posts = [];
+    const enFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.md') && !f.startsWith('.')).sort().reverse();
 
-    const alternatesForBlog = { en: '/blog' };
-    let blogIndexLastmod = '';
-
-    for (const file of files) {
-      const raw = fs.readFileSync(path.join(blogDir, file), 'utf8');
-      const { meta, body } = parseFrontmatter(raw);
+    const postSlugs = enFiles.map(f => f.replace(/^\d+\./, '').replace('.md', ''));
+    const postFileMap = {};
+    for (const file of enFiles) {
       const slug = file.replace(/^\d+\./, '').replace('.md', '');
-      const htmlBody = optimizeContentImages(marked(body).replace(/src="\/img\//g, 'src="/assets/images/'), meta.title || slug);
-      const plainBody = stripMarkdown(body);
-      const dateRaw = meta.date || '';
-      const dateObj = dateRaw ? new Date(dateRaw) : null;
-      const dateStr = dateObj ? dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
-      const dateIso = dateObj ? dateObj.toISOString().split('T')[0] : '';
-      const ogImage = meta.image && meta.image.src ? `/assets/images/blog/${path.basename(meta.image.src)}` : '/assets/images/blog_0.jpg';
-      const authorName = (meta.authors && meta.authors[0] && meta.authors[0].name) || meta.author || 'Lotusia Stewardship';
-      const heroImage = ogImage !== '/assets/images/blog_0.jpg'
-        ? imgTag(ogImage, `${meta.title || slug} hero image`, 'blog-hero-img', 'loading="lazy"')
-        : '';
-      const canonicalPath = `/blog/${slug}`;
-      const alternatesPost = { en: canonicalPath };
-      const wordCount = (body || '').split(/\s+/).filter(Boolean).length;
-      const articleSection = (meta.badge && meta.badge.label) || 'Blog';
+      postFileMap[slug] = file;
+    }
 
-      const fallbackDescription = `Read this Lotusia blog update about ${meta.title || slug} and stay current with ecosystem progress and releases.`;
-      const metaDescription = clampText(meta.description || '', 90, 160, fallbackDescription || plainBody);
-      const metaTitle = buildMetaTitle(meta.title || slug, 52);
-      const vars = {
-        ...makePageMeta('en', canonicalPath, alternatesPost),
-        title: meta.title || slug,
-        meta_title: metaTitle,
-        description: metaDescription,
-        keywords: String(enSeo.blog_keywords || buildKeywords(meta.title || slug, ['blog', 'updates', 'ecosystem', 'release notes', 'technical article'])),
-        slug,
-        og_image: ogImage,
-        date: dateStr,
-        date_iso: dateIso,
-        author: authorName,
-        body: heroImage + htmlBody,
-        json_ld: jsonLd({
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          headline: meta.title || slug,
+    const postAlternates = {};
+    for (const slug of postSlugs) {
+      const alts = { en: `/blog/${slug}` };
+      for (const lang of LANGS) {
+        if (lang === 'en') continue;
+        const langDir = path.join(blogDir, lang);
+        const enFile = postFileMap[slug];
+        if (enFile && fs.existsSync(path.join(langDir, enFile))) {
+          alts[lang] = `/${lang}/blog/${slug}`;
+        }
+      }
+      postAlternates[slug] = alts;
+    }
+
+    const blogIndexAlternates = { en: '/blog' };
+    for (const lang of LANGS) {
+      if (lang === 'en') continue;
+      const langDir = path.join(blogDir, lang);
+      if (fs.existsSync(langDir) && fs.readdirSync(langDir).some(f => f.endsWith('.md'))) {
+        blogIndexAlternates[lang] = `/${lang}/blog`;
+      }
+    }
+
+    for (const lang of LANGS) {
+      const i = I18N[lang];
+      const iSeo = i.seo || {};
+      const dateLocale = DATE_LOCALES[lang] || 'en-US';
+      const isEn = lang === 'en';
+      const langDir = isEn ? blogDir : path.join(blogDir, lang);
+      const posts = [];
+      let blogIndexLastmod = '';
+
+      for (const file of enFiles) {
+        const slug = file.replace(/^\d+\./, '').replace('.md', '');
+        const filePath = isEn ? path.join(blogDir, file) : path.join(langDir, file);
+        if (!fs.existsSync(filePath)) continue;
+
+        const raw = fs.readFileSync(filePath, 'utf8');
+        const { meta, body } = parseFrontmatter(raw);
+        const htmlBody = optimizeContentImages(marked(body).replace(/src="\/img\//g, 'src="/assets/images/'), meta.title || slug);
+        const plainBody = stripMarkdown(body);
+        const dateRaw = meta.date || '';
+        const dateObj = dateRaw ? new Date(dateRaw) : null;
+        const dateStr = dateObj ? dateObj.toLocaleDateString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+        const dateIso = dateObj ? dateObj.toISOString().split('T')[0] : '';
+        const ogImage = meta.image && meta.image.src ? `/assets/images/blog/${path.basename(meta.image.src)}` : '/assets/images/blog_0.jpg';
+        const authorName = (meta.authors && meta.authors[0] && meta.authors[0].name) || meta.author || 'Lotusia Stewardship';
+        const heroImage = ogImage !== '/assets/images/blog_0.jpg'
+          ? imgTag(ogImage, `${meta.title || slug} hero image`, 'blog-hero-img', 'loading="lazy"')
+          : '';
+        const canonicalPath = langBlogPath(lang, `/blog/${slug}`);
+        const alts = postAlternates[slug] || { en: `/blog/${slug}` };
+        const wordCount = (body || '').split(/\s+/).filter(Boolean).length;
+        const articleSection = (meta.badge && meta.badge.label) || 'Blog';
+        const fallbackDescription = `Read this Lotusia blog update about ${meta.title || slug} and stay current with ecosystem progress and releases.`;
+        const metaDescription = clampText(meta.description || '', 90, 160, fallbackDescription || plainBody);
+        const metaTitle = buildMetaTitle(meta.title || slug, 52);
+
+        const vars = {
+          ...makePageMeta(lang, canonicalPath, alts),
+          title: meta.title || slug,
+          meta_title: metaTitle,
           description: metaDescription,
-          url: abs(canonicalPath),
-          image: abs(ogImage),
-          datePublished: dateIso || undefined,
-          dateModified: dateIso || undefined,
-          wordCount,
-          articleSection,
-          author: { '@type': 'Person', name: authorName },
-          publisher: { '@type': 'Organization', name: 'Lotusia Stewardship', logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` } },
-          inLanguage: 'en'
+          keywords: String(iSeo.blog_keywords || buildKeywords(meta.title || slug, ['blog', 'updates', 'ecosystem', 'release notes', 'technical article'])),
+          slug,
+          og_image: ogImage,
+          date: dateStr,
+          date_iso: dateIso,
+          author: authorName,
+          body: heroImage + htmlBody,
+          json_ld: jsonLd({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: meta.title || slug,
+            description: metaDescription,
+            url: abs(canonicalPath),
+            image: abs(ogImage),
+            datePublished: dateIso || undefined,
+            dateModified: dateIso || undefined,
+            wordCount,
+            articleSection,
+            author: { '@type': 'Person', name: authorName },
+            publisher: { '@type': 'Organization', name: 'Lotusia Stewardship', logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` } },
+            inLanguage: i.html_lang || lang
+          }),
+          head_extra: ''
+        };
+        writeOutFromPath(canonicalPath, renderPage('blog-post', vars));
+
+        const authorAvatar = meta.authors && meta.authors[0] && meta.authors[0].avatar && meta.authors[0].avatar.src
+          ? `/assets/images/${path.basename(meta.authors[0].avatar.src)}`
+          : '';
+        const badge = (meta.badge && meta.badge.label) || '';
+        const cardDate = dateObj ? dateObj.toLocaleDateString(dateLocale, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+        posts.push({ title: meta.title || slug, description: metaDescription, slug, date: cardDate, image: ogImage, author: authorName, avatar: authorAvatar, badge, canonicalPath, langBlogSlug: langBlogPath(lang, `/blog/${slug}`) });
+        const postLastmod = dateIso || fileLastmod(filePath);
+        setSitemapEntry(sitemap, canonicalPath, alts, postLastmod);
+        blogIndexLastmod = maxLastmod(blogIndexLastmod, postLastmod);
+      }
+
+      if (posts.length === 0 && !isEn) continue;
+
+      const postsHtml = posts.map((p, idx) => {
+        const isFirst = idx === 0;
+        const avatarHtml = p.avatar
+          ? `<div class="inline-flex flex-row-reverse justify-end"><span class="inline-flex items-center justify-center flex-shrink-0 rounded-full h-6 w-6 text-xs ring-2 ring-white dark:ring-gray-900 overflow-hidden">${imgTag(p.avatar, `${p.author} avatar`, 'h-full w-full object-cover')}</span></div>`
+          : '';
+        const badgeHtml = p.badge
+          ? `<div class="mb-3"><span class="inline-flex items-center font-medium rounded-md text-xs px-2 py-1 bg-primary-500/10 text-primary-500">${p.badge}</span></div>`
+          : '';
+        const imgWrapCls = isFirst ? 'relative overflow-hidden w-full rounded-lg lg:col-span-2' : 'relative overflow-hidden w-full rounded-lg';
+        const imgHtml = p.image
+          ? `<div class="${imgWrapCls}">${imgTag(p.image, `${p.title} cover image`, `w-full ${isFirst ? 'h-auto' : 'h-48'} object-cover`, 'loading="lazy"')}</div>`
+          : '';
+        const wrapperCls = isFirst ? 'relative flex flex-col w-full gap-y-6 lg:col-span-3 lg:grid lg:grid-cols-5 lg:gap-8' : 'relative flex flex-col w-full gap-y-6';
+        const textWrapCls = isFirst ? 'flex flex-col justify-between flex-1 lg:col-span-3' : 'flex flex-col justify-between flex-1';
+        return `<article class="${wrapperCls}">${imgHtml}<div class="${textWrapCls}"><div class="flex-1"><a href="${p.langBlogSlug}" class="absolute inset-0"><span class="sr-only">${p.title}</span></a>${badgeHtml}<h2 class="text-gray-900 dark:text-white text-xl font-semibold">${p.title}</h2><p class="text-base text-gray-500 dark:text-gray-400 mt-1">${p.description}</p></div><div class="relative flex items-center gap-x-3 mt-4">${avatarHtml}<time class="text-sm text-gray-500 font-medium">${p.date}</time></div></div></article>`;
+      }).join('\n');
+
+      const blogPath = langBlogPath(lang, '/blog');
+      const vars = {
+        ...makePageMeta(lang, blogPath, blogIndexAlternates),
+        title: i.pages.blog.title,
+        meta_title: (i.pages.blog.og_title || i.pages.blog.title || 'Blog') + ' - Lotusia',
+        og_title: i.pages.blog.og_title,
+        description: clampText(i.pages.blog.description, 90, 160, 'Latest Lotusia ecosystem updates, releases, and technical insights from the Stewardship team.'),
+        keywords: String(iSeo.blog_keywords || buildKeywords('lotusia blog updates', ['blockchain news', 'ecosystem updates', 'product releases', 'protocol notes'])),
+        og_image: '/assets/images/blog_0.jpg',
+        hero_title: i.pages.blog.title,
+        hero_description: i.pages.blog.description,
+        blog_posts: postsHtml,
+        json_ld: jsonLd({
+          '@context': 'https://schema.org', '@type': 'CollectionPage',
+          name: i.pages.blog.title || 'Blog', url: abs(blogPath), inLanguage: i.html_lang || lang,
+          isPartOf: { '@type': 'WebSite', name: 'Lotusia', url: SITE_URL },
+          hasPart: posts.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: abs(p.canonicalPath) }))
         }),
         head_extra: ''
       };
-      writeOutFromPath(canonicalPath, renderPage('blog-post', vars));
-
-      const authorAvatar = meta.authors && meta.authors[0] && meta.authors[0].avatar && meta.authors[0].avatar.src
-        ? `/assets/images/${path.basename(meta.authors[0].avatar.src)}`
-        : '';
-      const badge = (meta.badge && meta.badge.label) || '';
-      const cardDate = dateObj ? dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
-      posts.push({ title: meta.title || slug, description: metaDescription, slug, date: cardDate, image: ogImage, author: authorName, avatar: authorAvatar, badge, canonicalPath });
-      const postLastmod = dateIso || fileLastmod(path.join(blogDir, file));
-      setSitemapEntry(sitemap, canonicalPath, alternatesPost, postLastmod);
-      blogIndexLastmod = maxLastmod(blogIndexLastmod, postLastmod);
+      writeOutFromPath(blogPath, renderPage('blog-index', vars));
+      setSitemapEntry(sitemap, blogPath, blogIndexAlternates, blogIndexLastmod);
     }
-
-    const postsHtml = posts.map((p, idx) => {
-      const isFirst = idx === 0;
-      const avatarHtml = p.avatar
-        ? `<div class="inline-flex flex-row-reverse justify-end"><span class="inline-flex items-center justify-center flex-shrink-0 rounded-full h-6 w-6 text-xs ring-2 ring-white dark:ring-gray-900 overflow-hidden">${imgTag(p.avatar, `${p.author} avatar`, 'h-full w-full object-cover')}</span></div>`
-        : '';
-      const badgeHtml = p.badge
-        ? `<div class="mb-3"><span class="inline-flex items-center font-medium rounded-md text-xs px-2 py-1 bg-primary-500/10 text-primary-500">${p.badge}</span></div>`
-        : '';
-      const imgWrapCls = isFirst ? 'relative overflow-hidden w-full rounded-lg lg:col-span-2' : 'relative overflow-hidden w-full rounded-lg';
-      const imgHtml = p.image
-        ? `<div class="${imgWrapCls}">${imgTag(p.image, `${p.title} cover image`, `w-full ${isFirst ? 'h-auto' : 'h-48'} object-cover`, 'loading="lazy"')}</div>`
-        : '';
-      const wrapperCls = isFirst ? 'relative flex flex-col w-full gap-y-6 lg:col-span-3 lg:grid lg:grid-cols-5 lg:gap-8' : 'relative flex flex-col w-full gap-y-6';
-      const textWrapCls = isFirst ? 'flex flex-col justify-between flex-1 lg:col-span-3' : 'flex flex-col justify-between flex-1';
-      return `<article class="${wrapperCls}">${imgHtml}<div class="${textWrapCls}"><div class="flex-1"><a href="/blog/${p.slug}" class="absolute inset-0"><span class="sr-only">${p.title}</span></a>${badgeHtml}<h2 class="text-gray-900 dark:text-white text-xl font-semibold">${p.title}</h2><p class="text-base text-gray-500 dark:text-gray-400 mt-1">${p.description}</p></div><div class="relative flex items-center gap-x-3 mt-4">${avatarHtml}<time class="text-sm text-gray-500 font-medium">${p.date}</time></div></div></article>`;
-    }).join('\n');
-
-    const vars = {
-      ...makePageMeta('en', '/blog', alternatesForBlog),
-      title: en.pages.blog.title,
-      meta_title: 'Lotusia Blog Updates',
-      og_title: en.pages.blog.og_title,
-      description: clampText(en.pages.blog.description, 90, 160, 'Latest Lotusia ecosystem updates, releases, and technical insights from the Stewardship team.'),
-      keywords: String(enSeo.blog_keywords || buildKeywords('lotusia blog updates', ['blockchain news', 'ecosystem updates', 'product releases', 'protocol notes'])),
-      og_image: '/assets/images/blog_0.jpg',
-      hero_title: en.pages.blog.title,
-      hero_description: en.pages.blog.description,
-      blog_posts: postsHtml,
-      json_ld: jsonLd({
-        '@context': 'https://schema.org', '@type': 'CollectionPage',
-        name: 'Lotusia Blog', url: abs('/blog'), inLanguage: 'en',
-        isPartOf: { '@type': 'WebSite', name: 'Lotusia', url: SITE_URL },
-        hasPart: posts.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: abs(p.canonicalPath) }))
-      }),
-      head_extra: ''
-    };
-    writeOutFromPath('/blog', renderPage('blog-index', vars));
-    setSitemapEntry(sitemap, '/blog', alternatesForBlog, blogIndexLastmod);
   }
 
   function buildDocs(sitemap) {

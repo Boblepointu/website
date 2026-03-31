@@ -284,7 +284,19 @@ async function renderProfilePage(url, platform, profileId, lang) {
         ? ['https://x.com/' + encodeURIComponent(profileId)]
         : undefined,
       url: seoAbsoluteUrl(canonicalPath),
-      image: avatarSrc
+      image: avatarSrc,
+      interactionStatistic: [
+        {
+          '@type': 'InteractionCounter',
+          interactionType: 'https://schema.org/LikeAction',
+          userInteractionCount: Number(profile.votesPositive) || 0
+        },
+        {
+          '@type': 'InteractionCounter',
+          interactionType: 'https://schema.org/DislikeAction',
+          userInteractionCount: Number(profile.votesNegative) || 0
+        }
+      ]
     }
   ]);
 
@@ -314,6 +326,7 @@ async function renderProfilePage(url, platform, profileId, lang) {
     compactStatCard(workerText(safeLang, 'votes_plus', 'Votes +'), String(profile.votesPositive || 0), workerText(safeLang, 'positive_votes', 'Positive votes'), 'up') +
     compactStatCard(workerText(safeLang, 'votes_minus', 'Votes -'), String(profile.votesNegative || 0), workerText(safeLang, 'negative_votes', 'Negative votes'), 'down') +
     '</div>' +
+    '<p class="text-xs text-gray-400 dark:text-gray-500 mt-2"><a href="/blog/why-we-built-our-own-ranking-algorithm" class="hover:text-primary-500 dark:hover:text-primary-300 transition-colors">' + esc(workerText(safeLang, 'how_ranking_works', 'How are profiles ranked?')) + ' &rarr;</a></p>' +
     '</div>' +
     '<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">' + esc(workerText(safeLang, 'posts', 'Posts')) + '</h2>' +
     renderTable([workerText(safeLang, 'post_id', 'Post ID'), workerText(safeLang, 'ranking', 'Ranking'), workerText(safeLang, 'vote_ratio', 'Vote Ratio')], postsRows, workerText(safeLang, 'no_posts_yet', 'No posts yet.'), { withPagination: true, lang: safeLang, tableKind: 'posts' }) +
