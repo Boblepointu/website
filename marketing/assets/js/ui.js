@@ -18,7 +18,8 @@
     b.setAttribute('aria-expanded', n.classList.contains('hidden') ? 'false' : 'true');
   });
 
-  // Dropdowns
+  // Dropdowns: defer DOM reads to next frame to avoid forced layout during first paint
+  function initDropdowns() {
   var dropdowns = Array.from(document.querySelectorAll('[data-dropdown]'));
   if (dropdowns.length) {
     var close = function(el) {
@@ -56,5 +57,11 @@
     document.addEventListener('click', function(e) {
       dropdowns.forEach(function(el) { if (!el.contains(e.target)) close(el); });
     });
+  }
+  }
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(initDropdowns);
+  } else {
+    initDropdowns();
   }
 })();

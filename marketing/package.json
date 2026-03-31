@@ -2,7 +2,7 @@
   "name": "lotusia-marketing",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.js && npx tailwindcss -i assets/css/input.css -o dist/assets/css/main.css --minify && node scripts/postbuild-css.js",
+    "build": "node scripts/optimize-turtle-webp.js && node scripts/build.js && npx tailwindcss -i assets/css/input.css -o dist/assets/css/main.css --minify && node scripts/postbuild-css.js",
     "deploy": "npm run build && npx wrangler pages deploy dist/ --project-name=lotusia-marketing"
   },
   "dependencies": {

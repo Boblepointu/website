@@ -164,7 +164,9 @@ function staticAssetTtl(pathname, contentType) {
   if (ext === 'json' || ct.includes('application/json')) return { sMaxAge: STATIC_CACHE_RULES.json, maxAge: 3600 };
   if (isFont) return { sMaxAge: STATIC_CACHE_RULES.fonts, maxAge: 31536000, immutable: true };
   if (isImage) return { sMaxAge: STATIC_CACHE_RULES.media, maxAge: 2592000 };
-  if (/(css|js|mjs|webmanifest)$/.test(ext)) return { sMaxAge: STATIC_CACHE_RULES.media, maxAge: 604800 };
+  if (/(css|js|mjs|webmanifest)$/.test(ext)) {
+    return { sMaxAge: STATIC_CACHE_RULES.media, maxAge: 31536000, immutable: true };
+  }
   return { sMaxAge: STATIC_CACHE_RULES.html, maxAge: 0 };
 }
 

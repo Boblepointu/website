@@ -263,9 +263,11 @@ writeRobots(DIST, SITE_URL);
 writeRedirects(DIST, []);
 
 // _headers (Cloudflare Pages: security + cache control)
+// Web Analytics injects beacon.min.js from static.cloudflareinsights.com; disable Analytics in
+// Cloudflare dashboard (Pages project → Settings) to remove that third-party request from Lighthouse.
 fs.writeFileSync(path.join(DIST, '_headers'), [
   '/*',
-  "  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script'",
+  "  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-m68e3Qze5aPblX5cce2LqIi81uUBKSxyzRhGWNgggGM='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script'",
   '  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
   '  Cross-Origin-Opener-Policy: same-origin',
   '  X-Frame-Options: DENY',
