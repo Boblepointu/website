@@ -57,6 +57,23 @@ async function inlineCritical() {
       // Fix noscript fallback: remove media=print and onload so it works without JS
       result = result.replace(/<noscript>\s*<link rel="stylesheet" href="([^"]+)"[^>]*>\s*<\/noscript>/g,
         '<noscript><link rel="stylesheet" href="$1"></noscript>');
+      // Strip below-fold icon SVGs from inline critical CSS
+      const bodyStart = result.indexOf('<body');
+      const headerEnd = result.indexOf('</header>', bodyStart);
+      const heroMatch = result.indexOf('fetchpriority="high"', bodyStart);
+      const aboveFoldEnd = Math.max(headerEnd, heroMatch) + 500;
+      const aboveFoldBody = result.substring(bodyStart, aboveFoldEnd > bodyStart ? aboveFoldEnd : bodyStart + 5000);
+      const strippedBody = aboveFoldBody.replace(/<style[\s\S]*?<\/style>/g, '');
+      const aboveFoldIcons = new Set((strippedBody.match(/i-heroicons-[\w-]+/g) || []));
+
+      result = result.replace(/<style>([\s\S]*?)<\/style>/, (m, css) => {
+        const cleaned = css.replace(/\.i-heroicons-[^{]+\{[^}]+\}/g, (rule) => {
+          const iconName = (rule.match(/\.(i-heroicons-[\w-]+)/) || [])[1];
+          return iconName && !aboveFoldIcons.has(iconName) ? '' : rule;
+        });
+        return `<style>${cleaned}</style>`;
+      });
+
       fs.writeFileSync(file, result);
       count++;
     } catch (e) {

@@ -335,7 +335,7 @@ function makeLandingBuilders(ctx) {
       breadcrumb_html: breadcrumbDiv,
       json_ld: jsonLd(...ldItems),
       head_extra: isHome && heroImgName
-        ? `<link rel="preload" href="/assets/images/${heroImgName}-448.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w" imagesizes="calc(100vw - 2rem)">`
+        ? `<link rel="preload" href="/assets/images/${heroImgName}-448.webp" as="image" type="image/webp" fetchpriority="high">`
         : ''
     };
     writeOutFromPath(pagePath, renderPage('landing', vars));
