@@ -21,7 +21,8 @@ const STATIC_CACHE_RULES = {
   text: 7200,
   json: 7200,
   media: 691200,
-  hashedAssets: 4838400
+  fonts: 31536000,
+  hashedAssets: 31536000
 };
 
 function htmlCacheTtlForPath(strippedPath) {
@@ -147,20 +148,24 @@ async function cachedProxyGet(request, targetBase, ttl, useCors, ctx) {
 }
 
 function staticAssetTtl(pathname, contentType) {
-  const path = String(pathname || '/').toLowerCase();
+  const p = String(pathname || '/').toLowerCase();
   const ct = String(contentType || '').toLowerCase();
-  const extMatch = path.match(/\.([a-z0-9]+)$/);
+  const extMatch = p.match(/\.([a-z0-9]+)$/);
   const ext = extMatch ? extMatch[1] : '';
-  const isHashedAssetPath = /\/assets\/.+\.[a-f0-9]{8,}\./.test(path) || /\.[a-f0-9]{8,}\.(css|js|mjs|png|jpe?g|gif|svg|webp|avif|ico|woff2?)$/.test(path);
+  const isHashedAssetPath = /\/assets\/.+\.[a-f0-9]{8,}\./.test(p) || /\.[a-f0-9]{8,}\.(css|js|mjs|png|jpe?g|gif|svg|webp|avif|ico|woff2?)$/.test(p);
+  const isFont = /^(woff2?|ttf|eot)$/.test(ext);
+  const isImage = /^(png|jpe?g|gif|svg|webp|avif|ico)$/.test(ext);
 
-  if (isHashedAssetPath) return STATIC_CACHE_RULES.hashedAssets;
-  if (ct.includes('text/html') || (!ext && !path.endsWith('/'))) return STATIC_CACHE_RULES.html;
-  if (ct.includes('application/xhtml+xml') || path.endsWith('/')) return STATIC_CACHE_RULES.html;
-  if (ext === 'xml' || ct.includes('xml')) return STATIC_CACHE_RULES.xml;
-  if (ext === 'txt' || ct.startsWith('text/plain')) return STATIC_CACHE_RULES.text;
-  if (ext === 'json' || ct.includes('application/json')) return STATIC_CACHE_RULES.json;
-  if (/(css|js|mjs|png|jpg|jpeg|gif|svg|webp|avif|ico|woff|woff2|ttf|eot|webmanifest)$/.test(ext)) return STATIC_CACHE_RULES.media;
-  return STATIC_CACHE_RULES.html;
+  if (isHashedAssetPath) return { sMaxAge: STATIC_CACHE_RULES.hashedAssets, maxAge: 31536000, immutable: true };
+  if (ct.includes('text/html') || (!ext && !p.endsWith('/'))) return { sMaxAge: STATIC_CACHE_RULES.html, maxAge: 0 };
+  if (ct.includes('application/xhtml+xml') || p.endsWith('/')) return { sMaxAge: STATIC_CACHE_RULES.html, maxAge: 0 };
+  if (ext === 'xml' || ct.includes('xml')) return { sMaxAge: STATIC_CACHE_RULES.xml, maxAge: 3600 };
+  if (ext === 'txt' || ct.startsWith('text/plain')) return { sMaxAge: STATIC_CACHE_RULES.text, maxAge: 3600 };
+  if (ext === 'json' || ct.includes('application/json')) return { sMaxAge: STATIC_CACHE_RULES.json, maxAge: 3600 };
+  if (isFont) return { sMaxAge: STATIC_CACHE_RULES.fonts, maxAge: 31536000, immutable: true };
+  if (isImage) return { sMaxAge: STATIC_CACHE_RULES.media, maxAge: 2592000 };
+  if (/(css|js|mjs|webmanifest)$/.test(ext)) return { sMaxAge: STATIC_CACHE_RULES.media, maxAge: 604800 };
+  return { sMaxAge: STATIC_CACHE_RULES.html, maxAge: 0 };
 }
 
 function versionedCacheUrl(url) {
@@ -179,7 +184,10 @@ async function cachedMarketingAsset(request, env, ctx) {
   const headers = new Headers(upstream.headers);
   headers.delete('set-cookie');
   const ttl = staticAssetTtl(assetPath, headers.get('content-type'));
-  headers.set('cache-control', `public, max-age=0, s-maxage=${ttl}, stale-while-revalidate=${ttl * 6}, stale-if-error=${ttl * 24}`);
+  const cc = ttl.immutable
+    ? `public, max-age=${ttl.maxAge}, s-maxage=${ttl.sMaxAge}, immutable`
+    : `public, max-age=${ttl.maxAge}, s-maxage=${ttl.sMaxAge}, stale-while-revalidate=${ttl.sMaxAge * 6}, stale-if-error=${ttl.sMaxAge * 24}`;
+  headers.set('cache-control', cc);
   const out = new Response(upstream.body, {
     status: upstream.status,
     statusText: upstream.statusText,

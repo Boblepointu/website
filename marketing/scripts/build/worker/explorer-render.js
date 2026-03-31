@@ -103,7 +103,7 @@ async function renderExplorerOverviewPage(lang) {
   const hashrateText = hashrate > 0 ? (hashrate / 1e9).toFixed(1) + ' GH/s' : '-';
   const diffText = num(mining.difficulty || 0) > 0 ? num(mining.difficulty).toFixed(1) : '-';
   const blockTime = num(mining.target || 0) > 0 ? (num(mining.target) / 60).toFixed(1) + ' minutes' : '-';
-  const cards = '<div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">' +
+  const cards = '<div class="grid grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 mb-8">' +
     compactStatCard(workerText(safeLang, 'connections', 'Connections'), formatNumber(peers.length), workerText(safeLang, 'connections_hint', 'Number of Lotus nodes connected to the Explorer'), 'connections') +
     compactStatCard(workerText(safeLang, 'blocks', 'Blocks'), formatNumber(tip), workerText(safeLang, 'blocks_hint', 'Total number of blocks in the blockchain'), 'cube') +
     compactStatCard(workerText(safeLang, 'pending_transactions', 'Pending Transactions'), formatNumber(pending), workerText(safeLang, 'pending_transactions_hint', 'Transactions waiting to be confirmed'), 'clock') +
@@ -198,7 +198,7 @@ async function renderExplorerBlockDetailPage(url, hashOrHeight, lang) {
     : 'Miner address';
   const bodyInner = sectionHeader('cube', workerText(safeLang, 'block_details', 'Block Details'), workerText(safeLang, 'block_details_subtitle', 'Detailed block metrics and transactions.'), mainnetBadge) +
     '<p class="text-sm text-gray-500 mb-6"><a class="text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300" href="' + localize('/explorer/blocks') + '">#' + esc(formatNumber(info.height || hashOrHeight)) + '</a> · ' + esc(shortHash(info.hash || hashOrHeight)) + '</p>' +
-    '<div class="grid sm:grid-cols-3 gap-4 mb-8">' +
+    '<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">' +
     compactStatCard('Timestamp', formatUtc(info.timestamp), 'UTC', 'clock') +
     compactStatCard('Block Subsidy', formatXpiFromSats(info.reward || 0), 'New coins minted', 'coins') +
     compactStatCard('Mined By', minedByValue, minedByHint, 'profile', { valueClass: 'text-lg md:text-xl leading-tight truncate max-w-full block', hintClass: 'truncate max-w-full', hintHtml: true }) +
@@ -268,13 +268,13 @@ async function renderExplorerTxDetailPage(url, txid, lang) {
     '</span>';
   const bodyInner = sectionHeader('chart', workerText(safeLang, 'transaction_details', 'Transaction Details'), workerText(safeLang, 'transaction_details_subtitle', 'Inputs, outputs, and block confirmation details.'), statusBadge) +
     '<p class="text-sm text-gray-500 mb-6">' + esc(shortHash(payload.txid || txid)) + '</p>' +
-    '<div class="grid sm:grid-cols-3 gap-4 mb-8">' +
+    '<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">' +
     compactStatCard('Time First Seen', formatUtc(payload.timeFirstSeen), 'When this tx first appeared', 'chart') +
     compactStatCard('Size', formatBytes(payload.size), 'Raw transaction size', 'network') +
     compactStatCard('Confirmations', formatNumber(payload.confirmations || 0), 'Current block confirmations', 'up') +
     '</div>' +
     '<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">' + esc(workerText(safeLang, 'block_information', 'Block Information')) + '</h2>' +
-    '<div class="grid sm:grid-cols-3 gap-4 mb-8">' +
+    '<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">' +
     compactStatCard('Transaction Confirmed', formatUtc(block.timestamp), 'Confirmation timestamp', 'up') +
     compactStatCard('Confirmations', formatNumber(payload.confirmations || 0), 'Network confirmations', 'up') +
     compactStatCard('Confirmed in Block', shortHash(block.hash || ''), 'View full block details', 'network') +
@@ -335,7 +335,7 @@ async function renderExplorerAddressDetailPage(url, address, lang) {
   ]);
   const bodyInner = sectionHeader('profile', workerText(safeLang, 'address_details', 'Address Details'), workerText(safeLang, 'address_details_subtitle', 'Address balance and transaction history on Lotusia mainnet.')) +
     '<p class="text-sm text-gray-500 mb-6 break-all">' + esc(address) + '</p>' +
-    '<div class="grid sm:grid-cols-2 gap-4 mb-8">' +
+    '<div class="grid grid-cols-2 gap-3 sm:gap-4 mb-8">' +
     compactStatCard(workerText(safeLang, 'balance', 'Balance'), formatXpiFromSats(balance), workerText(safeLang, 'current_wallet_balance', 'Current wallet balance'), 'up') +
     compactStatCard(workerText(safeLang, 'last_seen', 'Last Seen'), formatUtc(details.lastSeen), workerText(safeLang, 'last_activity_timestamp', 'Last activity timestamp'), 'chart') +
     '</div>' +

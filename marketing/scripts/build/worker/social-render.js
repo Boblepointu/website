@@ -314,14 +314,14 @@ async function renderProfilePage(url, platform, profileId, lang) {
       '</tr>');
   const postsNumPages = Math.max(1, num(posts.numPages) || 1);
   const votesNumPages = Math.max(1, num(votes.numPages) || 1);
-  const bodyInner = '<div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 mb-10">' +
-    '<div class="flex flex-wrap items-center gap-4 mb-4">' +
+  const bodyInner = '<div class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-3 sm:p-5 mb-6 sm:mb-10">' +
+    '<div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">' +
     profileAvatar +
     '<div>' +
-    '<h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white flex items-center gap-2">' + esc(profileId) + iconSvg('x', 'h-5 w-5 text-sky-500 dark:text-sky-400') + '</h1>' +
+    '<h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white flex items-center gap-2 break-all">' + esc(profileId) + iconSvg('x', 'h-4 w-4 sm:h-5 sm:w-5 text-sky-500 dark:text-sky-400 flex-shrink-0') + '</h1>' +
     '<p class="text-base text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">' + esc(workerText(safeLang, 'live_profile_data', 'Live profile data')) + ' (' + esc(platform) + ').</p>' +
     '</div></div>' +
-    '<div class="grid sm:grid-cols-3 gap-4 mb-8">' +
+    '<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">' +
     compactStatCard(workerText(safeLang, 'ranking', 'Ranking'), formatXpiFromSats(profile.ranking), workerText(safeLang, 'current_profile_ranking', 'Current profile ranking'), 'chart', { valueClass: rankToneClass(profile.ranking) }) +
     compactStatCard(workerText(safeLang, 'votes_plus', 'Votes +'), String(profile.votesPositive || 0), workerText(safeLang, 'positive_votes', 'Positive votes'), 'up') +
     compactStatCard(workerText(safeLang, 'votes_minus', 'Votes -'), String(profile.votesNegative || 0), workerText(safeLang, 'negative_votes', 'Negative votes'), 'down') +

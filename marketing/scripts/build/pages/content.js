@@ -217,7 +217,7 @@ function makeBlogDocsBuilders(ctx) {
           : '';
         const wrapperCls = isFirst ? 'relative flex flex-col w-full gap-y-6 lg:col-span-3 lg:grid lg:grid-cols-5 lg:gap-8' : 'relative flex flex-col w-full gap-y-6';
         const textWrapCls = isFirst ? 'flex flex-col justify-between flex-1 lg:col-span-3' : 'flex flex-col justify-between flex-1';
-        return `<article class="${wrapperCls}">${imgHtml}<div class="${textWrapCls}"><div class="flex-1"><a href="${p.langBlogSlug}" class="absolute inset-0"><span class="sr-only">${p.title}</span></a>${badgeHtml}<h2 class="text-gray-900 dark:text-white text-xl font-semibold">${p.title}</h2><p class="text-base text-gray-500 dark:text-gray-400 mt-1">${p.description}</p></div><div class="relative flex items-center gap-x-3 mt-4">${avatarHtml}<time class="text-sm text-gray-500 font-medium">${p.date}</time></div></div></article>`;
+        return `<article class="${wrapperCls}">${imgHtml}<div class="${textWrapCls}"><div class="flex-1"><a href="${p.langBlogSlug}" class="absolute inset-0"><span class="sr-only">${p.title}</span></a>${badgeHtml}<h2 class="text-gray-900 dark:text-white text-xl font-semibold">${p.title}</h2><p class="text-base text-gray-600 dark:text-gray-300 mt-1">${p.description}</p></div><div class="relative flex items-center gap-x-3 mt-4">${avatarHtml}<time class="text-sm text-gray-600 font-medium">${p.date}</time></div></div></article>`;
       }).join('\n');
 
       const blogPath = langBlogPath(lang, '/blog');

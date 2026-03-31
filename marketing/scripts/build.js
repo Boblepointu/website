@@ -262,8 +262,17 @@ fs.cpSync(ASSETS, path.join(DIST, 'assets'), { recursive: true });
 writeRobots(DIST, SITE_URL);
 writeRedirects(DIST, []);
 
-// _headers (Cloudflare Pages cache control)
+// _headers (Cloudflare Pages: security + cache control)
 fs.writeFileSync(path.join(DIST, '_headers'), [
+  '/*',
+  "  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script'",
+  '  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
+  '  Cross-Origin-Opener-Policy: same-origin',
+  '  X-Frame-Options: DENY',
+  '  X-Content-Type-Options: nosniff',
+  '  Referrer-Policy: strict-origin-when-cross-origin',
+  '  Permissions-Policy: camera=(), microphone=(), geolocation=()',
+  '',
   '/assets/*',
   '  Cache-Control: public, max-age=31536000, immutable',
   '',
@@ -289,6 +298,7 @@ fs.writeFileSync(path.join(DIST, '404.html'), `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page Not Found | Lotusia</title>
 <meta name="robots" content="noindex">
+<script src="/assets/js/theme.js"></script>
 <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white min-h-screen flex flex-col items-center justify-center px-4">
@@ -303,7 +313,6 @@ fs.writeFileSync(path.join(DIST, '404.html'), `<!DOCTYPE html>
 <a href="/explorer" class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-semibold transition-colors">Explorer</a>
 </div>
 </div>
-<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');}})();</script>
 </body>
 </html>`);
 
@@ -375,6 +384,15 @@ const workerSafelist = `
   bg-primary-600 text-white ring-2 ring-primary-300/40
   text-red-400 dark:text-red-300
   bg-background text-foreground min-h-screen
+  min-w-[2.5rem] sm:w-[4.4rem] h-10 sm:h-11 text-xs sm:text-sm
+  h-10 w-10 sm:h-11 sm:w-11 sm:h-5 sm:w-5 h-4 w-4
+  px-0.5 sm:px-1 gap-1.5 sm:gap-2 sm:gap-3 px-2.5 sm:px-3
+  text-2xl sm:text-3xl lg:text-4xl
+  p-3 sm:p-5 mb-6 sm:mb-10 gap-3 sm:gap-4 grid-cols-2
+  h-9 w-9 sm:h-12 sm:w-12 min-w-[2.25rem] sm:min-w-[2.75rem]
+  text-[10px] sm:text-xs text-base sm:text-2xl mt-0.5 sm:mt-1
+  gap-2.5
+  list-none select-none cursor-pointer sidebar-chevron
 </div>
 `.trim();
 writeWorkerSafelist(DIST, workerSafelist);

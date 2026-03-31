@@ -59,7 +59,7 @@ function navHtml(pathname, lang) {
   }).join('');
   return '<header class="bg-background/75 backdrop-blur border-b border-gray-200 dark:border-gray-800 -mb-px sticky top-0 z-50">' +
     '<nav class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex items-center justify-between gap-3 h-[--header-height]">' +
-    '<div class="lg:flex-1 flex items-center gap-1.5"><a href="' + localized('/') + '" aria-label="Lotusia home" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5"><img src="/assets/images/logo.png" alt="Lotusia" class="h-8 w-auto" width="340" height="96"></a></div>' +
+    '<div class="lg:flex-1 flex items-center gap-1.5"><a href="' + localized('/') + '" aria-label="Lotusia home" class="flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5"><picture><source srcset="/assets/images/logo-113.webp 113w, /assets/images/logo-226.webp 226w" sizes="113px" type="image/webp"><img src="/assets/images/logo.png" alt="Lotusia" class="h-8 w-auto" width="113" height="32"></picture></a></div>' +
     '<div class="items-center gap-x-8 hidden lg:flex">' +
     '<a href="' + localized('/ecosystem') + '" class="' + topNavClass(isEcosystem) + '">' + esc(i18nNav.ecosystem) + '</a>' +
     '<a href="' + localized('/tools') + '" class="' + topNavClass(isTools) + '">' + esc(i18nNav.tools) + '</a>' +
@@ -87,11 +87,11 @@ function navHtml(pathname, lang) {
     '<a href="https://github.com/LotusiaStewardship" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center rounded-full p-1.5 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800" aria-label="GitHub" title="GitHub">' +
     '<svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>' +
     '</a>' +
-    '<button onclick="var d=document.documentElement;d.classList.toggle(\'dark\');localStorage.setItem(\'theme\',d.classList.contains(\'dark\')?\'dark\':\'light\')" class="hidden sm:inline-flex relative flex-shrink-0 border-2 border-transparent h-4 w-7 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" aria-label="Toggle dark mode">' +
+    '<button data-toggle-theme class="hidden sm:inline-flex relative flex-shrink-0 border-2 border-transparent h-4 w-7 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" aria-label="Toggle dark mode">' +
     '<span class="pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow h-3 w-3 transform transition-transform translate-x-0 dark:translate-x-3"></span>' +
     '</button>' +
     '</div>' +
-    '<button class="lg:hidden inline-flex items-center justify-center rounded-full p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById(\'mobile-nav\');n.classList.toggle(\'hidden\');this.setAttribute(\'aria-expanded\',n.classList.contains(\'hidden\')?\'false\':\'true\')">' +
+    '<button class="lg:hidden inline-flex items-center justify-center rounded-full p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800" aria-label="Menu" aria-expanded="false" data-toggle-mobile-nav>' +
     '<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>' +
     '</button></nav>' +
     '<div id="mobile-nav" class="hidden lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 space-y-1 max-h-[calc(100vh-var(--header-height))] overflow-y-auto overscroll-contain">' +
@@ -107,8 +107,7 @@ function navHtml(pathname, lang) {
     '<a href="/blog" class="' + mobileItemClass(isBlog) + '">' + esc(i18nNav.blog) + '</a>' +
     '<a href="https://explorer.lotusia.org" target="_blank" rel="noopener noreferrer" class="' + mobileItemClass(false) + '">Legacy Explorer</a>' +
     '<a href="https://legacy.lotusia.org/social/activity" target="_blank" rel="noopener noreferrer" class="' + mobileItemClass(false) + '">Legacy Social</a>' +
-    '</div></header>' +
-    '<script>(function(){const d=Array.from(document.querySelectorAll(\'[data-dropdown]\'));if(!d.length)return;const c=(e)=>{const m=e.querySelector(\'[data-dropdown-menu]\');const t=e.querySelector(\'[data-dropdown-trigger]\');if(!m||!t)return;m.classList.add(\'hidden\');t.setAttribute(\'aria-expanded\',\'false\');};const o=(e)=>{const m=e.querySelector(\'[data-dropdown-menu]\');const t=e.querySelector(\'[data-dropdown-trigger]\');if(!m||!t)return;m.classList.remove(\'hidden\');t.setAttribute(\'aria-expanded\',\'true\');};d.forEach((e)=>{const t=e.querySelector(\'[data-dropdown-trigger]\');let x=null;if(!t)return;const s=()=>{clearTimeout(x);x=setTimeout(()=>c(e),140);};const k=()=>{clearTimeout(x);};e.addEventListener(\'mouseenter\',()=>{k();o(e);});e.addEventListener(\'mouseleave\',s);e.addEventListener(\'focusin\',()=>{k();o(e);});e.addEventListener(\'focusout\',()=>{if(!e.contains(document.activeElement))s();});t.addEventListener(\'click\',(a)=>{a.preventDefault();k();const p=t.getAttribute(\'aria-expanded\')===\'true\';d.forEach((y)=>{if(y!==e)c(y);});if(p)c(e);else o(e);});});document.addEventListener(\'click\',(e)=>{d.forEach((x)=>{if(!x.contains(e.target))c(x);});});})();</script>';
+    '</div></header>';
 }
 
 function pageShell(pathname, title, description, bodyHtml, opts) {
@@ -159,7 +158,7 @@ function pageShell(pathname, title, description, bodyHtml, opts) {
   const breadcrumbsItems = Array.isArray(options.breadcrumbs) && options.breadcrumbs.length
     ? options.breadcrumbs
     : autoBreadcrumbs(cleanPathname);
-  const breadcrumbs = '<nav aria-label="Breadcrumb" class="text-xs text-gray-500 dark:text-gray-400 mb-8 pb-4 border-b border-gray-200/70 dark:border-gray-800/70"><ol class="flex flex-wrap items-center gap-1.5">' +
+  const breadcrumbs = '<nav aria-label="Breadcrumb" class="text-xs text-gray-600 dark:text-gray-300 mb-8 pb-4 border-b border-gray-200/70 dark:border-gray-800/70"><ol class="flex flex-wrap items-center gap-1.5">' +
     breadcrumbsItems.map(function(item, idx) {
       const isLast = idx === breadcrumbsItems.length - 1;
       const href = item && item.href ? String(item.href) : '#';
@@ -196,6 +195,7 @@ function pageShell(pathname, title, description, bodyHtml, opts) {
     hreflangTags +
     xDefaultTag +
     '<link rel="icon" href="/assets/favicon.ico">' +
+    "<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()</script>" +
     '<link rel="stylesheet" href="/assets/css/main.css">' +
     jsonLd +
     '</head>' +
@@ -207,10 +207,8 @@ function pageShell(pathname, title, description, bodyHtml, opts) {
     bodyHtml +
     '</section></div></main>' +
     '<footer class="relative"><div class="border-t border-gray-200 dark:border-gray-800"><div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 lg:py-4 lg:flex lg:items-center lg:justify-between lg:gap-x-3"><div class="lg:flex-1 flex items-center justify-center lg:justify-end gap-x-1.5 lg:order-3"></div><div class="mt-3 lg:mt-0 lg:order-2 flex items-center justify-center"></div><div class="flex items-center justify-center lg:justify-start lg:flex-1 gap-x-1.5 mt-3 lg:mt-0 lg:order-1"><p class="text-gray-600 dark:text-gray-400 text-sm">Copyright &copy; Lotusia 2021-2026. All rights reserved.</p></div></div></div></footer>' +
-    '<script>(function(){var K=\'lotusia-scroll-restore\';var q=function(v){return String(v||\'\').replace(/[^A-Za-z0-9_-]/g,\'\');};var hasPagerParam=function(href){return /[?&][A-Za-z0-9_]*page=/i.test(String(href||\'\'));};var save=function(groupEl){try{var y=window.scrollY||window.pageYOffset||0;var payload={from:location.pathname+location.search,y:y,ts:Date.now()};if(groupEl){var gid=q(groupEl.getAttribute(\'data-pagination-group\')||\'\');if(gid){var gtop=(groupEl.getBoundingClientRect().top||0)+y;payload.group=gid;payload.offset=y-gtop;}}sessionStorage.setItem(K,JSON.stringify(payload));}catch(_){}};document.addEventListener(\'click\',function(e){var a=e.target&&e.target.closest?e.target.closest(\'a[href]\'):null;if(!a)return;var href=a.getAttribute(\'href\')||\'\';if(!hasPagerParam(href))return;if(href.charAt(0)!==\'/\')return;save(a.closest(\'[data-pagination-group]\'));});document.addEventListener(\'change\',function(e){var el=e.target;if(!el||!el.matches||!el.matches(\'select[data-page-size-select]\'))return;save(el.closest(\'[data-pagination-group]\'));});try{if(\'scrollRestoration\' in history)history.scrollRestoration=\'manual\';var raw=sessionStorage.getItem(K);if(!raw)return;var s=JSON.parse(raw);if(!s||!Number.isFinite(s.y))return;if(Date.now()-Number(s.ts||0)>20000)return;var fromPath=String(s.from||\'\').split(\'?\')[0]||\'\';if(fromPath&&fromPath!==location.pathname)return;var targetY=Math.max(0,Number(s.y)||0);if(s.group){var g=document.querySelector(\'[data-pagination-group=\"\'+q(s.group)+\'\"]\');if(g){var gy=(g.getBoundingClientRect().top||0)+(window.scrollY||window.pageYOffset||0);targetY=Math.max(0,gy+Number(s.offset||0));}}var root=document.documentElement;var body=document.body;var lockInstant=function(on){if(!root)return;if(on){root.style.setProperty(\'scroll-behavior\',\'auto\',\'important\');if(body)body.style.setProperty(\'scroll-behavior\',\'auto\',\'important\');}else{root.style.removeProperty(\'scroll-behavior\');if(body)body.style.removeProperty(\'scroll-behavior\');}};lockInstant(true);var jump=function(){window.scrollTo(0,targetY);};jump();requestAnimationFrame(jump);window.addEventListener(\'DOMContentLoaded\',jump,{once:true});window.addEventListener(\'load\',function(){jump();sessionStorage.removeItem(K);setTimeout(function(){lockInstant(false);},0);},{once:true});}catch(_){}})();</script>' +
-    '<script>(function(){if(window.__lotusiaAvatarBoot)return;var parseSources=function(img){if(Array.isArray(img.__avatarSources))return img.__avatarSources;var raw=img.getAttribute(\'data-avatar-sources\')||\'\';if(!raw){img.__avatarSources=[];return img.__avatarSources;}var out=[];var parts=raw.split(\',\');for(var i=0;i<parts.length;i++){try{var dec=decodeURIComponent(parts[i]||\'\');if(dec&&out.indexOf(dec)===-1)out.push(dec);}catch(_){}}img.__avatarSources=out;return out;};window.__lotusiaAvatarNext=function(img){if(!img)return;var list=parseSources(img);var step=Number(img.getAttribute(\'data-avatar-step\')||\'0\');if(!Number.isFinite(step)||step<0)step=0;var next=step+1;if(next<list.length){img.setAttribute(\'data-avatar-step\',String(next));img.src=list[next];return;}img.style.display=\'none\';};var boot=function(){var nodes=document.querySelectorAll(\'img[data-avatar-img]\');for(var i=0;i<nodes.length;i++){var img=nodes[i];var list=parseSources(img);if(!list.length)continue;if(!img.getAttribute(\'src\')){img.setAttribute(\'data-avatar-step\',\'0\');img.src=list[0];}}};if(document.readyState===\'loading\'){document.addEventListener(\'DOMContentLoaded\',boot,{once:true});}else{boot();}window.__lotusiaAvatarBoot=true;})();</script>' +
-    '<script>(function(){var run=function(){var nodes=document.querySelectorAll(\'table th, table td, table td a\');for(var i=0;i<nodes.length;i++){var el=nodes[i];if(!el)continue;if(el.children&&el.children.length>0&&el.tagName!==\'A\')continue;if(el.scrollWidth<=el.clientWidth+1)continue;var txt=(el.textContent||\'\').trim();if(!txt)continue;el.title=txt;el.style.overflow=\'hidden\';el.style.textOverflow=\'ellipsis\';el.style.whiteSpace=\'nowrap\';if(el.tagName===\'A\'&&el.style.display!==\'inline-block\'){el.style.display=\'inline-block\';}}};if(document.readyState===\'loading\'){document.addEventListener(\'DOMContentLoaded\',run);}else{run();}})();</script>' +
-    '<script>(function(){var t=localStorage.getItem(\'theme\');if(t===\'dark\'||(t===null&&window.matchMedia(\'(prefers-color-scheme:dark)\').matches)){document.documentElement.classList.add(\'dark\');}})();</script>' +
+    '<script src="/assets/js/ui.js" defer></script>' +
+    '<script src="/assets/js/worker-ui.js" defer></script>' +
     '</body></html>';
 }
 
@@ -239,7 +237,7 @@ function tableHeaderCue(tableKind, options) {
     '<div class="flex flex-wrap items-center justify-between gap-3">' +
     '<span class="inline-flex items-center gap-2 text-[11px] uppercase tracking-wide font-semibold text-gray-600 dark:text-gray-300">' +
     '<span class="h-1.5 w-1.5 rounded-full bg-primary-500"></span>' + esc(title) + '</span>' +
-    '<span class="text-xs text-gray-500 dark:text-gray-400">' + esc(subtitle) + '</span>' +
+    '<span class="text-xs text-gray-600 dark:text-gray-300">' + esc(subtitle) + '</span>' +
     '</div></div>';
 }
 
@@ -331,7 +329,7 @@ function renderTable(headers, rows, emptyMessage, options) {
       if (row.includes('<tr class=')) return row;
       return row.replace('<tr>', '<tr class="hover:bg-gray-50/60 dark:hover:bg-gray-800/45 transition-colors">');
     }).join('')
-    : '<tr><td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-400" colspan="' + headers.length + '">' + esc(emptyMessage) + '</td></tr>';
+    : '<tr><td class="px-4 py-4 text-sm text-gray-600 dark:text-gray-300" colspan="' + headers.length + '">' + esc(emptyMessage) + '</td></tr>';
   const shellClass = opts.withPagination
     ? 'rounded-t-2xl rounded-b-none border border-gray-200/90 dark:border-gray-700/70 bg-white dark:bg-gray-900 shadow-lg shadow-primary-950/10 dark:shadow-black/40 overflow-hidden'
     : 'rounded-2xl border border-gray-200/90 dark:border-gray-700/70 bg-white dark:bg-gray-900 shadow-lg shadow-primary-950/10 dark:shadow-black/40 overflow-hidden';
@@ -387,7 +385,7 @@ function sideNavSection(title, iconName, items) {
       : '<span class="h-1.5 w-1.5 rounded-full bg-gray-300 dark:bg-gray-600 group-hover:bg-primary-400 dark:group-hover:bg-primary-500 transition-colors"></span>';
     return '<a href="' + i.href + '" class="' + cls + '">' + dot + '<span class="truncate">' + esc(i.label) + '</span></a>';
   }).join('');
-  return '<div class="mb-4 lg:mb-7"><h3 class="px-1.5 mb-2 lg:mb-3.5 text-[11px] uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold flex items-center gap-2.5">' +
+  return '<div class="mb-4 lg:mb-7"><h3 class="px-1.5 mb-2 lg:mb-3.5 text-[11px] uppercase tracking-wide text-gray-600 dark:text-gray-300 font-semibold flex items-center gap-2.5">' +
     '<span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-r from-primary-500/10 to-sky-500/10 text-primary-500 dark:text-primary-300 ring-1 ring-primary-500/25">' + iconSvg(iconName, 'h-4 w-4') + '</span>' +
     '<span>' + esc(title) + '</span></h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-1 lg:block lg:space-y-2 lg:pb-2 border-b border-gray-200/70 dark:border-gray-800/70">' + links + '</div></div>';
 }
@@ -396,6 +394,7 @@ function legacyExplorerLayout(activeKey, contentHtml, options) {
   const opts = options || {};
   const lang = WORKER_LANGS.includes(opts.lang) ? opts.lang : 'en';
   const localize = function(path) { return withWorkerLangPrefix(lang, path); };
+  const navLabel = workerText(lang, 'navigation', 'Navigation');
   const network = sideNavSection(workerText(lang, 'network', 'Network'), 'network', [
     { label: workerText(lang, 'overview', 'Overview'), href: localize('/explorer'), active: activeKey === 'overview' },
     { label: workerText(lang, 'blocks', 'Blocks'), href: localize('/explorer/blocks'), active: activeKey === 'blocks' }
@@ -406,7 +405,15 @@ function legacyExplorerLayout(activeKey, contentHtml, options) {
     { label: workerText(lang, 'profiles', 'Profiles'), href: localize('/social/profiles'), active: activeKey === 'profiles' }
   ]);
   return '<div class="grid lg:grid-cols-[250px_1fr] gap-6 lg:gap-8">' +
-    '<aside class="rounded-2xl border border-gray-200/90 dark:border-gray-700/70 bg-gray-50/80 dark:bg-gray-900/70 p-3 sm:p-4 lg:p-5 shadow-lg shadow-primary-950/10 dark:shadow-black/40 h-fit lg:sticky lg:top-[calc(var(--header-height)+2rem)]">' + network + social + '</aside>' +
+    '<aside class="rounded-2xl border border-gray-200/90 dark:border-gray-700/70 bg-gray-50/80 dark:bg-gray-900/70 shadow-lg shadow-primary-950/10 dark:shadow-black/40 h-fit lg:sticky lg:top-[calc(var(--header-height)+2rem)] overflow-hidden">' +
+    '<details data-sidebar-nav>' +
+    '<summary class="flex items-center justify-between px-4 py-3 lg:hidden cursor-pointer select-none text-sm font-semibold text-gray-700 dark:text-gray-200 list-none [&::-webkit-details-marker]:hidden">' +
+    '<span class="flex items-center gap-2">' + iconSvg('network', 'h-4 w-4 text-primary-500') + ' ' + esc(navLabel) + '</span>' +
+    '<svg class="h-4 w-4 text-gray-400 transition-transform sidebar-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg>' +
+    '</summary>' +
+    '<div class="p-3 sm:p-4 lg:p-5">' + network + social + '</div>' +
+    '</details>' +
+    '</aside>' +
     '<section>' + contentHtml + '</section>' +
     '</div>';
 }

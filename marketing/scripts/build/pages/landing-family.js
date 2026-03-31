@@ -109,7 +109,7 @@ function makeLandingBuilders(ctx) {
         const icon = f.icon
           ? `<span class="${f.icon} absolute left-0 top-1 h-5 w-5 text-primary" aria-hidden="true"></span>`
           : `<span class="absolute left-0 top-1 h-5 w-5 text-primary" aria-hidden="true">&#x2022;</span>`;
-        return `<div class="relative pl-8"><dt class="font-semibold text-gray-900 dark:text-white">${icon}<span>${f.name}</span></dt><dd class="text-gray-500 dark:text-gray-400 leading-6">${f.description}</dd></div>`;
+        return `<div class="relative pl-8"><dt class="font-semibold text-gray-900 dark:text-white">${icon}<span>${f.name}</span></dt><dd class="text-gray-600 dark:text-gray-300 leading-6">${f.description}</dd></div>`;
       }).join('')
       + '</dl>';
   }
@@ -121,7 +121,7 @@ function makeLandingBuilders(ctx) {
       + `<p class="text-gray-600 dark:text-gray-300 italic mb-3 leading-7">"${q.text}"</p>`
       + `<div class="flex items-center gap-3">`
       + (q.avatar ? imgTag(`/assets/images/${path.basename(q.avatar)}`, `${q.author} avatar`, 'w-10 h-10 rounded-full object-cover') : '')
-      + `<div><div class="font-semibold text-gray-900 dark:text-white text-sm">${q.author}</div><div class="text-xs text-gray-500 dark:text-gray-400">${q.title || ''}</div></div></div></div>`
+      + `<div><div class="font-semibold text-gray-900 dark:text-white text-sm">${q.author}</div><div class="text-xs text-gray-600 dark:text-gray-300">${q.title || ''}</div></div></div></div>`
     ).join('');
   }
 
@@ -183,7 +183,7 @@ function makeLandingBuilders(ctx) {
         const promoted = promotedPrimaryLabels.has(String(l.label || '')) || promotedPrimaryLabels.has(String(translatedLabel || ''));
         const primary = promoted || l.color === 'purple' || l.color === 'primary' || (!l.color && defaultPrimary);
         const cls = primary
-          ? 'inline-flex items-center rounded-full font-medium text-base gap-x-2.5 px-3.5 py-2.5 shadow-sm text-white bg-primary-500 hover:bg-primary-600 transition-colors'
+          ? 'inline-flex items-center rounded-full font-medium text-base gap-x-2.5 px-3.5 py-2.5 shadow-sm text-white bg-primary-600 hover:bg-primary-700 transition-colors'
           : 'inline-flex items-center rounded-full font-medium text-base gap-x-2.5 px-3.5 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors';
         const clsWithRow = singleRow ? `${cls} flex-shrink-0 whitespace-nowrap` : cls;
         const tgt = l.target === '_blank' ? ' target="_blank"' : '';
@@ -215,7 +215,8 @@ function makeLandingBuilders(ctx) {
         const imgs = ['LotusQT_0.png', 'lotus-lib_1.jpeg', 'extension_1.jpeg', 'bigvase_1.jpeg'];
         if (imgs[i]) image = imgTag(`/assets/images/${imgs[i]}`, `${s.title} screenshot`, 'w-full max-w-sm', 'loading="lazy" style="border-radius:15%;"');
       } else if (!quotes) {
-        image = imgTag(`/assets/images/turtles_${i + 1}.jpeg`, `${s.title} illustration`, 'w-full max-w-sm', 'loading="lazy" style="border-radius:15%;"');
+        const tIdx = i + 1;
+        image = `<picture><source srcset="/assets/images/turtles_${tIdx}-384.webp 384w, /assets/images/turtles_${tIdx}-640.webp 640w" sizes="(max-width: 384px) 100vw, 384px" type="image/webp" width="384" height="384"><img src="/assets/images/turtles_${tIdx}.jpeg" alt="${s.title} illustration" class="w-full max-w-sm" width="384" height="384" loading="lazy" style="border-radius:15%; aspect-ratio:1/1"></picture>`;
       }
 
       const textOnRight = (s.align === 'right') || (s.align === undefined && i % 2 === 0);
@@ -258,8 +259,13 @@ function makeLandingBuilders(ctx) {
     const ogImg = imgFile
       ? `/assets/images/${path.basename(typeof imgFile === 'string' ? imgFile : imgFile.light || 'turtles_hero.jpeg')}`
       : '/assets/images/turtles_hero.jpeg';
-    const heroImg = data.hero?.image
-      ? imgTag(`/assets/images/${path.basename(typeof data.hero.image === 'string' ? data.hero.image : data.hero.image.light || '')}`, `${data.hero?.title || data.title || 'Lotusia'} hero image`, 'w-full max-w-md', 'loading="lazy" style="border-radius:15%;"')
+    const heroImgBase = data.hero?.image
+      ? path.basename(typeof data.hero.image === 'string' ? data.hero.image : data.hero.image.light || '')
+      : '';
+    const heroImgSrc = heroImgBase ? `/assets/images/${heroImgBase}` : '';
+    const heroImgName = heroImgBase.replace(/\.[^.]+$/, '');
+    const heroImg = heroImgSrc
+      ? `<picture><source srcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w, /assets/images/${heroImgName}-896.webp 896w" sizes="(max-width: 448px) 100vw, 448px" type="image/webp" width="448" height="307"><img src="${heroImgSrc}" alt="${data.hero?.title || data.title || 'Lotusia'} hero image" class="w-full max-w-md" width="448" height="307" fetchpriority="high" style="border-radius:15%; aspect-ratio:448/307"></picture>`
       : '';
 
     const pageTitle = pi.og_title || data.ogTitle || data.title || '';
@@ -328,7 +334,9 @@ function makeLandingBuilders(ctx) {
       cta: ctaHtml,
       breadcrumb_html: breadcrumbDiv,
       json_ld: jsonLd(...ldItems),
-      head_extra: ''
+      head_extra: isHome && heroImgName
+        ? `<link rel="preload" href="/assets/images/${heroImgName}-448.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w, /assets/images/${heroImgName}-896.webp 896w" imagesizes="(max-width: 448px) 100vw, 448px">`
+        : ''
     };
     writeOutFromPath(pagePath, renderPage('landing', vars));
     setSitemapEntry(sitemap, basePath, alternates, fileLastmod(path.join(CONTENT, file)));
@@ -353,7 +361,7 @@ function makeLandingBuilders(ctx) {
         const borderColor = card.status === 'complete' ? 'border-l-emerald-500' : card.status === 'ongoing' ? 'border-l-purple-500' : 'border-l-primary-500';
         const badge = card.status ? `<span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${statusColors[card.status] || ''}">${card.status}</span>` : '';
         const checklist = (card.checklist || []).map(item => `<div class="${item.complete ? 'task task-done' : 'task'}">${item.label}</div>`).join('');
-        return `<div class="rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 border-l-4 ${borderColor} relative"><div class="flex-1 px-4 py-5 sm:p-6"><div class="mb-6 flex"><div class="flex items-center gap-2">${badge}</div></div><p class="text-gray-900 dark:text-white text-base font-semibold">${card.title}</p><p class="text-[15px] text-gray-500 dark:text-gray-400 mt-1">${card.description || ''}</p><div class="mt-2">${checklist}</div>${renderLinks(card.links, lang, { defaultPrimary: true })}</div></div>`;
+        return `<div class="rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 border-l-4 ${borderColor} relative"><div class="flex-1 px-4 py-5 sm:p-6"><div class="mb-6 flex"><div class="flex items-center gap-2">${badge}</div></div><p class="text-gray-900 dark:text-white text-base font-semibold">${card.title}</p><p class="text-[15px] text-gray-600 dark:text-gray-300 mt-1">${card.description || ''}</p><div class="mt-2">${checklist}</div>${renderLinks(card.links, lang, { defaultPrimary: true })}</div></div>`;
       }).join('');
       return `<div class="flex flex-col lg:grid lg:grid-cols-10 lg:gap-8"><div class="lg:col-span-10"><div class="relative border-b border-gray-200 dark:border-gray-800 py-8">${headline}<div class="flex flex-col lg:flex-row items-start gap-6"><div class="flex-1"><h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">${epoch.title}</h2></div></div></div><div class="mt-8 pb-24"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">${cards}</div></div></div></div>`;
     }).join('\n');
@@ -383,7 +391,7 @@ function makeLandingBuilders(ctx) {
         i18n.pages.tools && i18n.pages.tools.title
       ])),
       og_image: '/assets/images/roadmap_0.jpg',
-      hero_block: `<div class="py-8 sm:py-16 lg:py-24"><div class="flex flex-col gap-8 sm:gap-y-16"><div class="flex flex-col items-center text-center"><h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">${heroTitle}</h1><p class="mt-4 text-lg text-gray-500 dark:text-gray-400">${heroDesc}</p></div></div></div>`,
+      hero_block: `<div class="py-8 sm:py-16 lg:py-24"><div class="flex flex-col gap-8 sm:gap-y-16"><div class="flex flex-col items-center text-center"><h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">${heroTitle}</h1><p class="mt-4 text-lg text-gray-600 dark:text-gray-300">${heroDesc}</p></div></div></div>`,
       sections: sectionsHtml,
       cta: '',
       breadcrumb_html: `<div class="pt-4 text-sm text-gray-500">${breadcrumbHtml(bcParts)}</div>`,
@@ -406,8 +414,8 @@ function makeLandingBuilders(ctx) {
       if (!questions?.length) return '';
       return questions.map(q => {
         let extra = '';
-        if (q.note) extra += `<div class="pb-2 flex flex-wrap gap-x-3 gap-y-1.5 items-center"><span class="text-gray-500 dark:text-gray-400 text-sm">${q.note}</span></div>`;
-        if (q.links) extra += `<div class="lg:space-y-1.5">${q.links.map(l => `<a href="${localHref(lang, l.to)}" class="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 hover:text-primary text-sm"${l.target ? ` target="${l.target}"` : ''}>${translateLabel(i18n, l.label)}</a>`).join('')}</div>`;
+        if (q.note) extra += `<div class="pb-2 flex flex-wrap gap-x-3 gap-y-1.5 items-center"><span class="text-gray-600 dark:text-gray-300 text-sm">${q.note}</span></div>`;
+        if (q.links) extra += `<div class="lg:space-y-1.5">${q.links.map(l => `<a href="${localHref(lang, l.to)}" class="flex items-center gap-1.5 text-gray-600 dark:text-gray-300 hover:text-primary text-sm"${l.target ? ` target="${l.target}"` : ''}>${translateLabel(i18n, l.label)}</a>`).join('')}</div>`;
         if (q.table) extra += renderTable(q.table);
         return `<div class="pb-16"><div class="text-xl font-semibold text-gray-900 dark:text-white">${q.text}</div><div class="py-2 flex flex-wrap gap-x-3 gap-y-1.5 text-gray-600 dark:text-gray-300">${q.answer}</div>${extra}</div>`;
       }).join('\n');
@@ -425,7 +433,7 @@ function makeLandingBuilders(ctx) {
     }
     if (data.cta) {
       const faqCta = pi.cta ? { ...data.cta, title: pi.cta.title || data.cta.title, description: pi.cta.description || data.cta.description } : data.cta;
-      sectionsHtml += `<div class="py-16 sm:py-24 text-center"><h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 dark:text-white">${faqCta.title}</h2><p class="mt-4 text-lg text-gray-500 dark:text-gray-400">${faqCta.description}</p>${renderLinks(faqCta.links, lang)}</div>`;
+      sectionsHtml += `<div class="py-16 sm:py-24 text-center"><h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 dark:text-white">${faqCta.title}</h2><p class="mt-4 text-lg text-gray-600 dark:text-gray-300">${faqCta.description}</p>${renderLinks(faqCta.links, lang)}</div>`;
     }
 
     const title = pi.title || data.ogTitle || 'FAQ';
@@ -446,7 +454,7 @@ function makeLandingBuilders(ctx) {
         i18n.pages.ecosystem && i18n.pages.ecosystem.title
       ])),
       og_image: '/assets/images/turtles_hero.jpeg',
-      hero_block: `<div class="py-8 sm:py-16 lg:py-24"><div class="flex flex-col gap-8 sm:gap-y-16"><div class="flex flex-col items-center text-center"><h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">${heroTitle}</h1><p class="mt-4 text-lg text-gray-500 dark:text-gray-400">${heroDesc}</p><div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5 justify-center">${renderLinks(data.links, lang)}</div></div></div></div>`,
+      hero_block: `<div class="py-8 sm:py-16 lg:py-24"><div class="flex flex-col gap-8 sm:gap-y-16"><div class="flex flex-col items-center text-center"><h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">${heroTitle}</h1><p class="mt-4 text-lg text-gray-600 dark:text-gray-300">${heroDesc}</p><div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5 justify-center">${renderLinks(data.links, lang)}</div></div></div></div>`,
       sections: sectionsHtml,
       cta: '',
       breadcrumb_html: `<div class="pt-4 text-sm text-gray-500">${breadcrumbHtml(bcParts)}</div>`,

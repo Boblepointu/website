@@ -15,12 +15,12 @@ function compactStatCard(label, value, hint, icon, options) {
   const valueClass = opts.valueClass || '';
   const hintClass = opts.hintClass || '';
   const hintHtml = opts.hintHtml || false;
-  return '<div class="rounded-2xl border border-gray-200/90 dark:border-gray-700/70 bg-white dark:bg-gray-900 p-5 shadow-lg shadow-primary-950/10 dark:shadow-black/40 transition-all hover:-translate-y-0.5 hover:border-primary-300 dark:hover:border-primary-700">' +
-    '<div class="flex items-start gap-4">' +
-    '<span class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-primary-500/10 to-sky-500/10 text-primary-600 dark:text-primary-300 h-12 w-12 min-w-[2.75rem] ring-1 ring-primary-500/20">' + iconSvg(icon || 'chart', 'h-6 w-6') + '</span>' +
-    '<div class="min-w-0 flex-1"><div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-semibold">' + esc(label) + '</div>' +
-    '<div class="text-xl sm:text-2xl md:text-3xl font-bold tabular-nums text-gray-900 dark:text-white mt-1 break-words ' + valueClass + '">' + esc(value) + '</div>' +
-    (hint ? '<div class="text-sm text-gray-500 dark:text-gray-400 mt-1 ' + hintClass + '">' + (hintHtml ? String(hint) : esc(hint)) + '</div>' : '') +
+  return '<div class="rounded-2xl border border-gray-200/90 dark:border-gray-700/70 bg-white dark:bg-gray-900 p-3 sm:p-5 shadow-lg shadow-primary-950/10 dark:shadow-black/40 transition-all hover:-translate-y-0.5 hover:border-primary-300 dark:hover:border-primary-700">' +
+    '<div class="flex items-start gap-2.5 sm:gap-4">' +
+    '<span class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-primary-500/10 to-sky-500/10 text-primary-600 dark:text-primary-300 h-9 w-9 sm:h-12 sm:w-12 min-w-[2.25rem] sm:min-w-[2.75rem] ring-1 ring-primary-500/20 flex-shrink-0">' + iconSvg(icon || 'chart', 'h-4 w-4 sm:h-6 sm:w-6') + '</span>' +
+    '<div class="min-w-0 flex-1"><div class="text-[10px] sm:text-xs uppercase tracking-wide text-gray-600 dark:text-gray-300 font-semibold truncate">' + esc(label) + '</div>' +
+    '<div class="text-base sm:text-2xl md:text-3xl font-bold tabular-nums text-gray-900 dark:text-white mt-0.5 sm:mt-1 break-words ' + valueClass + '">' + esc(value) + '</div>' +
+    (hint ? '<div class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-0.5 sm:mt-1 truncate ' + hintClass + '">' + (hintHtml ? String(hint) : esc(hint)) + '</div>' : '') +
     '</div></div>' +
     '</div>';
 }
@@ -136,7 +136,7 @@ function renderAvatarHtml(platform, profileId, options) {
   const firstSrc = sources[0] || avatarDataUri(pid, size === 'lg' ? 112 : 64);
   return '<span class="relative inline-flex items-center justify-center rounded-full bg-primary-600 text-white font-bold overflow-hidden flex-shrink-0 ' + sizeClass + ' ' + ringClass + ' ' + extraClass + '" style="' + sizeStyle + '" data-avatar-root>' +
     '<span class="absolute inset-0 flex items-center justify-center">' + esc(initial) + '</span>' +
-    '<img src="' + esc(firstSrc) + '" alt="' + esc(pid) + ' avatar" class="absolute inset-0 h-full w-full object-cover" width="' + (size === 'lg' ? '56' : '32') + '" height="' + (size === 'lg' ? '56' : '32') + '" loading="lazy" decoding="async" data-avatar-img data-avatar-sources="' + sourceAttr + '" onerror="if(window.__lotusiaAvatarNext){window.__lotusiaAvatarNext(this);}" onload="this.style.display=\'block\'">' +
+    '<img src="' + esc(firstSrc) + '" alt="' + esc(pid) + ' avatar" class="absolute inset-0 h-full w-full object-cover" width="' + (size === 'lg' ? '56' : '32') + '" height="' + (size === 'lg' ? '56' : '32') + '" loading="lazy" decoding="async" data-avatar-img data-avatar-sources="' + sourceAttr + '">' +
     '</span>';
 }
 
@@ -145,7 +145,7 @@ function sectionHeader(icon, title, subtitle, badgeHtml) {
     '<div class="flex items-start gap-3">' +
     '<span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500/10 dark:bg-primary-500/15 text-primary-600 dark:text-primary-300 ring-1 ring-primary-500/25">' + iconSvg(icon, 'h-6 w-6') + '</span>' +
     '<div class="min-w-0"><div class="flex flex-wrap items-center gap-2"><h1 class="text-2xl font-bold text-gray-900 dark:text-white">' + esc(title) + '</h1>' + (badgeHtml || '') + '</div>' +
-    '<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">' + esc(subtitle) + '</p></div></div></div>';
+    '<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">' + esc(subtitle) + '</p></div></div></div>';
 }
 
 function middleEllipsis(value, head, tail) {
@@ -243,7 +243,7 @@ async function cachedAvatarResponse(url, platform, profileId) {
 function voteToneHtml(sentiment, sats) {
   if (sentiment === 'positive') return '<span class="flex items-center gap-1 text-green-500 dark:text-green-400">' + iconSvg('up', 'h-4 w-4') + esc(formatXpiFromSats(sats)) + '</span>';
   if (sentiment === 'negative') return '<span class="flex items-center gap-1 text-red-500 dark:text-red-400">' + iconSvg('down', 'h-4 w-4') + esc(formatXpiFromSats(sats)) + '</span>';
-  return '<span class="flex items-center gap-1 text-gray-500 dark:text-gray-400">' + iconSvg('minus', 'h-4 w-4') + '0 XPI</span>';
+  return '<span class="flex items-center gap-1 text-gray-600 dark:text-gray-300">' + iconSvg('minus', 'h-4 w-4') + '0 XPI</span>';
 }
 
 function paginationHtml(basePath, page, pageSize, numPages, options) {
@@ -278,7 +278,7 @@ function paginationHtml(basePath, page, pageSize, numPages, options) {
     return '<a href="' + mk(1, size) + '" class="block px-3 py-2 text-sm rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 tabular-nums">' + size + '</a>';
   }).join('');
   const selectControl = '<div class="relative w-28" data-page-size-root>' +
-    '<button type="button" aria-label="' + esc(rowsPerPageLabel) + '" data-page-size-select="1" aria-expanded="false" onclick="(function(b){var root=b.closest(\'[data-page-size-root]\');if(!root)return;var menus=document.querySelectorAll(\'[data-page-size-menu]\');for(var i=0;i<menus.length;i++){if(root.contains(menus[i]))continue;menus[i].classList.add(\'hidden\');var t=menus[i].previousElementSibling;if(t&&t.setAttribute)t.setAttribute(\'aria-expanded\',\'false\');}var m=root.querySelector(\'[data-page-size-menu]\');if(!m)return;var open=b.getAttribute(\'aria-expanded\')===\'true\';m.classList.toggle(\'hidden\',open);b.setAttribute(\'aria-expanded\',open?\'false\':\'true\');})(this)" class="inline-flex w-full items-center justify-between rounded-xl border border-gray-200 dark:border-gray-700 py-2.5 px-3 text-sm font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-900 shadow-sm hover:border-primary-300 dark:hover:border-primary-700 transition-colors tabular-nums">' +
+    '<button type="button" aria-label="' + esc(rowsPerPageLabel) + '" data-page-size-select="1" aria-expanded="false" class="inline-flex w-full items-center justify-between rounded-xl border border-gray-200 dark:border-gray-700 py-2.5 px-3 text-sm font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-900 shadow-sm hover:border-primary-300 dark:hover:border-primary-700 transition-colors tabular-nums">' +
     '<span>' + pageSize + '</span><span class="text-xs text-gray-400">▾</span></button>' +
     '<div class="hidden absolute top-full left-0 mt-1 w-28 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg p-1.5 z-50" data-page-size-menu>' + pageSizeItems + '</div>' +
     '</div>';
@@ -288,25 +288,25 @@ function paginationHtml(basePath, page, pageSize, numPages, options) {
   const windowEnd = Math.min(totalPages, windowStart + 4);
   const pageButtons = [];
   for (let p = windowStart; p <= windowEnd; p += 1) {
-    if (p === safePage) pageButtons.push('<span class="inline-flex items-center justify-center w-[4.4rem] h-11 px-2 text-sm rounded-xl bg-primary-500 text-white dark:bg-primary-400 dark:text-gray-900 font-bold shadow-sm ring-2 ring-primary-500/25 tabular-nums whitespace-nowrap">' + p + '</span>');
-    else pageButtons.push('<a href="' + mk(p, pageSize) + '" class="inline-flex items-center justify-center w-[4.4rem] h-11 px-2 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors tabular-nums whitespace-nowrap">' + p + '</a>');
+    if (p === safePage) pageButtons.push('<span class="inline-flex items-center justify-center min-w-[2.5rem] sm:w-[4.4rem] h-10 sm:h-11 px-2 text-xs sm:text-sm rounded-xl bg-primary-500 text-white dark:bg-primary-400 dark:text-gray-900 font-bold shadow-sm ring-2 ring-primary-500/25 tabular-nums whitespace-nowrap">' + p + '</span>');
+    else pageButtons.push('<a href="' + mk(p, pageSize) + '" class="inline-flex items-center justify-center min-w-[2.5rem] sm:w-[4.4rem] h-10 sm:h-11 px-2 text-xs sm:text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors tabular-nums whitespace-nowrap">' + p + '</a>');
   }
-  const endCaps = (windowStart > 1 ? '<a href="' + mk(1, pageSize) + '" class="inline-flex items-center justify-center w-[4.4rem] h-11 px-2 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors tabular-nums whitespace-nowrap">1</a><span class="px-1 text-gray-500 whitespace-nowrap" aria-hidden="true">…</span>' : '') +
+  const endCaps = (windowStart > 1 ? '<a href="' + mk(1, pageSize) + '" class="inline-flex items-center justify-center min-w-[2.5rem] sm:w-[4.4rem] h-10 sm:h-11 px-2 text-xs sm:text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors tabular-nums whitespace-nowrap">1</a><span class="px-0.5 sm:px-1 text-gray-500 whitespace-nowrap" aria-hidden="true">…</span>' : '') +
     pageButtons.join('') +
-    (windowEnd < totalPages ? '<span class="px-1 text-gray-500 whitespace-nowrap" aria-hidden="true">…</span><a href="' + mk(totalPages, pageSize) + '" class="inline-flex items-center justify-center w-[4.4rem] h-11 px-2 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors tabular-nums whitespace-nowrap">' + totalPages + '</a>' : '');
+    (windowEnd < totalPages ? '<span class="px-0.5 sm:px-1 text-gray-500 whitespace-nowrap" aria-hidden="true">…</span><a href="' + mk(totalPages, pageSize) + '" class="inline-flex items-center justify-center min-w-[2.5rem] sm:w-[4.4rem] h-10 sm:h-11 px-2 text-xs sm:text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors tabular-nums whitespace-nowrap">' + totalPages + '</a>' : '');
   const prevLabel = workerText(lang, 'previous_page', 'Previous page');
   const nextLabel = workerText(lang, 'next_page', 'Next page');
   const prevLink = prevDisabled
-    ? '<span class="inline-flex items-center justify-center rounded-xl h-11 w-11 text-gray-400 border border-gray-200 dark:border-gray-800" aria-hidden="true">' + iconSvg('prev', 'h-5 w-5') + '</span>'
-    : '<a class="inline-flex items-center justify-center rounded-xl h-11 w-11 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="' + mk(safePage - 1, pageSize) + '" aria-label="' + esc(prevLabel) + '">' + iconSvg('prev', 'h-5 w-5') + '</a>';
+    ? '<span class="inline-flex items-center justify-center rounded-xl h-10 w-10 sm:h-11 sm:w-11 text-gray-400 border border-gray-200 dark:border-gray-800" aria-hidden="true">' + iconSvg('prev', 'h-4 w-4 sm:h-5 sm:w-5') + '</span>'
+    : '<a class="inline-flex items-center justify-center rounded-xl h-10 w-10 sm:h-11 sm:w-11 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="' + mk(safePage - 1, pageSize) + '" aria-label="' + esc(prevLabel) + '">' + iconSvg('prev', 'h-4 w-4 sm:h-5 sm:w-5') + '</a>';
   const nextLink = nextDisabled
-    ? '<span class="inline-flex items-center justify-center rounded-xl h-11 w-11 text-gray-400 border border-gray-200 dark:border-gray-800" aria-hidden="true">' + iconSvg('next', 'h-5 w-5') + '</span>'
-    : '<a class="inline-flex items-center justify-center rounded-xl h-11 w-11 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="' + mk(safePage + 1, pageSize) + '" aria-label="' + esc(nextLabel) + '">' + iconSvg('next', 'h-5 w-5') + '</a>';
+    ? '<span class="inline-flex items-center justify-center rounded-xl h-10 w-10 sm:h-11 sm:w-11 text-gray-400 border border-gray-200 dark:border-gray-800" aria-hidden="true">' + iconSvg('next', 'h-4 w-4 sm:h-5 sm:w-5') + '</span>'
+    : '<a class="inline-flex items-center justify-center rounded-xl h-10 w-10 sm:h-11 sm:w-11 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="' + mk(safePage + 1, pageSize) + '" aria-label="' + esc(nextLabel) + '">' + iconSvg('next', 'h-4 w-4 sm:h-5 sm:w-5') + '</a>';
   if (totalPages <= 1) return '';
   return '<div class="mt-0 rounded-b-2xl border border-gray-200/90 dark:border-gray-700/70 border-t-0 bg-gray-50/70 dark:bg-gray-900/60 px-4 py-3 overflow-visible"' + groupAttr + '>' +
     '<div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">' +
     '<div class="flex items-center gap-3"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">' + esc(rowsPerPageLabel) + '</span>' + selectControl + '</div>' +
-    '<div class="flex flex-wrap items-center gap-2 sm:gap-3"><span class="inline-flex items-center justify-center h-11 px-3 text-sm font-semibold text-gray-700 dark:text-gray-200 bg-gray-50 dark:bg-gray-800 rounded-xl tabular-nums whitespace-nowrap">' + esc(pageLabel) + ' ' + safePage + ' ' + esc(ofLabel) + ' ' + totalPages + '</span><div class="flex flex-wrap items-center gap-2 sm:whitespace-nowrap">' + prevLink + endCaps + nextLink + '</div></div>' +
+    '<div class="flex flex-wrap items-center gap-1.5 sm:gap-3"><span class="inline-flex items-center justify-center h-10 sm:h-11 px-2.5 sm:px-3 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 bg-gray-50 dark:bg-gray-800 rounded-xl tabular-nums whitespace-nowrap">' + esc(pageLabel) + ' ' + safePage + ' ' + esc(ofLabel) + ' ' + totalPages + '</span><div class="flex flex-wrap items-center gap-1.5 sm:gap-2">' + prevLink + endCaps + nextLink + '</div></div>' +
     '</div>' +
     '</div>';
 }
