@@ -163,37 +163,28 @@ function staticAssetTtl(pathname, contentType) {
   return STATIC_CACHE_RULES.html;
 }
 
+function versionedCacheUrl(url) {
+  const v = typeof DEPLOY_VERSION !== 'undefined' ? DEPLOY_VERSION : '0';
+  return url + (url.includes('?') ? '&' : '?') + '_dv=' + v;
+}
+
 async function cachedMarketingAsset(request, env, ctx) {
   const method = String(request.method || 'GET').toUpperCase();
-  if (method !== 'GET' && method !== 'HEAD') {
-    return env.ASSETS.fetch(request);
+  const upstream = await env.ASSETS.fetch(request);
+  if (!upstream || upstream.status !== 200) {
+    return method === 'HEAD' ? toHeadResponse(upstream) : upstream;
   }
 
-  const cache = caches.default;
-  const cacheKey = new Request(request.url, { method: 'GET' });
-  const hit = await cache.match(cacheKey);
-  if (hit) return method === 'HEAD' ? toHeadResponse(hit) : hit;
-
-  const upstream = await env.ASSETS.fetch(request);
-  if (!upstream) return upstream;
-  if (upstream.status !== 200) return method === 'HEAD' ? toHeadResponse(upstream) : upstream;
-
-  const path = new URL(request.url).pathname;
+  const assetPath = new URL(request.url).pathname;
   const headers = new Headers(upstream.headers);
   headers.delete('set-cookie');
-  const ttl = staticAssetTtl(path, headers.get('content-type'));
+  const ttl = staticAssetTtl(assetPath, headers.get('content-type'));
   headers.set('cache-control', `public, max-age=0, s-maxage=${ttl}, stale-while-revalidate=${ttl * 6}, stale-if-error=${ttl * 24}`);
   const out = new Response(upstream.body, {
     status: upstream.status,
     statusText: upstream.statusText,
     headers
   });
-
-  if (ctx && typeof ctx.waitUntil === 'function') {
-    ctx.waitUntil(cache.put(cacheKey, out.clone()));
-  } else {
-    await cache.put(cacheKey, out.clone());
-  }
   return method === 'HEAD' ? toHeadResponse(out) : out;
 }
 

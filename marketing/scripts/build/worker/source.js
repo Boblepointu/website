@@ -23,8 +23,10 @@ function getWorkerSource() {
     return acc;
   }, {});
   const parts = SEGMENTS.map((name) => fs.readFileSync(path.join(dir, name), 'utf8'));
+  const deployVersion = Date.now().toString(36);
   return [
     'const WORKER_I18N = ' + JSON.stringify(i18nPayload) + ';',
+    'const DEPLOY_VERSION = ' + JSON.stringify(deployVersion) + ';',
     parts.join('\n\n')
   ].join('\n\n');
 }
