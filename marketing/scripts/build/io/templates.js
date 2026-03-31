@@ -15,7 +15,7 @@ function fill(tmpl, vars) {
 function versionAssetUrls(html) {
   const v = ASSET_VERSION;
   html = html.replace(/((?:href|src)=")(\/assets\/[^"?]+)(")/g, `$1$2?v=${v}$3`);
-  html = html.replace(/(\/assets\/[^\s"]+\.(?:webp|png|jpe?g|gif|svg|avif))\s+(\d+w)/g, `$1?v=${v} $2`);
+  html = html.replace(/(\/assets\/[^\s"]+\.(?:webp|png|jpe?g|gif|svg|avif))\s+(\d+[wx])/g, `$1?v=${v} $2`);
   html = html.replace(/(imagesrcset="[^"]*?)(\/assets\/[^\s"]+\.(?:webp|png|jpe?g))\s+(\d+w)/g, function(m, pre, url, w) {
     return `${pre}${url}?v=${v} ${w}`;
   });

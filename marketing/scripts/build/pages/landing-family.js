@@ -216,7 +216,7 @@ function makeLandingBuilders(ctx) {
         if (imgs[i]) image = imgTag(`/assets/images/${imgs[i]}`, `${s.title} screenshot`, 'w-full max-w-sm', 'loading="lazy" style="border-radius:15%;"');
       } else if (!quotes) {
         const tIdx = i + 1;
-        image = `<picture><source srcset="/assets/images/turtles_${tIdx}-384.webp 384w, /assets/images/turtles_${tIdx}-640.webp 640w" sizes="(max-width: 384px) 100vw, 384px" type="image/webp" width="384" height="384"><img src="/assets/images/turtles_${tIdx}.jpeg" alt="${s.title} illustration" class="w-full max-w-sm" width="384" height="384" loading="lazy" style="border-radius:15%; aspect-ratio:1/1"></picture>`;
+        image = `<picture><source media="(min-width: 640px)" srcset="/assets/images/turtles_${tIdx}-384.webp 384w, /assets/images/turtles_${tIdx}-640.webp 640w" sizes="384px" type="image/webp"><source srcset="/assets/images/turtles_${tIdx}-384.webp 1x" type="image/webp"><img src="/assets/images/turtles_${tIdx}.jpeg" alt="${s.title} illustration" class="w-full max-w-sm" width="384" height="384" loading="lazy" style="border-radius:15%; aspect-ratio:1/1"></picture>`;
       }
 
       const textOnRight = (s.align === 'right') || (s.align === undefined && i % 2 === 0);
@@ -265,7 +265,7 @@ function makeLandingBuilders(ctx) {
     const heroImgSrc = heroImgBase ? `/assets/images/${heroImgBase}` : '';
     const heroImgName = heroImgBase.replace(/\.[^.]+$/, '');
     const heroImg = heroImgSrc
-      ? `<picture><source srcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w, /assets/images/${heroImgName}-896.webp 896w" sizes="(max-width: 448px) 100vw, 448px" type="image/webp" width="448" height="307"><img src="${heroImgSrc}" alt="${data.hero?.title || data.title || 'Lotusia'} hero image" class="w-full max-w-md" width="448" height="307" fetchpriority="high" style="border-radius:15%; aspect-ratio:448/307"></picture>`
+      ? `<picture><source media="(min-width: 640px)" srcset="/assets/images/${heroImgName}-448.webp 448w, /assets/images/${heroImgName}-896.webp 896w" sizes="448px" type="image/webp"><source srcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w" sizes="calc(100vw - 2rem)" type="image/webp"><img src="${heroImgSrc}" alt="${data.hero?.title || data.title || 'Lotusia'} hero image" class="w-full max-w-md" width="448" height="307" fetchpriority="high" style="border-radius:15%; aspect-ratio:448/307"></picture>`
       : '';
 
     const pageTitle = pi.og_title || data.ogTitle || data.title || '';
@@ -335,7 +335,7 @@ function makeLandingBuilders(ctx) {
       breadcrumb_html: breadcrumbDiv,
       json_ld: jsonLd(...ldItems),
       head_extra: isHome && heroImgName
-        ? `<link rel="preload" href="/assets/images/${heroImgName}-448.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w, /assets/images/${heroImgName}-896.webp 896w" imagesizes="(max-width: 448px) 100vw, 448px">`
+        ? `<link rel="preload" href="/assets/images/${heroImgName}-448.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/assets/images/${heroImgName}-348.webp 348w, /assets/images/${heroImgName}-448.webp 448w" imagesizes="calc(100vw - 2rem)">`
         : ''
     };
     writeOutFromPath(pagePath, renderPage('landing', vars));

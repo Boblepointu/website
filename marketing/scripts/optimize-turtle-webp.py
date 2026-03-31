@@ -29,14 +29,14 @@ def main() -> None:
         jpeg = BASE / f'turtles_{i}.jpeg'
         if not jpeg.exists():
             continue
-        save_webp(jpeg, BASE / f'turtles_{i}-384.webp', (384, 384), 35)
-        save_webp(jpeg, BASE / f'turtles_{i}-640.webp', (640, 640), 32)
+        save_webp(jpeg, BASE / f'turtles_{i}-384.webp', (384, 384), 18)
+        save_webp(jpeg, BASE / f'turtles_{i}-640.webp', (640, 640), 22)
 
     hero = BASE / 'turtles_hero.jpeg'
     if hero.exists():
-        save_webp(hero, BASE / 'turtles_hero-348.webp', 348, 42)
-        save_webp(hero, BASE / 'turtles_hero-448.webp', 448, 42)
-        save_webp(hero, BASE / 'turtles_hero-896.webp', 896, 32)
+        save_webp(hero, BASE / 'turtles_hero-348.webp', 348, 35)
+        save_webp(hero, BASE / 'turtles_hero-448.webp', 448, 32)
+        save_webp(hero, BASE / 'turtles_hero-896.webp', 896, 20)
 
     print('optimize-turtle-webp: done')
 
