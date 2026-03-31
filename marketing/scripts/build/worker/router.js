@@ -212,6 +212,62 @@ export default {
     const path = url.pathname || '/';
     const lang = detectWorkerLang(path);
     const strippedPath = stripWorkerLangPrefix(path);
+    const legacyNumberedBlog = strippedPath.match(/^\/blog\/\d+\.(.+)$/);
+    if (legacyNumberedBlog && legacyNumberedBlog[1]) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, '/blog/' + legacyNumberedBlog[1]) + (url.search || ''),
+        301
+      );
+    }
+    const legacyMarkdownBlog = strippedPath.match(/^\/blog\/(.+)\.md$/);
+    if (legacyMarkdownBlog && legacyMarkdownBlog[1]) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, '/blog/' + legacyMarkdownBlog[1]) + (url.search || ''),
+        301
+      );
+    }
+    const legacySocialProfile = strippedPath.match(/^\/social\/profile\/([^/]+)\/([^/]+)\/?$/);
+    if (legacySocialProfile) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, `/social/${legacySocialProfile[1]}/${legacySocialProfile[2]}`) + (url.search || ''),
+        301
+      );
+    }
+    const legacySocialProfilesDetail = strippedPath.match(/^\/social\/profiles\/([^/]+)\/([^/]+)\/?$/);
+    if (legacySocialProfilesDetail) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, `/social/${legacySocialProfilesDetail[1]}/${legacySocialProfilesDetail[2]}`) + (url.search || ''),
+        301
+      );
+    }
+    const legacyBlockPath = strippedPath.match(/^\/block\/([0-9a-fA-F]+)\/?$/);
+    if (legacyBlockPath) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, `/explorer/block/${legacyBlockPath[1]}`) + (url.search || ''),
+        301
+      );
+    }
+    const legacyTxPath = strippedPath.match(/^\/tx\/([0-9a-fA-F]+)\/?$/);
+    if (legacyTxPath) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, `/explorer/tx/${legacyTxPath[1]}`) + (url.search || ''),
+        301
+      );
+    }
+    const legacyAddressPath = strippedPath.match(/^\/address\/([^/]+)\/?$/);
+    if (legacyAddressPath) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, `/explorer/address/${legacyAddressPath[1]}`) + (url.search || ''),
+        301
+      );
+    }
+    const faqNestedExplorer = strippedPath.match(/^\/faq\/explorer\/(block|tx|address)\/([^/]+)\/?$/);
+    if (faqNestedExplorer) {
+      return Response.redirect(
+        'https://lotusia.org' + withWorkerLangPrefix(lang, `/explorer/${faqNestedExplorer[1]}/${faqNestedExplorer[2]}`) + (url.search || ''),
+        301
+      );
+    }
     const appStaticFiles = new Set([
       '/manifest.webmanifest',
       '/favicon.ico',
