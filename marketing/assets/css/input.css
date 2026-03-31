@@ -41,17 +41,18 @@
 }
 
 /* === Fonts === */
-@font-face{font-family:'DM Sans';font-weight:400;font-style:normal;font-display:swap;src:url('../fonts/dm-sans-regular.woff2') format('woff2')}
-@font-face{font-family:'DM Sans';font-weight:500;font-style:normal;font-display:swap;src:url('../fonts/dm-sans-medium.woff2') format('woff2')}
-@font-face{font-family:'DM Sans';font-weight:600;font-style:normal;font-display:swap;src:url('../fonts/dm-sans-semibold.woff2') format('woff2')}
-@font-face{font-family:'DM Sans';font-weight:700;font-style:normal;font-display:swap;src:url('../fonts/dm-sans-bold.woff2') format('woff2')}
+@font-face{font-family:'DM Sans Fallback';src:local('Arial');size-adjust:114.39%;ascent-override:86.72%;descent-override:27.10%;line-gap-override:0%}
+@font-face{font-family:'DM Sans';font-weight:400;font-style:normal;font-display:optional;src:url('../fonts/dm-sans-regular.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:500;font-style:normal;font-display:optional;src:url('../fonts/dm-sans-medium.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:600;font-style:normal;font-display:optional;src:url('../fonts/dm-sans-semibold.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:700;font-style:normal;font-display:optional;src:url('../fonts/dm-sans-bold.woff2') format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url('../fonts/jetbrains-mono-regular.woff2') format('woff2')}
 
 @layer base {
   html { scroll-behavior: smooth; }
   img, video { height: auto; max-width: 100%; }
   body {
-    font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-family: 'DM Sans', 'DM Sans Fallback', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     background-color: rgb(var(--ui-background));
     color: rgb(var(--ui-foreground));
     line-height: inherit;

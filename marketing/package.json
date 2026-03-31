@@ -11,6 +11,7 @@
     "marked": "^15.0.0"
   },
   "devDependencies": {
+    "critters": "^0.0.23",
     "tailwindcss": "^3.4.19"
   }
 }
