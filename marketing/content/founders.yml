@@ -9,7 +9,7 @@ hero:
 sections:
   - title: Alexandre Guillioud
     headline: Hash Turtle — Blockchain Architect & Co-founder
-    description: "Software architect with 12+ years of experience spanning embedded systems, distributed architectures, and solar energy. Alexandre co-founded Lotusia to build an ethical alternative to speculative cryptocurrencies. He leads the technical infrastructure: core blockchain development, custom WebGPU GPU miner, mining pool, and cross-chain bridging. Previously Senior Software Architect at myNFT (3 years, cross-chain EVM bridging, Solidity smart contracts, TheGraph subgraphs), Lead Developer at Veepee, and Architect at fulll. He also runs Golden Solar (29 photovoltaic installations, 4 MWp) and conducts independent research in cognitive security."
+    description: "Software architect with 12+ years of experience spanning embedded systems, distributed architectures, and solar energy. Alexandre co-founded Lotusia to build an ethical alternative to speculative cryptocurrencies. He leads the technical infrastructure: core blockchain development, custom WebGPU GPU miner, mining pool, and cross-chain bridging. Previously Senior Software Architect at myNFT (3 years, cross-chain EVM bridging, Solidity smart contracts, TheGraph subgraphs), Lead Developer at Veepee, and Architect at fulll. He also runs Golden Solar (29 photovoltaic installations, 4 MWp) and conducts independent research in cognitive security. Featured in ECO Savoie Mont Blanc, Le Dauphiné Libéré, Journal du Bâtiment et des TP, and Décidia as laureate of the Pass Talents Énergies 2024 clean energy accelerator. Listed on French Tech In The Alps as CEO of Carb-On."
     align: right
     features:
       - name: Core Blockchain Development

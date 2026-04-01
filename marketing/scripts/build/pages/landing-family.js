@@ -72,7 +72,9 @@ function makeLandingBuilders(ctx) {
     'https://gibis.me',
     'https://golden-flux.fr',
     'https://goldensolar.fr',
-    'https://soleil-vert-poype.fr'
+    'https://soleil-vert-poype.fr',
+    'https://www.ftalps.com/company/carb-on',
+    'https://passtalentsenergies.com/pass-talents-energies-2024-2eme-edition/'
   ];
 
   function overlayI18nSections(yamlSections, i18nSections) {
