@@ -38,6 +38,16 @@ def main() -> None:
         save_webp(hero, BASE / 'turtles_hero-448.webp', 448, 32)
         save_webp(hero, BASE / 'turtles_hero-896.webp', 896, 20)
 
+    HERO_SIZES = [(348, 35), (448, 32), (896, 20)]
+    for pattern in ('ecosystem_0_0', 'tools_0', 'roadmap_0'):
+        for ext in ('.jpg', '.jpeg', '.png'):
+            src = BASE / f'{pattern}{ext}'
+            if not src.exists():
+                continue
+            for width, q in HERO_SIZES:
+                save_webp(src, BASE / f'{pattern}-{width}.webp', width, q)
+            break
+
     print('optimize-turtle-webp: done')
 
 
