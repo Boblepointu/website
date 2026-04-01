@@ -30,10 +30,10 @@
     "technical_docs": "技术文档"
   },
   "seo": {
-    "home_keywords": "lotusia, lotusia 区块链, xpi, stewardship, 社区, 治理",
+    "home_keywords": "lotusia, decentralized reputation protocol, burn to vote, on-chain reputation, lotusia blockchain, xpi, sybil neutral ranking, permissionless reputation",
     "ecosystem_keywords": "lotusia 生态系统, stewardship, 国库, 公民参与, 治理, 公共产品",
     "tools_keywords": "lotusia 工具, 公共产品, 钱包, sdk, 矿工, 开源",
-    "founders_keywords": "lotusia 创始人, 区块链领导团队, stewardship 团队, 伦理化工作量证明",
+    "founders_keywords": "lotusia founders, decentralized reputation protocol, blockchain leadership, burn to vote, stewardship team, ethical proof of work",
     "roadmap_keywords": "lotusia 路线图, 协议里程碑, 生态目标, 区块链升级",
     "faq_keywords": "lotusia 常见问题, lotus 货币, 治理, 钱包, 区块链帮助",
     "blog_keywords": "lotusia 博客, 生态更新, 协议发布, 区块链新闻",
@@ -49,7 +49,7 @@
     "index": {
       "title": "欢迎来到 Lotusia",
       "og_title": "欢迎来到 Lotusia | Lotusia",
-      "description": "Lotusia 的创立旨在促进人际关系、建设互惠文化，并推动线上与线下的社会价值创造",
+      "description": "Lotusia 是一个 decentralized reputation protocol，社区通过 burn to vote 建立 on-chain reputation —— 通过透明、无许可的内容策展促进人际关系",
       "hero_title": "让人性回归社会",
       "sections": [
         {
@@ -337,7 +337,7 @@
     "founders": {
       "title": "创始人",
       "og_title": "创始人 - Lotusia",
-      "description": "认识 Lotusia 背后的创始人——为人类构建道德 Proof-of-Work 区块链的人们",
+      "description": "了解 Lotusia decentralized reputation protocol 的创始人——构建无许可的 burn-to-vote 系统，实现透明的 on-chain reputation。",
       "hero_title": "Lotusia 背后的人",
       "hero_description": "Lotusia 由相信加密货币应服务于人类而非剥削人类的工程师和远见者打造。认识正在将这一愿景变为现实的创始人们。",
       "sections": [

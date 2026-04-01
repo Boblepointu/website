@@ -1,5 +1,5 @@
 title: Welcome to Lotusia
-description: Lotusia was founded to foster human relationships, build reciprocal culture, and bolster societal value production online and offline
+description: Lotusia is a decentralized reputation protocol where communities burn to vote and build on-chain reputation — fostering human relationships through transparent, permissionless curation
 navigation: false
 hero:
   title: Restoring Humanity to Society
@@ -18,7 +18,7 @@ hero:
       trailing: true
 sections:
   - title: What Is Lotus?
-    description: The Lotusia economy is denominated in the Lotus currency. Lotus combines the best qualities of the modern monetary system and the new generation of digital cryptocurrencies. The result is an ethical currency that is economically viable.
+    description: The Lotusia economy is denominated in the Lotus currency — the fuel for a burn-to-vote reputation system. Lotus combines the best qualities of the modern monetary system and the new generation of digital cryptocurrencies. The result is an ethical currency powering decentralized on-chain reputation.
     align: right
     features:
       - name: Debt-free
@@ -96,4 +96,4 @@ sections:
         class: ml-8
 cta:
   title: Society Needs Humanity
-  description: It takes all of us making small, positive changes in our daily interactions with others to truly make a lasting impact on society. It is our vision to bring people together and use the Lotus currency to account for the value we see in each other.
+  description: It takes all of us making small, positive changes in our daily interactions with others to truly make a lasting impact on society. Lotusia's decentralized reputation protocol lets you burn to vote and build transparent on-chain reputation — accounting for the value we see in each other.

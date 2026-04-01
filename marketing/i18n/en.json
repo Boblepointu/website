@@ -30,10 +30,10 @@
     "technical_docs": "Technical Docs"
   },
   "seo": {
-    "home_keywords": "lotusia, lotusia blockchain, xpi, stewardship, community, governance",
+    "home_keywords": "lotusia, decentralized reputation protocol, burn to vote, on-chain reputation, lotusia blockchain, xpi, sybil neutral ranking, permissionless reputation",
     "ecosystem_keywords": "lotusia ecosystem, stewardship, treasury, citizenry, governance, public goods",
     "tools_keywords": "lotusia tools, public goods, wallet, sdk, miner, open source blockchain tools",
-    "founders_keywords": "lotusia founders, blockchain leadership, stewardship team, ethical proof of work",
+    "founders_keywords": "lotusia founders, decentralized reputation protocol, blockchain leadership, burn to vote, stewardship team, ethical proof of work",
     "roadmap_keywords": "lotusia roadmap, protocol milestones, ecosystem goals, blockchain upgrades",
     "faq_keywords": "lotusia faq, lotus currency, governance, wallet, blockchain help",
     "blog_keywords": "lotusia blog, ecosystem updates, protocol releases, blockchain news",
@@ -49,7 +49,7 @@
     "index": {
       "title": "Welcome to Lotusia",
       "og_title": "Welcome to Lotusia | Lotusia",
-      "description": "Lotusia was founded to foster human relationships, build reciprocal culture, and bolster societal value production online and offline",
+      "description": "Lotusia is a decentralized reputation protocol where communities burn to vote and build on-chain reputation — fostering human relationships through transparent, permissionless curation",
       "hero_title": "Restoring Humanity to Society"
     },
     "ecosystem": {
@@ -67,7 +67,7 @@
     "founders": {
       "title": "Lotusia Founders and Leadership",
       "og_title": "Founders - Lotusia",
-      "description": "Meet the founders and core leadership of Lotusia, and learn how they are building an ethical, resilient blockchain ecosystem."
+      "description": "Meet the founders behind Lotusia's decentralized reputation protocol — building a permissionless burn-to-vote system for transparent on-chain reputation."
     },
     "roadmap": {
       "title": "Lotusia Roadmap and Milestones",

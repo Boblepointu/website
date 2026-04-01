@@ -273,7 +273,7 @@ async function renderProfilePage(url, platform, profileId, lang) {
   ];
   const canonicalPath = localize('/social/' + encodeURIComponent(platform) + '/' + encodeURIComponent(profileId));
   const profileTitle = profileId + ' on ' + platform;
-  const description = 'View ' + profileId + ' social reputation, posts, and vote history on Lotusia.';
+  const description = 'View ' + profileId + ' on-chain reputation score, burn-weighted votes, and post history on Lotusia — a decentralized reputation protocol.';
   const jsonLd = seoJsonLd([
     seoBreadcrumbGraph(breadcrumbs),
     seoPageGraph(canonicalPath, profileTitle, description, 'ProfilePage'),

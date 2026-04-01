@@ -406,7 +406,7 @@ function legacyExplorerLayout(activeKey, contentHtml, options) {
   ]);
   return '<div class="grid lg:grid-cols-[250px_1fr] gap-6 lg:gap-8">' +
     '<aside class="rounded-2xl border border-gray-200/90 dark:border-gray-700/70 bg-gray-50/80 dark:bg-gray-900/70 shadow-lg shadow-primary-950/10 dark:shadow-black/40 h-fit lg:sticky lg:top-[calc(var(--header-height)+2rem)] overflow-hidden">' +
-    '<details data-sidebar-nav>' +
+    '<details data-sidebar-nav open>' +
     '<summary class="flex items-center justify-between px-4 py-3 lg:hidden cursor-pointer select-none text-sm font-semibold text-gray-700 dark:text-gray-200 list-none [&::-webkit-details-marker]:hidden">' +
     '<span class="flex items-center gap-2">' + iconSvg('network', 'h-4 w-4 text-primary-500') + ' ' + esc(navLabel) + '</span>' +
     '<svg class="h-4 w-4 text-gray-400 transition-transform sidebar-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg>' +

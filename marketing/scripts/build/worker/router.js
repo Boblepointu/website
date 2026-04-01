@@ -61,6 +61,8 @@ function htmlCacheKeyUrl(request, strippedPath) {
     const value = normalizePositiveIntParam(source.searchParams.get(key));
     if (value !== null) normalized.searchParams.set(key, value);
   }
+  const dv = typeof DEPLOY_VERSION !== 'undefined' ? DEPLOY_VERSION : '0';
+  normalized.searchParams.set('_dv', dv);
   return normalized.toString();
 }
 
@@ -89,22 +91,34 @@ async function cachedHtml(request, path, ctx, renderFn) {
   const cache = caches.default;
   const cacheKey = new Request(htmlCacheKeyUrl(request, path), { method: 'GET' });
   const hit = await cache.match(cacheKey);
-  if (hit) return method === 'HEAD' ? toHeadResponse(hit) : hit;
+  if (hit) {
+    const out = new Response(hit.body, { status: hit.status, headers: new Headers(hit.headers) });
+    out.headers.set('cloudflare-cdn-cache-control', 'no-store');
+    return method === 'HEAD' ? toHeadResponse(out) : out;
+  }
 
   const html = await renderFn();
-  const response = new Response(html, {
+  const cacheResponse = new Response(html, {
     status: 200,
     headers: {
       'content-type': 'text/html; charset=utf-8',
-      'cache-control': `public, max-age=0, s-maxage=${ttl}, stale-while-revalidate=${ttl * 6}, stale-if-error=${ttl * 24}`
+      'cache-control': `public, max-age=0, s-maxage=${ttl}`
     }
   });
   if (ctx && typeof ctx.waitUntil === 'function') {
-    ctx.waitUntil(cache.put(cacheKey, response.clone()));
+    ctx.waitUntil(cache.put(cacheKey, cacheResponse.clone()));
   } else {
-    await cache.put(cacheKey, response.clone());
+    await cache.put(cacheKey, cacheResponse.clone());
   }
-  return method === 'HEAD' ? toHeadResponse(response) : response;
+  const clientResponse = new Response(html, {
+    status: 200,
+    headers: {
+      'content-type': 'text/html; charset=utf-8',
+      'cache-control': `public, max-age=0, s-maxage=${ttl}, stale-while-revalidate=${ttl * 6}, stale-if-error=${ttl * 24}`,
+      'cloudflare-cdn-cache-control': 'no-store'
+    }
+  });
+  return method === 'HEAD' ? toHeadResponse(clientResponse) : clientResponse;
 }
 
 async function cachedProxyGet(request, targetBase, ttl, useCors, ctx) {

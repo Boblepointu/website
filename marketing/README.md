@@ -1,8 +1,8 @@
 # Lotusia Marketing (Static)
 
-Static marketing site generator for Lotusia.
+Static marketing site generator for [Lotusia](https://lotusia.org) — a decentralized reputation protocol where communities burn to vote and build transparent on-chain reputation.
 
-This folder builds a fully static website from YAML + Markdown + HTML templates, and outputs deployable files to `marketing/dist`.
+This folder builds a fully static website from YAML + Markdown + HTML templates, and outputs deployable files to `marketing/dist`. The site serves as the primary web presence for the Lotusia ecosystem, including documentation for burn-to-vote mechanics, Sybil-neutral ranking algorithms, and on-chain reputation scoring.
 
 ## Stack
 

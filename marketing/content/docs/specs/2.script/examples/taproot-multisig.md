@@ -1,5 +1,6 @@
 ---
 title: 'Taproot: Multi-Signature Governance'
+description: 'Multi-signature governance voting on the Lotus blockchain using Taproot — 63% smaller transactions via MuSig2 key aggregation for organizational burn-to-vote decisions.'
 linkTitle: 'Multisig'
 category: Script
 weight: 4.4

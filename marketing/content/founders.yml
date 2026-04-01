@@ -1,11 +1,11 @@
 title: Founders
-description: Meet the founders behind Lotusia — the people building an ethical proof-of-work blockchain for humanity
+description: Meet the founders behind Lotusia — the people building a decentralized reputation protocol powered by burn-to-vote mechanics on an ethical proof-of-work blockchain
 ogTitle: Founders - Lotusia
 navigation.icon: i-heroicons-user-group-solid
 to: /founders
 hero:
   title: The People Behind Lotusia
-  description: Lotusia is built by engineers and visionaries who believe cryptocurrency should serve humanity, not exploit it. Meet the founders who are making that vision a reality.
+  description: Lotusia is a decentralized reputation protocol built by engineers and visionaries who believe cryptocurrency should serve humanity, not exploit it. Meet the founders building a permissionless burn-to-vote system for transparent on-chain reputation.
 sections:
   - title: Alexandre Guillioud
     headline: Hash Turtle — Blockchain Architect & Co-founder
@@ -69,4 +69,4 @@ sections:
         size: md
 cta:
   title: Built by People, for People
-  description: Lotusia exists because its founders believe that technology should serve humanity. Every line of code, every infrastructure decision, every community interaction is guided by this principle. Join us in building something that matters.
+  description: Lotusia exists because its founders believe that technology should serve humanity. Every line of code in this decentralized reputation protocol — from burn-to-vote mechanics to on-chain reputation scoring — is guided by this principle. Join us in building something that matters.

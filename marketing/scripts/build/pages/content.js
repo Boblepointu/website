@@ -140,6 +140,11 @@ function makeBlogDocsBuilders(ctx) {
 
         const raw = fs.readFileSync(filePath, 'utf8');
         const { meta, body } = parseFrontmatter(raw);
+        if (meta.draft === true) continue;
+        if (meta.publishDate) {
+          const pub = new Date(meta.publishDate);
+          if (!isNaN(pub.getTime()) && pub > new Date()) continue;
+        }
         const htmlBody = optimizeContentImages(marked(body).replace(/src="\/img\//g, 'src="/assets/images/'), meta.title || slug);
         const plainBody = stripMarkdown(body);
         const dateRaw = meta.date || '';

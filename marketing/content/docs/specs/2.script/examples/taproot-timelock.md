@@ -1,5 +1,6 @@
 ---
 title: 'Taproot: Time-Locked Voting'
+description: 'Time-locked burn-to-vote commitments on the Lotus blockchain — lock funds for a voting period to prove conviction while preserving privacy through Taproot key paths.'
 linkTitle: 'Time-Lock'
 category: Script
 weight: 4.3

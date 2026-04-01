@@ -110,7 +110,6 @@
   details[data-sidebar-nav][open] .sidebar-chevron { transform: rotate(180deg); }
   @media (min-width: 1024px) {
     details[data-sidebar-nav] > summary { display: none !important; }
-    details[data-sidebar-nav]:not([open]) > *:not(summary) { display: block !important; }
   }
 
   /* Worker tables: responsive on narrow screens */

@@ -30,10 +30,10 @@
     "technical_docs": "Technische Dokumentation"
   },
   "seo": {
-    "home_keywords": "lotusia, lotusia blockchain, xpi, stewardship, gemeinschaft, governance",
+    "home_keywords": "lotusia, decentralized reputation protocol, burn to vote, on-chain reputation, lotusia blockchain, xpi, sybil neutral ranking, permissionless reputation",
     "ecosystem_keywords": "lotusia oekosystem, stewardship, treasury, buergerschaft, governance, oeffentliche gueter",
     "tools_keywords": "lotusia tools, oeffentliche gueter, wallet, sdk, miner, open source",
-    "founders_keywords": "lotusia gruender, blockchain fuehrung, stewardship team, ethischer proof of work",
+    "founders_keywords": "lotusia founders, decentralized reputation protocol, blockchain leadership, burn to vote, stewardship team, ethical proof of work",
     "roadmap_keywords": "lotusia roadmap, protokoll meilensteine, oekosystem ziele, blockchain upgrades",
     "faq_keywords": "lotusia faq, lotus waehrung, governance, wallet, blockchain hilfe",
     "blog_keywords": "lotusia blog, oekosystem updates, protokoll releases, blockchain news",
@@ -49,7 +49,7 @@
     "index": {
       "title": "Willkommen bei Lotusia",
       "og_title": "Willkommen bei Lotusia | Lotusia",
-      "description": "Lotusia wurde gegründet, um menschliche Beziehungen zu fördern, eine Kultur der Gegenseitigkeit aufzubauen und gesellschaftliche Wertschöpfung online und offline zu stärken.",
+      "description": "Lotusia ist ein decentralized reputation protocol, bei dem Gemeinschaften burn to vote und on-chain reputation aufbauen — menschliche Beziehungen durch transparente, erlaubnisfreie Kuration fördern",
       "hero_title": "Menschlichkeit in die Gesellschaft zurückbringen",
       "hero_description": "",
       "sections": [
@@ -338,7 +338,7 @@
     "founders": {
       "title": "Gründer",
       "og_title": "Gründer - Lotusia",
-      "description": "Lerne die Gründer hinter Lotusia kennen – die Menschen, die eine ethische Proof-of-Work-Blockchain für die Menschheit bauen",
+      "description": "Lernen Sie die Gründer des Lotusia decentralized reputation protocol kennen — ein erlaubnisfreies burn-to-vote System für transparente on-chain reputation.",
       "hero_title": "Die Menschen hinter Lotusia",
       "hero_description": "Lotusia wird von Ingenieuren und Visionären gebaut, die davon überzeugt sind, dass Kryptowährung der Menschheit dienen sollte, nicht sie ausnutzen. Lerne die Gründer kennen, die diese Vision Wirklichkeit werden lassen.",
       "sections": [

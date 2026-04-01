@@ -1,6 +1,6 @@
 ---
 title: 'Taproot'
-description: Pay-to-Taproot (P2TR) consensus specification for Lotus
+description: 'Pay-to-Taproot (P2TR) consensus specification for Lotus — enabling efficient smart contracts, burn-to-vote reputation transactions, and privacy-preserving on-chain governance.'
 linkTitle: 'Taproot'
 category: Script
 weight: 4.1

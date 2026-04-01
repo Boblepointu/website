@@ -30,10 +30,10 @@
     "technical_docs": "Техническая документация"
   },
   "seo": {
-    "home_keywords": "lotusia, блокчейн lotusia, xpi, stewardship, сообщество, управление",
+    "home_keywords": "lotusia, decentralized reputation protocol, burn to vote, on-chain reputation, lotusia blockchain, xpi, sybil neutral ranking, permissionless reputation",
     "ecosystem_keywords": "экосистема lotusia, stewardship, казначейство, гражданское сообщество, управление, общественные блага",
     "tools_keywords": "инструменты lotusia, общественные блага, кошелек, sdk, майнер, open source",
-    "founders_keywords": "основатели lotusia, блокчейн руководство, команда stewardship, этичный proof of work",
+    "founders_keywords": "lotusia founders, decentralized reputation protocol, blockchain leadership, burn to vote, stewardship team, ethical proof of work",
     "roadmap_keywords": "дорожная карта lotusia, этапы протокола, цели экосистемы, обновления блокчейна",
     "faq_keywords": "faq lotusia, валюта lotus, управление, кошелек, помощь по блокчейну",
     "blog_keywords": "блог lotusia, обновления экосистемы, релизы протокола, новости блокчейна",
@@ -49,7 +49,7 @@
     "index": {
       "title": "Добро пожаловать в Lotusia",
       "og_title": "Добро пожаловать в Lotusia | Lotusia",
-      "description": "Lotusia создана для укрепления человеческих отношений, развития культуры взаимности и повышения общественной ценности — как онлайн, так и офлайн.",
+      "description": "Lotusia — это decentralized reputation protocol, где сообщества burn to vote и создают on-chain reputation — развивая человеческие отношения через прозрачную курацию без разрешений",
       "hero_title": "Вернуть человечность обществу",
       "hero_description": "Lotusia создана для укрепления человеческих отношений, развития культуры взаимности и повышения общественной ценности — как онлайн, так и офлайн.",
       "sections": [
@@ -334,7 +334,7 @@
     "founders": {
       "title": "Основатели",
       "og_title": "Основатели - Lotusia",
-      "description": "Познакомьтесь с основателями Lotusia — людьми, которые строят этичный блокчейн Proof-of-Work для человечества.",
+      "description": "Познакомьтесь с основателями decentralized reputation protocol Lotusia — системы burn-to-vote без разрешений для прозрачной on-chain reputation.",
       "hero_title": "Люди, стоящие за Lotusia",
       "hero_description": "Lotusia создаётся инженерами и визионерами, которые верят, что криптовалюта должна служить человечеству, а не эксплуатировать его. Познакомьтесь с основателями, которые воплощают это видение в реальность.",
       "sections": [

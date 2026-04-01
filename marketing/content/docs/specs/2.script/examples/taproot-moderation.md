@@ -1,5 +1,6 @@
 ---
 title: 'Taproot: Moderated Comments'
+description: 'Burn-to-vote comment moderation using Taproot script trees on Lotus — economic spam deterrent with privacy for legitimate users and on-chain reputation staking.'
 linkTitle: 'Moderation'
 category: Script
 weight: 4.5
