@@ -10,7 +10,7 @@ function makeSeoHelpers({ SITE_URL, I18N, LANGS, abs }) {
     foundingDate: '2021',
     description: 'Decentralized reputation protocol powered by burn-weighted sentiment on the Lotus blockchain',
     logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` },
-    sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus', 'https://guillioud.com']
+    sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus', 'https://guillioud.com', 'https://www.wikidata.org/wiki/Q138846035']
   };
 
   function jsonLd(...items) {

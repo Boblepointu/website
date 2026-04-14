@@ -36,18 +36,31 @@ function makeLandingBuilders(ctx) {
     logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` },
     image: `${SITE_URL}/assets/images/turtles_hero.jpeg`,
     foundingDate: '2021',
-    description: 'Decentralized reputation protocol powered by burn-weighted sentiment on the Lotus blockchain',
+    description: 'Decentralized reputation protocol powered by burn-weighted sentiment and on-chain reputation scoring on the Lotus UTXO proof-of-work blockchain. Sybil-resistant identity layer using burn-to-vote mechanics, transparent content curation, and permissionless peer-to-peer ranking without centralized moderation.',
+    knowsAbout: [
+      'Decentralized Reputation', 'Burn-to-Vote', 'On-chain Reputation Scoring',
+      'UTXO Blockchain', 'Proof-of-Work', 'Sybil Resistance', 'Proof of Burn',
+      'Decentralized Identity', 'Content Curation', 'Permissionless Systems',
+      'Bitcoin ABC Fork', 'Lotus Blockchain', 'XPI Cryptocurrency'
+    ],
     sameAs: [
       'https://github.com/LotusiaStewardship',
       'https://t.me/givelotus',
       'https://guillioud.com',
-      'https://lotusia.org'
+      'https://lotusia.org',
+      'https://www.wikidata.org/wiki/Q138846035'
     ]
   };
 
   const ALEXANDRE_SAME_AS = [
     'https://github.com/boblepointu',
     'https://www.linkedin.com/in/alex--g/',
+    'https://orcid.org/0009-0009-4514-5469',
+    'https://www.wikidata.org/wiki/Q138846035',
+    'https://fr.wikipedia.org/wiki/Alexandre_Guillioud',
+    'https://es.wikipedia.org/wiki/Alexandre_Guillioud',
+    'https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%B9%D1%83,_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80',
+    'https://zh.wikipedia.org/wiki/%E4%BA%9A%E5%8E%86%E5%B1%B1%E5%A4%A7%C2%B7%E5%90%89%E5%B0%A4',
     'https://guillioud.com',
     'https://blackcat.events',
     'https://blackcateventsplayer.fr',
@@ -74,7 +87,8 @@ function makeLandingBuilders(ctx) {
     'https://goldensolar.fr',
     'https://soleil-vert-poype.fr',
     'https://www.ftalps.com/company/carb-on',
-    'https://passtalentsenergies.com/pass-talents-energies-2024-2eme-edition/'
+    'https://passtalentsenergies.com/pass-talents-energies-2024-2eme-edition/',
+    'https://www.wikidata.org/wiki/Q138846035'
   ];
 
   function overlayI18nSections(yamlSections, i18nSections) {
@@ -327,7 +341,7 @@ function makeLandingBuilders(ctx) {
           ...links,
           ...(idx === 0 ? ALEXANDRE_SAME_AS : [])
         ]));
-        return {
+        const person = {
           '@context': 'https://schema.org',
           '@type': 'Person',
           '@id': `${SITE_URL}/founders#${idx === 0 ? 'alexandre-guillioud' : 'matthew-urgero'}`,
@@ -338,6 +352,66 @@ function makeLandingBuilders(ctx) {
           sameAs: mergedSameAs.length ? mergedSameAs : undefined,
           worksFor: { '@id': `${SITE_URL}/#organization` }
         };
+        if (idx === 0) {
+          person.givenName = 'Alexandre';
+          person.familyName = 'Guillioud';
+          person.alternateName = ['Alex Guillioud', 'A. Guillioud'];
+          person.birthDate = '1991-04-03';
+          person.description = 'French distributed systems architect and blockchain engineer with 12+ years of experience. Founder of Lotusia, a decentralized reputation protocol using burn-to-vote mechanics and on-chain reputation scoring on a UTXO proof-of-work blockchain forked from Bitcoin ABC. Solar energy entrepreneur building photovoltaic monitoring SaaS, IoT data pipelines, and carbon credits platforms at Carb-On. Former Senior Software Architect at myNFT (cross-chain EVM bridging, Solidity smart contracts, NFT indexing) and Lead Developer at Veepee. Independent researcher in cognitive security. ESIEA engineering graduate. Pass Talents Énergies 2024 laureate.';
+          person.nationality = { '@type': 'Country', name: 'France' };
+          person.knowsLanguage = [
+            { '@type': 'Language', name: 'French', alternateName: 'fr' },
+            { '@type': 'Language', name: 'English', alternateName: 'en' }
+          ];
+          person.alumniOf = {
+            '@type': 'EducationalOrganization',
+            name: 'ESIEA - École d\'Ingénieurs en Sciences et Technologies du Numérique',
+            url: 'https://www.esiea.fr',
+            description: 'Master degree RNCP, Computer Science, Software Architecture & Engineering, 2009-2014'
+          };
+          person.knowsAbout = [
+            'Distributed Systems Architecture', 'Blockchain Engineering', 'Solidity Smart Contracts',
+            'Decentralized Reputation Protocol', 'Burn-to-Vote Mechanics', 'On-chain Reputation Scoring',
+            'UTXO Blockchain', 'Proof-of-Work Mining', 'WebGPU GPU Mining', 'Cross-chain EVM Bridging',
+            'NFT Marketplace Architecture', 'TheGraph Subgraph Development',
+            'Solar Energy Monitoring', 'Photovoltaic SaaS', 'IoT Data Pipelines', 'Modbus Protocol',
+            'Agrivoltaism', 'Carbon Credits Platform', 'Decarbonation Technology',
+            'Microservices Architecture', 'Event-driven Architecture', 'CQRS Pattern', 'Domain-driven Design',
+            'Terraform Infrastructure as Code', 'AWS Cloud Architecture', 'Docker Containerization',
+            'Kubernetes Orchestration', 'CI/CD Pipelines', 'DevOps',
+            'Node.js', 'TypeScript', 'Python', 'React', 'Vue.js', 'SQL', 'MongoDB', 'NoSQL',
+            'Real-time Systems', 'Video Streaming', 'Network Security', 'Cognitive Security Research',
+            'Sybil Resistance', 'Decentralized Identity', 'Proof of Burn'
+          ];
+          person.hasOccupation = [
+            { '@type': 'Occupation', name: 'Solar Energy Software Builder', startDate: '2023-04', occupationLocation: { '@type': 'Place', name: 'Grenoble, France' }, description: 'Building IoT data retrieval, real-time monitoring, and API services for photovoltaic producers. 29 active solar installations, 4 MWp cumulative capacity. Modbus protocol integration, Kibana analytics, automated fault reporting.', employer: { '@type': 'Organization', name: 'Carb-On', url: 'https://carb-on.earth' } },
+            { '@type': 'Occupation', name: 'Minting Miners — Founder', startDate: '2021-01', description: 'Founder and core blockchain developer for Lotusia decentralized reputation protocol. Custom WebGPU GPU miner, mining pool infrastructure, Solana bridge, burn-weighted sentiment engine, on-chain reputation scoring.', employer: { '@type': 'Organization', name: 'Lotusia Stewardship', url: 'https://lotusia.org' } },
+            { '@type': 'Occupation', name: 'Senior Software Architect', startDate: '2021-10', endDate: '2024-09', description: 'Solidity smart contracts for cross-chain EVM NFT bridging. Universal NFT indexer, microservices architecture, AWS (ECS, S3, ELB, EC2), Terraform IaC, TheGraph subgraph development. Technical lead.', employer: { '@type': 'Organization', name: 'myNFT' } },
+            { '@type': 'Occupation', name: 'Architect', startDate: '2020-10', endDate: '2021-10', occupationLocation: { '@type': 'Place', name: 'Lyon, France' }, description: 'Legacy SQL Server maintenance, Terraform AWS management, TypeScript CQRS application architecture.', employer: { '@type': 'Organization', name: 'fulll' } },
+            { '@type': 'Occupation', name: 'Lead Developer', startDate: '2017-09', endDate: '2019-10', description: 'Transversal logistics stack at scale. Android hybrid apps (Cordova), N-tier Node.js/Express, MVVM React/Vue, NoSQL databases, Android fleet management, Docker, Ansible automation.', employer: { '@type': 'Organization', name: 'Veepee', url: 'https://www.veepee.com' } },
+            { '@type': 'Occupation', name: 'Software Engineer', startDate: '2016-02', endDate: '2017-09', occupationLocation: { '@type': 'Place', name: 'Meylan, France' }, description: 'Full-stack Node.js/MongoDB, real-time video streaming (GStreamer), advanced networking (packet forging, RFC analysis, Wireshark), Linux kernel compilation, database optimization.', employer: { '@type': 'Organization', name: 'SmartMeUp' } },
+            { '@type': 'Occupation', name: 'Consulting Software Engineer', startDate: '2015-09', endDate: '2015-12', occupationLocation: { '@type': 'Place', name: 'Sophia Antipolis, France' }, description: 'SI consulting for Orange. HTML5 integration for orange.fr events.', employer: { '@type': 'Organization', name: 'ALTANSIA' } },
+            { '@type': 'Occupation', name: 'Project Manager', startDate: '2013-10', endDate: '2015-03', occupationLocation: { '@type': 'Place', name: 'Fontaine, France' }, description: 'Prototype design, outsourced team management, lead development with PHP, Node.js, Cordova.', employer: { '@type': 'Organization', name: 'Ineso Company' } },
+            { '@type': 'Occupation', name: 'C#/ASP.NET Developer', startDate: '2012-10', endDate: '2013-10', occupationLocation: { '@type': 'Place', name: 'Paris, France' }, description: 'N-tier architecture, Telerik UI, front-end JavaScript, SQL Server.', employer: { '@type': 'Organization', name: 'EXL GROUP' } },
+            { '@type': 'Occupation', name: 'PHP/HTML5 Developer', startDate: '2012-04', endDate: '2012-09', occupationLocation: { '@type': 'Place', name: 'Paris, France' }, employer: { '@type': 'Organization', name: 'Jackson & Kent' } },
+            { '@type': 'Occupation', name: 'PHP Developer', startDate: '2011-08', endDate: '2012-02', occupationLocation: { '@type': 'Place', name: 'Paris, France' }, employer: { '@type': 'Organization', name: 'Travelfactory' } }
+          ];
+          person.subjectOf = [
+            { '@type': 'Article', name: 'Pass Talents Énergies : un marathon de l\'innovation', url: 'https://groupe-ecomedia.com/pass-talents-energies-un-marathon-de-linnovation/', publisher: { '@type': 'Organization', name: 'ECO Savoie Mont Blanc' }, datePublished: '2024-06-28' },
+            { '@type': 'Article', name: 'Pass Talents énergies : une initiative savoyarde pour la décarbonation', url: 'https://www.ledauphine.com/economie/2024/06/26/pass-talents-energies-une-initiative-savoyarde-pour-la-decarbonation', publisher: { '@type': 'Organization', name: 'Le Dauphiné Libéré' }, datePublished: '2024-06-26' },
+            { '@type': 'Article', name: 'La French Tech met pleins feux sur les solutions de décarbonation', url: 'https://decidia.fr/french-tech-met-pleins-feux-sur-les-solutions-de-decarbonation/', publisher: { '@type': 'Organization', name: 'Décidia' }, datePublished: '2024-10-16' },
+            { '@type': 'Article', name: 'Un élevage pionnier en agrivoltaïsme', url: 'https://ca-centrest.com/un-elevage-pionnier-en-agrivoltaisme/', publisher: { '@type': 'Organization', name: 'Crédit Agricole Centre-est' }, datePublished: '2023-12-18' },
+            { '@type': 'Article', name: 'Savoie : trois innovations énergétiques en passe d\'être commercialisées', url: 'https://mesinfos.fr/73370-le-bourget-du-lac/savoie-trois-innovations-energetiques-en-passe-d-etre-commercialisees-201920.html', publisher: { '@type': 'Organization', name: 'Journal du Bâtiment et des TP' }, datePublished: '2024-06-28' }
+          ];
+          person.review = [
+            { '@type': 'Review', author: { '@type': 'Person', name: 'Ian Rodriguez', jobTitle: 'Software Engineer | Blockchain Engineer' }, reviewBody: 'Alexandre is a truly experienced senior engineer. His project visibility and exceptional development skills made him a critical team member from the start. With impeccable communication skills and a calm temperament, he helps maintain serenity even in challenging moments.', datePublished: '2023-03-29' },
+            { '@type': 'Review', author: { '@type': 'Person', name: 'Dion Willis', jobTitle: 'Head of Operations' }, reviewBody: 'One of the most talented Software engineers I have ever met. He possesses an exceptional understanding of all aspects of software architecture. He consistently demonstrated excellence in his craft, providing well-thought-out solutions before they became problems.', datePublished: '2023-03-20' }
+          ];
+          person.identifier = { '@type': 'PropertyValue', propertyID: 'Wikidata', value: 'Q138846035', url: 'https://www.wikidata.org/wiki/Q138846035' };
+          person.award = 'Pass Talents Énergies 2024 — Laureate for clean energy innovation in Savoie';
+          person.address = { '@type': 'PostalAddress', addressLocality: 'Grenoble', addressRegion: 'Auvergne-Rhône-Alpes', addressCountry: 'FR' };
+        }
+        return person;
       });
       founderPersons.forEach(p => ldItems.push(p));
       ldItems.push({
@@ -349,11 +423,11 @@ function makeLandingBuilders(ctx) {
         alternateName: 'Lotusia Stewardship',
         url: SITE_URL,
         foundingDate: '2021',
-        description: 'Decentralized reputation protocol powered by burn-weighted sentiment on the Lotus blockchain',
+        description: 'Decentralized reputation protocol powered by burn-weighted sentiment and on-chain reputation scoring on the Lotus UTXO proof-of-work blockchain. Sybil-resistant identity layer using burn-to-vote mechanics, transparent content curation, and permissionless peer-to-peer ranking.',
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/logo.png` },
         image: `${SITE_URL}/assets/images/turtles_hero.jpeg`,
         founder: founderPersons.map(p => ({ '@type': 'Person', name: p.name, url: p.url, sameAs: p.sameAs })),
-        sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus']
+        sameAs: ['https://github.com/LotusiaStewardship', 'https://t.me/givelotus', 'https://www.wikidata.org/wiki/Q138846035']
       });
     }
 

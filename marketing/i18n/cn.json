@@ -343,7 +343,7 @@
       "sections": [
         {
           "title": "Alexandre Guillioud",
-          "headline": "Hash Turtle — 区块链架构师与联合创始人",
+          "headline": "Hash Turtle — 区块链架构师与创始人",
           "description": "拥有12年以上经验的软件架构师，涵盖嵌入式系统、分布式架构和太阳能领域。Alexandre 联合创立了 Lotusia，旨在构建投机性加密货币的道德替代品。他领导技术基础设施：核心区块链开发、自定义 WebGPU GPU 矿机、矿池和跨链桥接。此前曾担任 myNFT 高级软件架构师（3年，跨链 EVM 桥接、Solidity 智能合约、TheGraph 子图）、Veepee 首席开发者和 fulll 架构师。他还运营 Golden Solar（29个光伏装置，4 MWp），并从事认知安全领域的独立研究。",
           "features": [
             {

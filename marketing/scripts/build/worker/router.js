@@ -191,7 +191,9 @@ function versionedCacheUrl(url) {
 
 async function cachedMarketingAsset(request, env, ctx) {
   const method = String(request.method || 'GET').toUpperCase();
-  const upstream = await env.ASSETS.fetch(request);
+  const assetUrl = new URL(request.url);
+  assetUrl.search = '';
+  const upstream = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
   if (!upstream || upstream.status !== 200) {
     return method === 'HEAD' ? toHeadResponse(upstream) : upstream;
   }
@@ -349,18 +351,20 @@ export default {
         });
       }
     } catch (err) {
+      console.error('Worker error:', strippedPath, err);
       if (strippedPath.startsWith('/explorer/')) {
         return new Response(explorerErrorPage(path, err && err.message ? err.message : 'Unknown error'), {
-          status: 502,
+          status: 503,
           headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }
         });
       }
       if (strippedPath.startsWith('/social/')) {
         return new Response(errorPage(path, err && err.message ? err.message : 'Unknown error'), {
-          status: 502,
+          status: 503,
           headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }
         });
       }
+      throw err;
     }
 
     // App social routes render HTML that references root-level Nuxt assets.

@@ -206,7 +206,7 @@
       "sections": [
         {
           "title": "Alexandre Guillioud",
-          "headline": "Hash Turtle — Architecte blockchain & co-fondateur",
+          "headline": "Hash Turtle — Architecte blockchain & fondateur",
           "description": "Architecte logiciel avec plus de 12 ans d'expérience couvrant les systèmes embarqués, les architectures distribuées et l'énergie solaire. Alexandre a co-fondé Lotusia pour construire une alternative éthique aux cryptomonnaies spéculatives. Il dirige l'infrastructure technique : développement blockchain cœur, mineur GPU WebGPU sur mesure, pool de minage et bridging inter-chaînes. Précédemment architecte logiciel senior chez myNFT (3 ans, bridging EVM inter-chaînes, smart contracts Solidity, subgraphs TheGraph), Lead Developer chez Veepee et architecte chez fulll. Il dirige également Golden Solar (29 installations photovoltaïques, 4 MWc) et mène des recherches indépendantes en sécurité cognitive.",
           "features": [
             { "name": "Développement blockchain cœur", "description": "Maintient et fait évoluer le codebase de la blockchain Lotusia basé sur Bitcoin ABC" },

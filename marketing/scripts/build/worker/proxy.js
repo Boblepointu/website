@@ -99,9 +99,17 @@ async function fetchLegacyJson(pathname, query) {
   if (query) {
     for (const [k, v] of Object.entries(query)) u.searchParams.set(k, String(v));
   }
-  const res = await fetch(u.toString(), { redirect: 'manual' });
-  if (!res.ok) throw new Error('Legacy API ' + pathname + ' failed with ' + res.status);
-  return res.json();
+  try {
+    const res = await fetch(u.toString(), { 
+      redirect: 'manual',
+      signal: AbortSignal.timeout(10000)
+    });
+    if (!res.ok) throw new Error('Legacy API ' + pathname + ' failed with ' + res.status);
+    return res.json();
+  } catch (err) {
+    console.error('fetchLegacyJson error:', pathname, err.message);
+    throw new Error('Legacy API ' + pathname + ' unavailable: ' + (err.message || 'unknown error'));
+  }
 }
 
 function setSocialApiBase(urlLike) {
