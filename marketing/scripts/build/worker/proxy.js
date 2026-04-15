@@ -1,6 +1,6 @@
 'use strict';
 
-const DEFAULT_SOCIAL_API_BASE = 'https://legacy.lotusia.org';
+const DEFAULT_SOCIAL_API_BASE = 'https://explorer.burnlotus.fr';
 let ACTIVE_SOCIAL_API_BASE = DEFAULT_SOCIAL_API_BASE;
 const WORKER_LANGS = ['en', 'fr', 'es', 'it', 'de', 'ru', 'cn'];
 
@@ -90,8 +90,27 @@ function num(value) {
   return Number.isFinite(n) ? n : 0;
 }
 
+async function fetchNodeApi(path, query) {
+  const u = new URL('/api/v1/' + path.replace(/^\/+/, ''), ACTIVE_SOCIAL_API_BASE);
+  if (query) {
+    for (const [k, v] of Object.entries(query)) u.searchParams.set(k, String(v));
+  }
+  try {
+    const res = await fetch(u.toString(), {
+      redirect: 'manual',
+      signal: AbortSignal.timeout(10000)
+    });
+    if (!res.ok) throw new Error('Node API ' + path + ' failed with ' + res.status);
+    return res.json();
+  } catch (err) {
+    console.error('fetchNodeApi error:', path, err.message);
+    throw new Error('Node API ' + path + ' unavailable: ' + (err.message || 'unknown error'));
+  }
+}
+
 async function fetchSocialJson(pathname, query) {
-  return fetchLegacyJson(pathname, query);
+  const subpath = pathname.replace(/^\/api\/social\/?/, '');
+  return fetchNodeApi('social/' + subpath, query);
 }
 
 async function fetchLegacyJson(pathname, query) {

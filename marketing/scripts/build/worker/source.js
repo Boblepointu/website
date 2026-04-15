@@ -7,6 +7,7 @@ const SEGMENTS = [
   'proxy.js',
   'html.js',
   'helpers.js',
+  'api-adapter.js',
   'explorer-render.js',
   'social-render.js',
   'router.js'

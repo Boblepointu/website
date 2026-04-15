@@ -2,7 +2,7 @@ async function renderExplorerBlocksPage(url, lang) {
   const safeLang = WORKER_LANGS.includes(lang) ? lang : 'en';
   const localize = function(path) { return withWorkerLangPrefix(safeLang, path); };
   const params = parsePageAndSize(url);
-  const payload = await fetchLegacyJson('/api/explorer/blocks', { page: params.page, pageSize: params.pageSize });
+  const payload = await adaptBlocks(params.page, params.pageSize);
   const blocks = payload.blocks || [];
   const tipHeight = num(payload.tipHeight);
   const numPages = tipHeight > 0 ? Math.ceil(tipHeight / params.pageSize) : 1;
@@ -68,9 +68,9 @@ async function renderExplorerOverviewPage(lang) {
   const safeLang = WORKER_LANGS.includes(lang) ? lang : 'en';
   const localize = function(path) { return withWorkerLangPrefix(safeLang, path); };
   const [overview, chainInfo, mempool] = await Promise.all([
-    fetchLegacyJson('/api/explorer/overview'),
-    fetchLegacyJson('/api/explorer/chain-info').catch(() => ({})),
-    fetchLegacyJson('/api/explorer/mempool').catch(() => [])
+    adaptOverview(),
+    adaptChainInfo().catch(() => ({})),
+    adaptMempool().catch(() => [])
   ]);
   const mining = overview.mininginfo || {};
   const peers = overview.peerinfo || [];
@@ -156,7 +156,7 @@ async function renderExplorerBlockDetailPage(url, hashOrHeight, lang) {
     workerText(safeLang, 'burned', 'Burned')
   ].join(', '));
   const localize = function(path) { return withWorkerLangPrefix(safeLang, path); };
-  const payload = await fetchLegacyJson('/api/explorer/block/' + encodeURIComponent(hashOrHeight));
+  const payload = await adaptBlockDetail(hashOrHeight);
   const info = payload.blockInfo || {};
   const txs = payload.txs || [];
   const rows = txs.map(tx => {
@@ -227,7 +227,7 @@ async function renderExplorerTxDetailPage(url, txid, lang) {
     workerText(safeLang, 'confirmed', 'Confirmed')
   ].join(', '));
   const localize = function(path) { return withWorkerLangPrefix(safeLang, path); };
-  const payload = await fetchLegacyJson('/api/explorer/tx/' + encodeURIComponent(txid));
+  const payload = await adaptTxDetail(txid);
   const block = payload.block || {};
   const inputs = payload.inputs || [];
   const outputs = payload.outputs || [];
@@ -304,8 +304,8 @@ async function renderExplorerAddressDetailPage(url, address, lang) {
   const localize = function(path) { return withWorkerLangPrefix(safeLang, path); };
   const params = parsePageAndSize(url);
   const [details, balance] = await Promise.all([
-    fetchLegacyJson('/api/explorer/address/' + encodeURIComponent(address), { page: params.page, pageSize: params.pageSize }),
-    fetchLegacyJson('/api/explorer/address/' + encodeURIComponent(address) + '/balance')
+    adaptAddressDetail(address, params.page, params.pageSize),
+    adaptAddressBalance(address)
   ]);
   const txs = (details.history && details.history.txs) || [];
   const numPages = (details.history && details.history.numPages) || 1;

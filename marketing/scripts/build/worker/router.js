@@ -217,7 +217,7 @@ async function cachedMarketingAsset(request, env, ctx) {
 export default {
   async fetch(request, env, ctx) {
     const runtimeApiBase = setSocialApiBase(
-      (env && (env.SQLITE_EDGE_API_BASE || env.LEGACY_API_BASE)) || 'https://legacy.lotusia.org'
+      (env && (env.SQLITE_EDGE_API_BASE || env.LEGACY_API_BASE)) || 'https://explorer.burnlotus.fr'
     );
 
     const url = new URL(request.url);
@@ -380,7 +380,16 @@ export default {
     }
 
     if (path.startsWith('/api/')) {
-      return proxy(request, runtimeApiBase);
+      const apiPath = path.replace(/^\/api\//, '/api/v1/');
+      const apiUrl = new URL(apiPath + url.search, runtimeApiBase);
+      const apiReq = new Request(apiUrl.toString(), {
+        method: request.method,
+        headers: withForwardedHostHeaders(request.headers),
+        body: request.method === 'GET' || request.method === 'HEAD' ? undefined : request.body,
+        redirect: 'manual'
+      });
+      const apiRes = await fetch(apiReq);
+      return withCors(apiRes);
     }
 
     return cachedMarketingAsset(request, env, ctx);
